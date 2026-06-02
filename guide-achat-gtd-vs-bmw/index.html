@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide d'achat 2026 — Golf 7 GTD Ph.2 vs BMW F30/F36</title>
+<style>
+  :root{
+    --vw:#0a3d91;          /* bleu VW */
+    --vw-light:#1761d2;
+    --bmw:#1c69d4;         /* bleu BMW M */
+    --bmw-dark:#0b2a4a;
+    --ink:#15202b;
+    --muted:#5b6b7b;
+    --line:#e3e8ee;
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --gold:#c8a24a;
+    --green:#1e9e6a;
+    --red:#d8453b;
+    --amber:#e6a417;
+    --shadow:0 10px 30px rgba(15,32,55,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .deck{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+
+  /* ---------- SLIDE ---------- */
+  .slide{
+    background:var(--card); border-radius:18px; box-shadow:var(--shadow);
+    margin:0 0 34px; padding:46px 48px; position:relative; overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .slide::after{content:attr(data-n);position:absolute;right:22px;bottom:14px;
+    font-size:12px;color:#b6c0cc;font-weight:700;letter-spacing:1px}
+  .kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:2px;
+    text-transform:uppercase;color:var(--vw-light);margin-bottom:12px}
+  h1{font-size:42px;line-height:1.05;letter-spacing:-.5px;margin-bottom:14px}
+  h2{font-size:30px;letter-spacing:-.4px;margin-bottom:6px}
+  h3{font-size:19px;margin-bottom:8px}
+  p{color:var(--muted);font-size:15.5px}
+  .lead{font-size:18px;color:#3a4754;max-width:820px}
+
+  /* ---------- COVER ---------- */
+  .cover{
+    background:
+      radial-gradient(1200px 500px at 12% -10%, rgba(23,97,210,.30), transparent 60%),
+      radial-gradient(1000px 500px at 100% 120%, rgba(28,105,212,.28), transparent 55%),
+      linear-gradient(135deg,#0b2a4a 0%, #0a3d91 55%, #123a6b 100%);
+    color:#fff;border:none;
+  }
+  .cover .kicker{color:#9ec3ff}
+  .cover h1{font-size:52px;color:#fff;max-width:900px}
+  .cover p{color:#cdddf5;font-size:18px;max-width:760px;margin-top:8px}
+  .vs-badges{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .vs-badge{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);
+    border-radius:14px;padding:16px 20px;backdrop-filter:blur(4px);min-width:230px}
+  .vs-badge b{display:block;font-size:19px;margin-bottom:4px}
+  .vs-badge span{color:#bcd2f0;font-size:13.5px}
+  .vs-mid{display:flex;align-items:center;justify-content:center;
+    font-weight:900;font-size:26px;color:#9ec3ff}
+  .cover-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;
+    border-top:1px solid rgba(255,255,255,.18);padding-top:20px}
+  .cover-meta div span{display:block;font-size:12px;color:#9ec3ff;letter-spacing:1px;text-transform:uppercase}
+  .cover-meta div b{font-size:16px}
+
+  /* ---------- GRID / CARDS ---------- */
+  .grid{display:grid;gap:18px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:#fbfcfe;border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card.vw{border-top:4px solid var(--vw)}
+  .card.bmw{border-top:4px solid var(--bmw)}
+  .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;
+    padding:4px 9px;border-radius:999px;text-transform:uppercase}
+  .tag.vw{background:#e7efff;color:var(--vw)}
+  .tag.bmw{background:#e6f0ff;color:var(--bmw)}
+  .tag.win{background:#e3f6ee;color:var(--green)}
+  .tag.warn{background:#fdf1da;color:#9a6b00}
+
+  /* ---------- TABLE ---------- */
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:6px}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:800}
+  tbody tr:nth-child(odd){background:#fafbfd}
+  td.crit{font-weight:700;color:var(--ink);width:26%}
+  .col-vw{color:var(--vw);font-weight:700}
+  .col-bmw{color:var(--bmw);font-weight:700}
+  .best{position:relative}
+  .best::before{content:"★";color:var(--gold);margin-right:6px}
+
+  /* ---------- RATING BARS ---------- */
+  .rate{display:grid;grid-template-columns:170px 1fr 38px;gap:12px;align-items:center;margin:10px 0}
+  .rate small{font-size:13px;color:var(--muted)}
+  .bar{height:11px;border-radius:99px;background:#eaeef3;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:99px}
+  .bar.vw i{background:linear-gradient(90deg,var(--vw),var(--vw-light))}
+  .bar.bmw i{background:linear-gradient(90deg,var(--bmw-dark),var(--bmw))}
+  .score{font-weight:800;font-size:14px;text-align:right}
+
+  /* ---------- PROS / CONS ---------- */
+  ul.clean{list-style:none}
+  ul.clean li{padding:7px 0 7px 26px;position:relative;font-size:14.5px;color:#3a4754;border-bottom:1px dashed var(--line)}
+  ul.clean li:last-child{border-bottom:none}
+  li.pro::before{content:"✔";position:absolute;left:0;color:var(--green);font-weight:900}
+  li.con::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:900}
+  li.neu::before{content:"›";position:absolute;left:2px;color:var(--muted);font-weight:900}
+
+  .callout{border-left:4px solid var(--amber);background:#fffaf0;padding:14px 18px;border-radius:0 10px 10px 0;margin-top:16px}
+  .callout.blue{border-color:var(--bmw);background:#f2f7ff}
+  .callout.green{border-color:var(--green);background:#f1faf5}
+  .callout b{color:var(--ink)}
+  .callout p{font-size:14px;color:#46586a}
+
+  .pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .pill{background:#eef2f7;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:#33485c}
+
+  .big-num{font-size:34px;font-weight:900;letter-spacing:-1px}
+  .big-num.vw{color:var(--vw)}
+  .big-num.bmw{color:var(--bmw)}
+  .stat small{display:block;color:var(--muted);font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+
+  .verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .winner{border:2px solid var(--gold);background:linear-gradient(180deg,#fffdf6,#fff)}
+  .crown{position:absolute;top:-12px;left:20px;background:var(--gold);color:#fff;font-size:11px;font-weight:800;
+    padding:4px 12px;border-radius:999px;letter-spacing:1px;text-transform:uppercase}
+
+  .toc{columns:2;column-gap:40px}
+  .toc li{break-inside:avoid;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px;color:#3a4754;display:flex;gap:12px}
+  .toc li b{color:var(--vw-light);min-width:24px}
+
+  .foot-note{font-size:12px;color:#9aa7b4;margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
+
+  .scorecard{display:flex;align-items:center;justify-content:space-between;background:#fbfcfe;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-top:10px}
+  .scorecard .v{font-weight:900;font-size:22px}
+  .scorecard .v.vw{color:var(--vw)}
+  .scorecard .v.bmw{color:var(--bmw)}
+
+  @media print{
+    body{background:#fff}
+    .deck{max-width:none;padding:0}
+    .slide{box-shadow:none;border:none;border-radius:0;page-break-after:always;margin:0;padding:34px 40px;min-height:96vh}
+    .nav{display:none}
+  }
+  @media(max-width:760px){
+    .g2,.g3,.g4,.verdict-grid,.vs-badges{grid-template-columns:1fr;flex-direction:column}
+    .toc{columns:1}
+    h1{font-size:34px}.cover h1{font-size:38px}
+    .slide{padding:30px 22px}
+    .rate{grid-template-columns:120px 1fr 32px}
+  }
+
+  .nav{position:sticky;top:0;z-index:50;background:rgba(244,246,249,.86);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:18px}
+  .nav-in{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .nav b{font-size:13px;color:var(--vw);margin-right:6px}
+  .nav a{font-size:12.5px;color:#4a5b6c;text-decoration:none;padding:4px 9px;border-radius:7px;background:#fff;border:1px solid var(--line)}
+  .nav a:hover{background:var(--vw);color:#fff;border-color:var(--vw)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <b>GTD vs F30</b>
+    <a href="#s1">Sommaire</a>
+    <a href="#s2">Candidates</a>
+    <a href="#s3">Fiche technique</a>
+    <a href="#s4">Performances</a>
+    <a href="#s5">Conso & coûts</a>
+    <a href="#s6">Fiabilité</a>
+    <a href="#s7">Entretien</a>
+    <a href="#s8">Intérieur</a>
+    <a href="#s9">Praticité</a>
+    <a href="#s10">Conduite</a>
+    <a href="#s11">Budget/cote</a>
+    <a href="#s12">Notes</a>
+    <a href="#s13">Profils</a>
+    <a href="#s14">Verdict</a>
+    <a href="#s15">Checklist</a>
+  </div>
+</nav>
+
+<div class="deck">
+
+  <!-- ============ COVER ============ -->
+  <section class="slide cover" data-n="01">
+    <span class="kicker">Guide d'achat occasion · Édition 2026</span>
+    <h1>Golf 7 GTD Phase 2 &nbsp;vs&nbsp; BMW Série 3/4 (F30·F36)</h1>
+    <p>Le match du compromis intelligent : la GTI diesel survitaminée de Volkswagen face à la propulsion premium bavaroise, en versions essence (320i / 420i) et diesel (320d / 420d Gran Coupé). Millésimes 2015 → 2019.</p>
+
+    <div class="vs-badges">
+      <div class="vs-badge">
+        <b>VW Golf 7 GTD Phase 2</b>
+        <span>2.0 TDI · 184 ch · 380 Nm · Traction · 2017–2020</span>
+      </div>
+      <div class="vs-mid">VS</div>
+      <div class="vs-badge">
+        <b>BMW 320i / 420i · 320d / 420d</b>
+        <span>2.0 · 184–190 ch · Propulsion · F30 berline / F36 Gran Coupé</span>
+      </div>
+    </div>
+
+    <div class="cover-meta">
+      <div><span>Segment</span><b>Compacte GTI vs Premium</b></div>
+      <div><span>Budget cible</span><b>17 000 – 30 000 €</b></div>
+      <div><span>Carburants</span><b>Diesel & Essence</b></div>
+      <div><span>Objectif</span><b>Bien choisir, sans se tromper</b></div>
+    </div>
+  </section>
+
+  <!-- ============ SOMMAIRE ============ -->
+  <section class="slide" id="s1" data-n="02">
+    <span class="kicker">Ce que couvre ce guide</span>
+    <h2>Sommaire</h2>
+    <p class="lead">15 chapitres pour décider en connaissance de cause — du papier technique aux pannes connues, jusqu'au verdict par profil d'acheteur.</p>
+    <ul class="toc clean" style="margin-top:18px">
+      <li><b>01</b> Présentation des candidates &amp; périmètre</li>
+      <li><b>02</b> Fiches techniques comparées</li>
+      <li><b>03</b> Performances &amp; sensations</li>
+      <li><b>04</b> Consommation &amp; coût d'usage réel</li>
+      <li><b>05</b> Fiabilité &amp; pannes connues (le nerf de la guerre)</li>
+      <li><b>06</b> Entretien : tarifs &amp; périodicité</li>
+      <li><b>07</b> Intérieur, équipement &amp; techno</li>
+      <li><b>08</b> Praticité, habitabilité &amp; coffre</li>
+      <li><b>09</b> Comportement routier &amp; plaisir</li>
+      <li><b>10</b> Budget d'achat, cote &amp; décote</li>
+      <li><b>11</b> Fiscalité, assurance &amp; bonus/malus</li>
+      <li><b>12</b> Tableau de notes (radar)</li>
+      <li><b>13</b> Quel modèle pour quel profil ?</li>
+      <li><b>14</b> Verdict final</li>
+      <li><b>15</b> Checklist d'achat &amp; points à vérifier</li>
+    </ul>
+  </section>
+
+  <!-- ============ CANDIDATES ============ -->
+  <section class="slide" id="s2" data-n="03">
+    <span class="kicker">Les protagonistes</span>
+    <h2>Présentation des candidates</h2>
+    <p class="lead">Deux philosophies opposées pour un budget proche : l'efficacité polyvalente VW contre le statut et la dynamique BMW.</p>
+
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card vw">
+        <span class="tag vw">Volkswagen</span>
+        <h3 style="margin-top:10px">Golf 7 GTD — Phase 2 (facelift)</h3>
+        <p>La « GTI du diesel ». Restylage fin 2016/2017 : nouveaux boucliers, feux LED, cockpit numérique (Active Info Display) en option, infodivertissement tactile Discover Pro. Châssis sport (-15 mm), différentiel électronique XDS, freins rouges.</p>
+        <div class="pill-row">
+          <span class="pill">2.0 TDI EA288 · 184 ch</span>
+          <span class="pill">380 Nm</span>
+          <span class="pill">Traction avant</span>
+          <span class="pill">BVM6 ou DSG7 (DQ381)</span>
+          <span class="pill">~1 380 kg</span>
+          <span class="pill">5 portes / hayon</span>
+        </div>
+        <div class="callout green"><p><b>L'argument massue :</b> couple disponible bas, conso plancher, format compact et coffre exploitable. Le couteau suisse qui pousse fort.</p></div>
+      </div>
+
+      <div class="card bmw">
+        <span class="tag bmw">BMW</span>
+        <h3 style="margin-top:10px">Série 3 (F30) &amp; Série 4 Gran Coupé (F36)</h3>
+        <p>Phase 2 (LCI) à partir de 2015 : phares full-LED, nouveaux moteurs modulaires « B » (B48 essence, B47 diesel), BVA ZF 8 rapports d'anthologie. La <b>Gran Coupé</b> est la F36 : silhouette de coupé 4 portes avec hayon pratique.</p>
+        <div class="pill-row">
+          <span class="pill">320i/420i : 2.0 essence 184 ch · 270–300 Nm</span>
+          <span class="pill">320d/420d : 2.0 TDI 184–190 ch · 380–400 Nm</span>
+          <span class="pill">Propulsion (ou xDrive)</span>
+          <span class="pill">BVA8 ou BVM6</span>
+          <span class="pill">~1 470–1 560 kg</span>
+        </div>
+        <div class="callout blue"><p><b>L'argument massue :</b> châssis propulsion, finition premium, prestige du logo et boîte auto ZF8 référence du marché.</p></div>
+      </div>
+    </div>
+
+    <div class="callout"><b>Point de vocabulaire important.</b><p>« F30 » = la <b>berline</b> Série 3. La « <b>Gran Coupé</b> » que tu évoques est en réalité la <b>F36</b> (carrosserie Série 4, 5 portes à hayon). Mécaniquement, 320i=420i et 320d=420d : mêmes moteurs/boîtes, seules changent la carrosserie, la posture (Série 4 plus basse/large) et le prix. Ce guide les traite donc ensemble.</p></div>
+  </section>
+
+  <!-- ============ FICHE TECHNIQUE ============ -->
+  <section class="slide" id="s3" data-n="04">
+    <span class="kicker">Le papier</span>
+    <h2>Fiches techniques comparées</h2>
+    <p>Valeurs constructeur indicatives pour les millésimes 2015–2019. ★ = avantage sur le critère.</p>
+    <table>
+      <thead>
+        <tr><th>Critère</th><th>Golf 7 GTD Ph.2</th><th>BMW 320i / 420i</th><th>BMW 320d / 420d</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="crit">Moteur</td><td class="col-vw">2.0 TDI EA288 (diesel)</td><td class="col-bmw">2.0 essence turbo (N20/B48)</td><td class="col-bmw">2.0 TDI (N47→B47)</td></tr>
+        <tr><td class="crit">Puissance</td><td class="col-vw">184 ch</td><td class="col-bmw">184 ch</td><td class="col-bmw best">184–190 ch</td></tr>
+        <tr><td class="crit">Couple</td><td class="col-vw">380 Nm</td><td class="col-bmw">270–300 Nm</td><td class="col-bmw best">380–400 Nm</td></tr>
+        <tr><td class="crit">Transmission</td><td class="col-vw">Traction (AV)</td><td class="col-bmw best">Propulsion (AR)</td><td class="col-bmw best">Propulsion (AR)</td></tr>
+        <tr><td class="crit">Boîte</td><td class="col-vw">BVM6 / DSG7</td><td class="col-bmw best">BVM6 / ZF8 auto</td><td class="col-bmw best">BVM6 / ZF8 auto</td></tr>
+        <tr><td class="crit">0–100 km/h</td><td class="col-vw best">~7,4 s</td><td class="col-bmw">~7,1–7,3 s (BVA)</td><td class="col-bmw best">~7,1–7,3 s</td></tr>
+        <tr><td class="crit">V. max</td><td class="col-vw">~230 km/h</td><td class="col-bmw">~235 km/h</td><td class="col-bmw best">~235–240 km/h</td></tr>
+        <tr><td class="crit">Poids à vide</td><td class="col-vw best">~1 380 kg</td><td class="col-bmw">~1 470 kg</td><td class="col-bmw">~1 490–1 560 kg</td></tr>
+        <tr><td class="crit">Conso mixte réelle</td><td class="col-vw best">4,8–5,8 L</td><td class="col-bmw">7,0–9,0 L</td><td class="col-bmw">5,0–6,2 L</td></tr>
+        <tr><td class="crit">Coffre</td><td class="col-vw">380 L (1 270 L)</td><td class="col-bmw best">480 L (berline F30)</td><td class="col-bmw best">445–480 L</td></tr>
+        <tr><td class="crit">Carrosserie</td><td class="col-vw">Compacte 5p hayon</td><td class="col-bmw">Berline 4p / GC 5p hayon</td><td class="col-bmw">Berline 4p / GC 5p hayon</td></tr>
+        <tr><td class="crit">Places</td><td class="col-vw">5</td><td class="col-bmw">5</td><td class="col-bmw">5</td></tr>
+      </tbody>
+    </table>
+    <p class="foot-note">Chiffres arrondis, à titre indicatif (varient selon option, boîte, jantes, état). Le 320d après 2015 reçoit le bloc B47 (190 ch) ; les premières années peuvent encore avoir le N47.</p>
+  </section>
+
+  <!-- ============ PERFORMANCES ============ -->
+  <section class="slide" id="s4" data-n="05">
+    <span class="kicker">Sur la route</span>
+    <h2>Performances &amp; sensations de conduite</h2>
+    <div class="grid g3" style="margin-top:8px">
+      <div class="card vw"><div class="stat"><div class="big-num vw">7,4 s</div><small>GTD · 0–100 km/h</small></div><p style="margin-top:8px">Poussée franche dès 1 750 tr/min, châssis vif et compact. Très efficace sur petites routes, traction qui mord. DSG7 ultra-rapide.</p></div>
+      <div class="card bmw"><div class="stat"><div class="big-num bmw">7,2 s</div><small>320d/420d · 0–100 km/h</small></div><p style="margin-top:8px">Même registre de perf, mais avec l'agrément propulsion : équilibre, direction, ZF8 onctueuse. Plus « grand routier » que joueur.</p></div>
+      <div class="card bmw"><div class="stat"><div class="big-num bmw">300 Nm</div><small>320i/420i · couple essence</small></div><p style="margin-top:8px">Moins de couple que les diesels, mais moteur plus rond/silencieux et qui aime grimper dans les tours. Idéal petits rouleurs.</p></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card">
+        <h3>Là où la GTD gagne</h3>
+        <ul class="clean">
+          <li class="pro">Plus légère de ~100 kg → agilité et reprises franches</li>
+          <li class="pro">Traction + diff XDS = motricité rassurante sous la pluie</li>
+          <li class="pro">DSG7 fulgurante, sonorité travaillée (soundaktor)</li>
+          <li class="pro">Compacité = redoutable sur route sinueuse</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Là où la BMW gagne</h3>
+        <ul class="clean">
+          <li class="pro">Propulsion + répartition 50/50 = équilibre châssis</li>
+          <li class="pro">ZF8 : la meilleure boîte auto de la catégorie</li>
+          <li class="pro">Tenue de cap et confort haute vitesse supérieurs</li>
+          <li class="pro">6 cylindres en ligne possible (335d/440i) si budget</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><b>En résumé :</b><p>La GTD est plus <b>ludique et incisive</b> ; la BMW plus <b>équilibrée et grand-routière</b>. À performance brute quasi égale, le plaisir dépend de ton style : guidon vif (VW) ou châssis propulsion (BMW).</p></div>
+  </section>
+
+  <!-- ============ CONSO ============ -->
+  <section class="slide" id="s5" data-n="06">
+    <span class="kicker">Le portefeuille au quotidien</span>
+    <h2>Consommation &amp; coût d'usage réel</h2>
+    <div class="grid g4" style="margin-top:6px">
+      <div class="card vw stat"><div class="big-num vw">5,2 L</div><small>GTD diesel · mixte réel</small></div>
+      <div class="card bmw stat"><div class="big-num bmw">5,6 L</div><small>320d/420d · mixte réel</small></div>
+      <div class="card bmw stat"><div class="big-num bmw">7,8 L</div><small>320i/420i · mixte réel</small></div>
+      <div class="card stat"><div class="big-num" style="color:var(--ink)">15 000</div><small>km/an de référence</small></div>
+    </div>
+
+    <table style="margin-top:18px">
+      <thead><tr><th>Poste (15 000 km/an)</th><th>Golf GTD</th><th>320d / 420d</th><th>320i / 420i</th></tr></thead>
+      <tbody>
+        <tr><td class="crit">Carburant estimé*</td><td class="col-vw best">~1 250 €</td><td class="col-bmw">~1 350 €</td><td class="col-bmw">~2 050 €</td></tr>
+        <tr><td class="crit">Type carburant</td><td>Gazole</td><td>Gazole</td><td>SP95/98</td></tr>
+        <tr><td class="crit">AdBlue</td><td class="col-vw">Selon millésime (fin de prod.)</td><td class="col-bmw">Oui (post-2018)</td><td>Non</td></tr>
+        <tr><td class="crit">Sensibilité petits trajets</td><td class="warn">FAP à régénérer</td><td class="warn">FAP à régénérer</td><td class="best">Aucune (essence)</td></tr>
+        <tr><td class="crit">Idéal si…</td><td>&gt; 15 000 km/an</td><td>&gt; 20 000 km/an</td><td>&lt; 12 000 km/an</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout"><b>La règle d'or diesel vs essence.</b><p>Sous ~12 000–15 000 km/an et avec beaucoup de ville, un diesel à FAP s'encrasse (régénérations incomplètes, vanne EGR, AdBlue) → privilégie alors la <b>320i/420i essence</b>. Au-delà, et surtout sur autoroute, la <b>GTD</b> ou la <b>320d/420d</b> deviennent imbattables au budget carburant.</p></div>
+    <p class="foot-note">*Estimation sur base ~1,75 €/L gazole et ~1,85 €/L SP95 (2026, France) — à ajuster selon ta région et ton usage. La GTD garde l'avantage grâce à son poids plume.</p>
+  </section>
+
+  <!-- ============ FIABILITE ============ -->
+  <section class="slide" id="s6" data-n="07">
+    <span class="kicker">Le critère qui fait la différence</span>
+    <h2>Fiabilité &amp; pannes connues</h2>
+    <p class="lead">C'est ICI que se joue le vrai coût de possession. Voici les points de vigilance documentés par motorisation.</p>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card vw">
+        <span class="tag vw">Golf GTD 2.0 TDI EA288</span>
+        <h3 style="margin-top:10px">Globalement solide — mais…</h3>
+        <ul class="clean">
+          <li class="pro">Bloc EA288 réputé fiable (évolution corrigée de l'EA189)</li>
+          <li class="pro">Mécanique bien connue, pièces accessibles, réseau dense</li>
+          <li class="con">Boîte <b>DSG (DQ381/DQ250)</b> : mécatronique &amp; embrayages → vidange impérative tous les 60 000 km</li>
+          <li class="con">Vanne EGR / FAP : encrassement si usage urbain</li>
+          <li class="con">Distribution par <b>courroie</b> (pas chaîne) → remplacement ~120–180 000 km</li>
+          <li class="neu">Volant moteur bimasse &amp; injecteurs à surveiller à fort kilométrage</li>
+        </ul>
+      </div>
+
+      <div class="card bmw">
+        <span class="tag bmw">BMW — par moteur</span>
+        <h3 style="margin-top:10px">Excellente… si bon bloc</h3>
+        <ul class="clean">
+          <li class="con"><b>320i/420i N20</b> (≈2012–2015) : tendeur &amp; chaîne de distribution fragiles, conso d'huile → préférer le <b>B48</b> (post-2015)</li>
+          <li class="pro"><b>B48 essence</b> (post-2015) : bien plus sain, chaîne renforcée</li>
+          <li class="con"><b>320d/420d N47</b> : chaîne de distribution <b>côté volant moteur</b> (très chère à remplacer)</li>
+          <li class="pro"><b>320d/420d B47</b> (post-2015) : problème de chaîne réglé, bloc robuste</li>
+          <li class="con">Diesel : refroidisseur EGR (rappel risque incendie), volet d'admission, FAP</li>
+          <li class="pro">Boîte <b>ZF8</b> très fiable (vidange ~80–100 000 km conseillée malgré « à vie »)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout"><b>Le réflexe d'achat n°1 :</b><p>Sur la BMW, <u>vérifie le code moteur</u>. Vise impérativement les blocs <b>B48 (essence)</b> et <b>B47 (diesel)</b>, généralisés sur les millésimes 2015–2016+. Fuis les N20/N47 à fort kilométrage sans historique de chaîne. Sur la VW, exige les <b>factures de vidange DSG</b> et de courroie.</p></div>
+  </section>
+
+  <!-- ============ ENTRETIEN ============ -->
+  <section class="slide" id="s7" data-n="08">
+    <span class="kicker">Coûts récurrents</span>
+    <h2>Entretien : tarifs &amp; périodicité</h2>
+    <table>
+      <thead><tr><th>Poste</th><th>Golf 7 GTD</th><th>BMW F30/F36</th></tr></thead>
+      <tbody>
+        <tr><td class="crit">Révision annuelle (indépendant)</td><td class="col-vw best">~200–350 €</td><td class="col-bmw">~300–500 €</td></tr>
+        <tr><td class="crit">Révision réseau officiel</td><td class="col-vw best">~350–500 €</td><td class="col-bmw">~450–700 €</td></tr>
+        <tr><td class="crit">Jeu de plaquettes AV</td><td class="col-vw best">~150–250 €</td><td class="col-bmw">~250–400 €</td></tr>
+        <tr><td class="crit">Vidange boîte auto</td><td class="col-vw">DSG ~300–450 € /60 000 km</td><td class="col-bmw">ZF8 ~350–550 € /~80–100 000 km</td></tr>
+        <tr><td class="crit">Distribution</td><td class="col-vw">Courroie ~600–900 €</td><td class="col-bmw best">Chaîne (longue durée*)</td></tr>
+        <tr><td class="crit">Pneus (dimension type)</td><td class="col-vw best">225/40 R18 — courant</td><td class="col-bmw">225-255/40 R18-19 (runflat $$)</td></tr>
+        <tr><td class="crit">Disponibilité pièces</td><td class="col-vw best">Très large, économique</td><td class="col-bmw">Large mais plus chère</td></tr>
+        <tr><td class="crit">Budget entretien global</td><td class="col-vw best">€€ Maîtrisé</td><td class="col-bmw">€€€ Plus élevé</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><b>À retenir :</b><p>La Golf est <b>sensiblement moins chère à entretenir</b> (pièces, main-d'œuvre, pneus non runflat). La BMW reste raisonnable pour une premium <u>tant que le bloc est sain</u> ; le danger, c'est la grosse facture ponctuelle (chaîne N47, EGR, embrayage…). *La chaîne BMW est « longue durée » mais pas éternelle : un remplacement préventif coûte cher.</p></div>
+  </section>
+
+  <!-- ============ INTERIEUR ============ -->
+  <section class="slide" id="s8" data-n="09">
+    <span class="kicker">À bord</span>
+    <h2>Intérieur, équipement &amp; technologie</h2>
+    <div class="grid g2" style="margin-top:8px">
+      <div class="card vw">
+        <span class="tag vw">Golf GTD Phase 2</span>
+        <ul class="clean" style="margin-top:8px">
+          <li class="pro">Qualité perçue de référence dans la compacte (assemblage VW)</li>
+          <li class="pro">Active Info Display (cockpit 100% numérique) en option</li>
+          <li class="pro">Discover Pro tactile, App-Connect (CarPlay/Android Auto)</li>
+          <li class="pro">Ergonomie limpide, position de conduite impeccable</li>
+          <li class="pro">Sièges sport GTD tissu écossais « clark » iconiques</li>
+          <li class="con">Ambiance un peu sobre/sérieuse, moins « statutaire »</li>
+        </ul>
+      </div>
+      <div class="card bmw">
+        <span class="tag bmw">BMW F30 / F36</span>
+        <ul class="clean" style="margin-top:8px">
+          <li class="pro">iDrive : la meilleure interface de l'époque (molette + écran)</li>
+          <li class="pro">Sensation premium, matériaux nobles, finition Sport/Luxury/M Sport</li>
+          <li class="pro">Position de conduite basse, volant parfait, sièges enveloppants</li>
+          <li class="pro">Prestige de la marque &amp; valeur de revente du badge</li>
+          <li class="con">CarPlay souvent absent/à activer (selon millésime &amp; option)</li>
+          <li class="con">Plastiques bas de planche &amp; arrière plus quelconques qu'attendu</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout blue"><b>Équipements à chasser à l'achat :</b><p>BMW → <b>Pack M Sport</b>, phares full-LED, navigation Professional, sièges sport, CarPlay. VW → <b>Active Info Display</b>, Discover Pro, ACC (régulateur adaptatif), toit ouvrant, DCC (amortissement piloté). Ces options font grimper la valeur… et l'agrément.</p></div>
+  </section>
+
+  <!-- ============ PRATICITE ============ -->
+  <section class="slide" id="s9" data-n="10">
+    <span class="kicker">Au quotidien</span>
+    <h2>Praticité, habitabilité &amp; coffre</h2>
+    <div class="grid g3" style="margin-top:6px">
+      <div class="card vw stat"><div class="big-num vw">380 L</div><small>Coffre GTD (1 270 L sièges rabattus)</small><p style="margin-top:8px">Hayon pratique, seuil bas, compacité parfaite en ville &amp; stationnement.</p></div>
+      <div class="card bmw stat"><div class="big-num bmw">480 L</div><small>Coffre berline F30</small><p style="margin-top:8px">Volume supérieur mais malle classique (ouverture moins pratique).</p></div>
+      <div class="card bmw stat"><div class="big-num bmw">445 L</div><small>Coffre Gran Coupé F36 (hayon)</small><p style="margin-top:8px">Le compromis malin BMW : hayon + grand volume, mais accès AR bas.</p></div>
+    </div>
+
+    <table style="margin-top:16px">
+      <thead><tr><th>Usage</th><th>Golf GTD</th><th>BMW F30/F36</th></tr></thead>
+      <tbody>
+        <tr><td class="crit">Ville / stationnement</td><td class="col-vw best">★ Compacte, maniable</td><td class="col-bmw">Plus longue, gabarit berline</td></tr>
+        <tr><td class="crit">Place aux jambes AR</td><td class="col-vw">Correcte</td><td class="col-bmw best">Meilleure (empattement long)</td></tr>
+        <tr><td class="crit">Garde au toit AR</td><td class="col-vw best">Bonne (hayon haut)</td><td class="col-bmw">Limitée sur Gran Coupé (ligne basse)</td></tr>
+        <tr><td class="crit">Modularité / chargement</td><td class="col-vw best">★ Hayon + seuil bas</td><td class="col-bmw">Berline = malle ; GC = hayon</td></tr>
+        <tr><td class="crit">Famille / 3 sièges enfants</td><td class="col-vw best">Plus facile (accès vertical)</td><td class="col-bmw">Accès plus bas, portes coupé (GC)</td></tr>
+      </tbody>
+    </table>
+    <div class="callout green"><p><b>Verdict praticité :</b> la <b>Golf</b> est plus polyvalente et urbaine pour une famille ; la <b>Gran Coupé</b> offre le meilleur compromis style + volume côté BMW si tu veux du hayon.</p></div>
+  </section>
+
+  <!-- ============ CONDUITE ============ -->
+  <section class="slide" id="s10" data-n="11">
+    <span class="kicker">Le plaisir</span>
+    <h2>Comportement routier &amp; agrément</h2>
+    <div class="rate"><small>Agilité / vivacité</small><div class="bar vw"><i style="width:90%"></i></div><span class="score">VW 9</span></div>
+    <div class="rate"><small>Agilité / vivacité</small><div class="bar bmw"><i style="width:80%"></i></div><span class="score">BMW 8</span></div>
+    <div class="rate"><small>Équilibre châssis</small><div class="bar vw"><i style="width:78%"></i></div><span class="score">VW 8</span></div>
+    <div class="rate"><small>Équilibre châssis</small><div class="bar bmw"><i style="width:95%"></i></div><span class="score">BMW 9.5</span></div>
+    <div class="rate"><small>Confort grand routier</small><div class="bar vw"><i style="width:80%"></i></div><span class="score">VW 8</span></div>
+    <div class="rate"><small>Confort grand routier</small><div class="bar bmw"><i style="width:90%"></i></div><span class="score">BMW 9</span></div>
+    <div class="rate"><small>Boîte automatique</small><div class="bar vw"><i style="width:88%"></i></div><span class="score">DSG 8.8</span></div>
+    <div class="rate"><small>Boîte automatique</small><div class="bar bmw"><i style="width:96%"></i></div><span class="score">ZF8 9.6</span></div>
+    <div class="rate"><small>Motricité sous la pluie</small><div class="bar vw"><i style="width:90%"></i></div><span class="score">VW 9</span></div>
+    <div class="rate"><small>Motricité sous la pluie</small><div class="bar bmw"><i style="width:72%"></i></div><span class="score">BMW 7*</span></div>
+
+    <div class="callout"><p>*La <b>propulsion</b> BMW est joueuse et gratifiante, mais demande plus de vigilance sur sol glissant (sauf <b>xDrive</b>). La <b>traction</b> GTD est plus rassurante et facile à exploiter au quotidien. Pour le « fun pur » sur route sèche, la BMW marque des points ; pour l'efficacité tous temps, la VW.</p></div>
+  </section>
+
+  <!-- ============ BUDGET ============ -->
+  <section class="slide" id="s11" data-n="12">
+    <span class="kicker">Le prix</span>
+    <h2>Budget d'achat, cote &amp; décote</h2>
+    <table>
+      <thead><tr><th>Millésime / état</th><th>Golf 7 GTD Ph.2</th><th>320d/420d</th><th>320i/420i</th></tr></thead>
+      <tbody>
+        <tr><td class="crit">2015–2016 (100–150 000 km)</td><td class="col-vw">~17–21 000 €</td><td class="col-bmw">~16–21 000 €</td><td class="col-bmw best">~15–19 000 €</td></tr>
+        <tr><td class="crit">2017–2018 (60–110 000 km)</td><td class="col-vw">~21–26 000 €</td><td class="col-bmw">~20–26 000 €</td><td class="col-bmw">~19–24 000 €</td></tr>
+        <tr><td class="crit">2019 (faible km, full options)</td><td class="col-vw">~25–30 000 €</td><td class="col-bmw">~25–31 000 €</td><td class="col-bmw">~23–29 000 €</td></tr>
+        <tr><td class="crit">Tenue de cote</td><td class="col-vw best">Excellente (GTD recherchée)</td><td class="col-bmw">Bonne (badge)</td><td class="col-bmw">Bonne</td></tr>
+        <tr><td class="crit">Liquidité revente</td><td class="col-vw best">Très demandée</td><td class="col-bmw best">Très demandée</td><td class="col-bmw">Demandée</td></tr>
+      </tbody>
+    </table>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="callout green"><p><b>Bon plan VW :</b> la GTI/GTD jouit d'une décote très douce. Une GTD bien entretenue se revend vite et bien — c'est un quasi « placement ».</p></div>
+      <div class="callout blue"><p><b>Bon plan BMW :</b> à budget égal tu accèdes à une premium au badge prestigieux ; la 420i Gran Coupé full M Sport conserve un fort pouvoir de séduction à la revente.</p></div>
+    </div>
+    <p class="foot-note">Fourchettes indicatives marché français 2026, hors versions exceptionnelles. Le prix réel dépend surtout de l'historique d'entretien, du kilométrage et des options (pack M Sport / Active Info Display font +1 000 à +3 000 €).</p>
+  </section>
+
+  <!-- ============ FISCALITE ============ -->
+  <section class="slide" id="s12" data-n="13">
+    <span class="kicker">Coûts annexes</span>
+    <h2>Fiscalité, assurance &amp; bonus/malus</h2>
+    <div class="grid g3">
+      <div class="card">
+        <h3>Carte grise</h3>
+        <ul class="clean">
+          <li class="neu">GTD : ~9 CV fiscaux</li>
+          <li class="neu">320i/420i : ~9–11 CV</li>
+          <li class="neu">320d/420d : ~9–11 CV</li>
+          <li class="con">Malus écologique annuel possible (CO₂) sur achat d'occasion : généralement <b>non</b> re-déclenché entre particuliers, mais vérifier la 1ʳᵉ immatriculation.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Assurance</h3>
+        <ul class="clean">
+          <li class="pro">GTD : groupe « GTI » → prime modérée pour un sportif</li>
+          <li class="con">BMW : badge premium + propulsion → prime souvent plus élevée</li>
+          <li class="neu">Jeune conducteur : les deux peuvent piquer, demande des devis</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>ZFE / restrictions</h3>
+        <ul class="clean">
+          <li class="warn">Diesel 2015–2019 = <b>Crit'Air 2</b></li>
+          <li class="pro">Essence 320i/420i 2015+ = <b>Crit'Air 1</b></li>
+          <li class="con">Anticipe les ZFE : l'essence Crit'Air 1 est plus pérenne en grande ville</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><b>Le point ZFE, crucial en 2026 :</b><p>Si tu roules dans/autour d'une grande métropole avec ZFE durcie, la <b>320i/420i essence (Crit'Air 1)</b> est l'option la plus sûre à long terme. Les diesels (GTD, 320d/420d) restent Crit'Air 2 — encore largement tolérés, mais surveille le calendrier local.</p></div>
+  </section>
+
+  <!-- ============ RADAR / NOTES ============ -->
+  <section class="slide" id="s13" data-n="14">
+    <span class="kicker">Synthèse chiffrée</span>
+    <h2>Tableau de notes /10</h2>
+    <table>
+      <thead><tr><th>Critère (pondération)</th><th>Golf GTD</th><th>320d/420d</th><th>320i/420i</th></tr></thead>
+      <tbody>
+        <tr><td class="crit">Performance</td><td class="col-vw">8,5</td><td class="col-bmw best">8,7</td><td class="col-bmw">8,0</td></tr>
+        <tr><td class="crit">Plaisir de conduite</td><td class="col-vw">8,5</td><td class="col-bmw best">9,0</td><td class="col-bmw">8,5</td></tr>
+        <tr><td class="crit">Conso / coût d'usage</td><td class="col-vw best">9,0</td><td class="col-bmw">8,3</td><td class="col-bmw">6,8</td></tr>
+        <tr><td class="crit">Fiabilité (bon bloc)</td><td class="col-vw best">8,2</td><td class="col-bmw">7,8</td><td class="col-bmw">7,9</td></tr>
+        <tr><td class="crit">Coût d'entretien</td><td class="col-vw best">8,8</td><td class="col-bmw">7,0</td><td class="col-bmw">7,2</td></tr>
+        <tr><td class="crit">Praticité / coffre</td><td class="col-vw best">8,5</td><td class="col-bmw">8,0</td><td class="col-bmw">8,0</td></tr>
+        <tr><td class="crit">Intérieur / techno</td><td class="col-vw">8,3</td><td class="col-bmw best">8,6</td><td class="col-bmw">8,6</td></tr>
+        <tr><td class="crit">Prestige / revente</td><td class="col-vw">8,2</td><td class="col-bmw best">8,8</td><td class="col-bmw">8,5</td></tr>
+        <tr><td class="crit">Pérennité ZFE</td><td class="col-vw">7,0</td><td class="col-bmw">7,0</td><td class="col-bmw best">8,8</td></tr>
+        <tr style="background:#fff7e6"><td class="crit">MOYENNE PONDÉRÉE</td><td class="col-vw best" style="font-size:17px">8,4</td><td class="col-bmw" style="font-size:17px">8,1</td><td class="col-bmw" style="font-size:17px">8,0</td></tr>
+      </tbody>
+    </table>
+    <div class="callout green"><p>La <b>Golf GTD</b> l'emporte d'une courte tête sur la <b>rationalité globale</b> (usage + entretien + polyvalence). La <b>BMW</b> reprend l'avantage sur le <b>plaisir, le prestige et la techno</b>. L'écart est faible : le bon choix dépend de TON usage (chapitre suivant).</p></div>
+  </section>
+
+  <!-- ============ PROFILS ============ -->
+  <section class="slide" id="s14" data-n="15">
+    <span class="kicker">Choisir selon SON profil</span>
+    <h2>Quel modèle pour quel acheteur ?</h2>
+    <div class="grid g2">
+      <div class="card vw">
+        <span class="tag vw">Choisis la Golf GTD si…</span>
+        <ul class="clean" style="margin-top:8px">
+          <li class="pro">Tu fais beaucoup de kilomètres (&gt; 15 000 km/an, autoroute)</li>
+          <li class="pro">Tu veux le <b>coût d'usage le plus bas</b> &amp; un entretien maîtrisé</li>
+          <li class="pro">Tu cherches une auto <b>polyvalente</b> (ville + famille + plaisir)</li>
+          <li class="pro">Tu privilégies fiabilité, traction tous temps &amp; revente facile</li>
+          <li class="pro">Tu veux du « sleeper » efficace plutôt que du statut</li>
+        </ul>
+      </div>
+      <div class="card bmw">
+        <span class="tag bmw">Choisis la BMW si…</span>
+        <ul class="clean" style="margin-top:8px">
+          <li class="pro"><b>320d/420d :</b> gros rouleur qui veut prestige + agrément propulsion</li>
+          <li class="pro"><b>320i/420i :</b> petit rouleur urbain, anti-soucis diesel, ZFE-proof (Crit'Air 1)</li>
+          <li class="pro">Tu veux le <b>plaisir châssis</b>, la ZF8 et le badge</li>
+          <li class="pro">Tu privilégies l'image, le confort grand-routier &amp; l'intérieur premium</li>
+          <li class="pro"><b>Gran Coupé :</b> tu veux le style coupé 4 portes + hayon pratique</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:16px">
+      <div class="scorecard"><span><b>Budget serré + km élevés</b></span><span class="v vw">Golf GTD</span></div>
+      <div class="scorecard"><span><b>Prestige + grand routier</b></span><span class="v bmw">320d/420d</span></div>
+      <div class="scorecard"><span><b>Ville + ZFE + anti-soucis</b></span><span class="v bmw">320i/420i</span></div>
+    </div>
+  </section>
+
+  <!-- ============ VERDICT ============ -->
+  <section class="slide" id="s15" data-n="16">
+    <span class="kicker">La conclusion</span>
+    <h2>Verdict final</h2>
+    <div class="verdict-grid" style="margin-top:10px">
+      <div class="card vw winner" style="position:relative">
+        <span class="crown">Choix « tête » — rationnel</span>
+        <h3 style="margin-top:6px">VW Golf 7 GTD Phase 2</h3>
+        <p>Le meilleur <b>rapport plaisir / coût / polyvalence</b>. Plus économique à l'usage et à l'entretien, plus facile à vivre, fiable avec un bon suivi, et toujours aussi désirable à la revente. Le choix de la raison qui ne sacrifie pas le fun.</p>
+        <div class="pill-row">
+          <span class="pill">Coût d'usage 👑</span>
+          <span class="pill">Polyvalence 👑</span>
+          <span class="pill">Entretien maîtrisé</span>
+        </div>
+      </div>
+      <div class="card bmw" style="position:relative">
+        <span class="crown" style="background:var(--bmw)">Choix « cœur » — plaisir &amp; statut</span>
+        <h3 style="margin-top:6px">BMW 320d/420d &amp; 320i/420i</h3>
+        <p>Le choix du <b>plaisir châssis, du prestige et de la techno</b>. La 320d/420d pour le gros rouleur qui veut tout ; la 320i/420i pour l'urbain anti-diesel et ZFE-proof. À condition d'acheter un <b>bloc B47/B48</b> avec historique béton.</p>
+        <div class="pill-row">
+          <span class="pill">Plaisir 👑</span>
+          <span class="pill">Prestige 👑</span>
+          <span class="pill">Propulsion + ZF8</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout green" style="margin-top:18px"><b>Recommandation finale :</b>
+      <p>• <b>Pour la majorité des acheteurs</b> (usage mixte, budget maîtrisé, gros km) → <b>Golf 7 GTD Phase 2</b>.<br>
+      • <b>Pour le plaisir &amp; le statut</b>, gros rouleur autoroute → <b>BMW 320d/420d Gran Coupé (bloc B47)</b>.<br>
+      • <b>Pour la ville &amp; la pérennité ZFE</b>, petit rouleur → <b>BMW 320i/420i essence (bloc B48, Crit'Air 1)</b>.<br>
+      Dans tous les cas : <u>l'historique d'entretien prime sur le millésime et le kilométrage</u>.</p>
+    </div>
+  </section>
+
+  <!-- ============ CHECKLIST ============ -->
+  <section class="slide" id="s16" data-n="17">
+    <span class="kicker">Avant de signer</span>
+    <h2>Checklist d'achat &amp; points à vérifier</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Commun aux deux</h3>
+        <ul class="clean">
+          <li class="neu">Carnet d'entretien complet &amp; factures (révisions à l'heure)</li>
+          <li class="neu">Historique kilométrique cohérent (Histovec, contrôles techniques)</li>
+          <li class="neu">État FAP / régénérations, fumée à froid, témoins moteur</li>
+          <li class="neu">Essai à froid : démarrage, bruits de distribution, à-coups boîte</li>
+          <li class="neu">Pneus (marque, usure homogène, date), disques/plaquettes</li>
+          <li class="neu">Pas d'accident structurel : jeux de carrosserie, peinture</li>
+          <li class="neu">Diagnostic OBD / passage chez un spécialiste avant achat</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Spécifique modèle</h3>
+        <ul class="clean">
+          <li class="con"><b>VW :</b> factures vidange <b>DSG</b> (/60 000 km) &amp; courroie de distribution</li>
+          <li class="con"><b>VW :</b> à-coups DSG, mécatronique, embrayages (essai bouchons)</li>
+          <li class="con"><b>BMW essence :</b> exiger bloc <b>B48</b> (fuir N20 sans historique chaîne)</li>
+          <li class="con"><b>BMW diesel :</b> exiger bloc <b>B47</b> (N47 = risque chaîne côté volant)</li>
+          <li class="con"><b>BMW :</b> rappel refroidisseur EGR effectué ? volet d'admission ?</li>
+          <li class="con"><b>BMW :</b> vidange <b>ZF8</b> faite ? pneus runflat (coût) ?</li>
+          <li class="pro">Privilégier <b>millésimes 2016+</b> pour les bons blocs des deux côtés</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><b>Le conseil qui sauve :</b><p>Quel que soit le modèle, un véhicule un peu plus cher mais avec <b>historique d'entretien complet et bon code moteur</b> coûtera bien moins cher qu'une « bonne affaire » sans factures. Budgète aussi une <b>réserve de ~1 500 €</b> pour la première grosse révision/usure.</p></div>
+    <p class="foot-note">Guide d'achat indicatif — Édition 2026. Données techniques et tarifs donnés à titre informatif (France), susceptibles de varier selon véhicule, région et marché. Vérifie toujours les specs exactes du véhicule visé via son numéro de série/VIN.</p>
+  </section>
+
+</div>
+</body>
+</html>
