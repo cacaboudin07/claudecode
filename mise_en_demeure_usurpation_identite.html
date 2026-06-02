@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mise en Demeure – Usurpation d'Identité</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 13px;
+    color: #1a1a1a;
+    background: #f5f5f0;
+    padding: 20px;
+  }
+
+  .page {
+    background: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 70px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    border-top: 8px solid #8b0000;
+  }
+
+  .header-warning {
+    background: #8b0000;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  .expediteur {
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+
+  .expediteur strong {
+    font-size: 15px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .date-lieu {
+    text-align: right;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .destinataires {
+    margin-bottom: 30px;
+    padding: 15px 20px;
+    border-left: 4px solid #8b0000;
+    background: #fdf5f5;
+    line-height: 1.8;
+  }
+
+  .destinataires strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #8b0000;
+  }
+
+  .objet {
+    background: #1a1a1a;
+    color: white;
+    padding: 12px 20px;
+    font-size: 13.5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  .references {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .references strong {
+    color: #8b0000;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+  }
+
+  h2 {
+    color: #8b0000;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid #8b0000;
+    padding-bottom: 5px;
+    margin: 30px 0 15px 0;
+  }
+
+  p {
+    text-align: justify;
+    line-height: 1.9;
+    margin-bottom: 14px;
+  }
+
+  .highlight-box {
+    background: #fff8e1;
+    border: 2px solid #f0a500;
+    border-left: 6px solid #f0a500;
+    padding: 15px 20px;
+    margin: 20px 0;
+    line-height: 1.8;
+  }
+
+  .danger-box {
+    background: #fff0f0;
+    border: 2px solid #8b0000;
+    border-left: 6px solid #8b0000;
+    padding: 15px 20px;
+    margin: 20px 0;
+    line-height: 1.8;
+  }
+
+  .danger-box strong {
+    color: #8b0000;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .loi-ref {
+    font-style: italic;
+    color: #555;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 12.5px;
+  }
+
+  table th {
+    background: #8b0000;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  table tr:nth-child(even) { background: #fafafa; }
+
+  .ultimatum {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 20px 25px;
+    margin: 30px 0;
+    border-left: 6px solid #f0a500;
+    line-height: 1.9;
+  }
+
+  .ultimatum strong {
+    color: #f0a500;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .signature-block {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .sig-box {
+    flex: 1;
+    border-top: 2px solid #8b0000;
+    padding-top: 10px;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .sig-box strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #8b0000;
+    font-size: 13px;
+  }
+
+  .footer-note {
+    margin-top: 40px;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
+    font-size: 11px;
+    color: #666;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  ul {
+    margin: 10px 0 14px 20px;
+    line-height: 1.9;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  .article-cite {
+    display: inline-block;
+    background: #8b0000;
+    color: white;
+    padding: 1px 7px;
+    font-size: 11.5px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin-right: 4px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-top: 6px solid #8b0000; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- BANDEAU AVERTISSEMENT -->
+  <div class="header-warning">
+    ⚠ DOCUMENT OFFICIEL — MISE EN DEMEURE &amp; AVERTISSEMENT JURIDIQUE FORMEL ⚠
+  </div>
+
+  <!-- EXPÉDITEUR -->
+  <div class="expediteur">
+    <strong>[Votre Nom et Prénom]</strong>
+    [Votre adresse complète]<br>
+    [Code postal – Ville]<br>
+    Tél. : [Votre numéro]<br>
+    E-mail : [Votre adresse mail]
+  </div>
+
+  <!-- DATE -->
+  <div class="date-lieu">
+    [Ville], le [Date du jour]
+  </div>
+
+  <!-- DESTINATAIRES -->
+  <div class="destinataires">
+    <strong>Adressé simultanément à :</strong>
+    — Trésorerie de Colmar (Service des amendes)<br>
+    — Trésorerie de Strasbourg (Service des amendes)<br>
+    — SNCF – Direction Juridique (Paris &amp; Région Est)<br>
+    — CTS – Compagnie des Transports Strasbourgeois<br>
+    — Procureur de la République près le TJ de Strasbourg<br>
+    — Procureur de la République près le TJ de Colmar<br>
+    — Défenseur des Droits<br>
+    <em>(Copies conservées pour transmission au Tribunal Administratif et aux médias le cas échéant)</em>
+  </div>
+
+  <!-- OBJET -->
+  <div class="objet">
+    OBJET : MISE EN DEMEURE FORMELLE — Victime d'usurpation d'identité persistante depuis 2022
+    — Défaillances graves et répétées des institutions — Préjudices financiers avérés
+    — Demande de remboursement immédiat et de cessation des poursuites illégales
+  </div>
+
+  <!-- RÉFÉRENCES DOSSIER -->
+  <div class="references">
+    <strong>Références du dossier :</strong>
+    — Plaintes en gendarmerie (multiples dépôts depuis 2022)<br>
+    — Courriers en LRAR adressés à la SNCF, CTS, Trésoreries de Colmar et Strasbourg, Procureurs, OMP<br>
+    — Annulation d'amendes obtenues avec assistance d'avocat (actes joints)<br>
+    — Saisies bancaires injustifiées : 2 × 180 € (Trésorerie de Colmar) + 180 € (saisie sur salaire)<br>
+    — Amende majorée de la Trésorerie de Strasbourg suite à infraction SNCF du 07/01/2026<br>
+    — Renouvellement de titre d'identité (preuve jointe)<br>
+    — Preuves d'innocence multiples remises aux gendarmeries compétentes
+  </div>
+
+  <!-- ==================== SECTION 1 ==================== -->
+  <h2>I. Exposé des faits — Une situation intenable imposée par des défaillances institutionnelles</h2>
+
+  <p>
+    Je suis victime d'une usurpation d'identité active depuis l'année <strong>2022</strong>. Une tierce personne
+    utilise une copie du recto de mon ancienne carte nationale d'identité pour se soustraire à ses obligations
+    lors de contrôles effectués par la SNCF et la CTS, me substituant ainsi comme auteure de délits que je
+    n'ai pas commis.
+  </p>
+
+  <p>
+    Malgré des démarches incessantes — <strong>dépôts de plainte répétés en gendarmerie</strong>, transmission
+    de preuves d'innocence, courriers recommandés, renouvellement de mon titre d'identité, obtention
+    de l'annulation de nombreuses contraventions avec l'aide d'un avocat —, les institutions concernées
+    continuent de m'infliger des sanctions financières et administratives injustifiées.
+  </p>
+
+  <div class="highlight-box">
+    <strong>Fait aggravant :</strong> Une nouvelle amende majorée m'a été adressée par la Trésorerie de Strasbourg
+    à la suite d'une infraction SNCF datée du <strong>7 janvier 2026</strong>. À aucun moment je n'ai été informée
+    de l'amende initiale — je n'en suis jamais destinataire car l'usurpatrice ne dispose pas de mon adresse.
+    Il m'est donc matériellement <strong>impossible de contester dans les délais légaux</strong>, ce qui constitue
+    une atteinte directe à mon droit fondamental à un recours effectif.
+  </div>
+
+  <p>
+    Par ailleurs, la Trésorerie de Colmar continue d'adresser ses courriers à l'adresse de mes parents,
+    en totale contradiction avec les informations que j'ai communiquées à plusieurs reprises.
+    Ce manquement n'est pas anodin : il révèle une gestion négligente de mon dossier, privant
+    de fait mes droits de leur effectivité.
+  </p>
+
+  <!-- ==================== SECTION 2 ==================== -->
+  <h2>II. Preuves formelles de mon innocence</h2>
+
+  <table>
+    <tr>
+      <th>Élément de preuve</th>
+      <th>Portée juridique</th>
+    </tr>
+    <tr>
+      <td>Dépôts de plainte en gendarmerie (multiples, depuis 2022)</td>
+      <td>Établit la réalité de l'usurpation d'identité et la démarche proactive de la victime</td>
+    </tr>
+    <tr>
+      <td>Annulations d'amendes prononcées avec l'aide d'un avocat</td>
+      <td>Démontre que les autorités ont déjà reconnu mon absence de responsabilité sur des faits similaires</td>
+    </tr>
+    <tr>
+      <td>Renouvellement du titre d'identité</td>
+      <td>L'ancienne carte utilisée par l'usurpatrice est désormais caduque et son usage constitue un faux en écriture</td>
+    </tr>
+    <tr>
+      <td>Absence de notification des amendes initiales</td>
+      <td>Rend les majorations illégales faute de respect du contradictoire (Art. L.211-2 CRPA)</td>
+    </tr>
+    <tr>
+      <td>Courriers recommandés adressés à SNCF, CTS, Trésoreries et Parquets</td>
+      <td>Prouve que les institutions ont été informées et ont choisi de ne pas agir</td>
+    </tr>
+    <tr>
+      <td>Impossibilité de se trouver aux lieux et heures des infractions (à documenter)</td>
+      <td>Alibi potentiel à consolider avec fiches de paie, badges, témoins</td>
+    </tr>
+  </table>
+
+  <p>
+    L'ensemble de ces éléments démontre sans ambiguïté que je suis la <strong>victime d'une infraction pénale
+    grave</strong> — l'usurpation d'identité — et non l'auteure des comportements qui me sont imputés.
+    La persistance des poursuites à mon encontre, en dépit de ces preuves, engage la responsabilité
+    pleine et entière des institutions concernées.
+  </p>
+
+  <!-- ==================== SECTION 3 ==================== -->
+  <h2>III. Violations caractérisées du droit français et européen</h2>
+
+  <p>Les agissements des institutions visées constituent des violations graves de nombreuses dispositions légales :</p>
+
+  <div class="danger-box">
+    <strong>⚖ Sur la responsabilité pénale et civile de l'usurpation d'identité :</strong>
+    <span class="article-cite">Art. 434-23 CP</span> L'usurpation d'identité est un délit puni de <strong>5 ans d'emprisonnement
+    et 75 000 € d'amende</strong>. Toute autorité qui, informée de cette situation, omet d'y donner suite
+    engage sa propre responsabilité. Le fait pour la SNCF et la CTS de ne pas mettre en œuvre
+    des contrôles d'identité rigoureux facilite objectivement la commission répétée de ce délit.
+  </div>
+  <span class="loi-ref">→ Code pénal, Art. 434-23 ; Art. 226-4-1 (usurpation d'identité numérique et physique)</span>
+
+  <div class="danger-box">
+    <strong>⚖ Sur les saisies et amendes illégales :</strong>
+    <span class="article-cite">Art. L.211-2 CRPA</span> Toute décision individuelle défavorable doit être motivée et notifiée
+    à son destinataire réel. Les majorations d'amendes prononcées sans que la première amende ait été
+    valablement notifiée sont <strong>nulles de plein droit</strong>. Les saisies bancaires (2 × 180 €)
+    et la saisie sur salaire (180 €) opérées sur cette base illégale constituent une <strong>voie de fait</strong>
+    et ouvrent droit à remboursement intégral, avec intérêts légaux depuis la date des saisies.
+  </div>
+  <span class="loi-ref">→ Code des relations entre le public et l'administration (CRPA), Art. L.211-2 et L.212-1 ;
+  Code de procédure civile, Art. 694 et suivants</span>
+
+  <div class="danger-box">
+    <strong>⚖ Sur le droit à un recours effectif :</strong>
+    <span class="article-cite">Art. 6 CEDH</span> La Convention Européenne des Droits de l'Homme garantit à toute personne
+    le droit à un procès équitable et à une voie de recours effective. Le fait de ne pas me notifier
+    les amendes initiales à ma véritable adresse — connue des services, ou vérifiable — puis de prononcer
+    des majorations, me prive structurellement de ce droit. Cette violation engage la responsabilité
+    de l'État français devant la Cour Européenne des Droits de l'Homme.
+  </div>
+  <span class="loi-ref">→ CEDH, Art. 6 §1 (procès équitable) ; Art. 13 (droit à un recours effectif) ;
+  Protocole n°1, Art. 1 (protection de la propriété – atteinte aux avoirs par saisies injustifiées)</span>
+
+  <div class="danger-box">
+    <strong>⚖ Sur les manquements au RGPD :</strong>
+    <span class="article-cite">RGPD Art. 5</span> Les données personnelles, dont l'adresse postale, doivent être
+    exactes et tenues à jour. La persistance des Trésoreries à utiliser l'adresse de mes parents,
+    après en avoir été informées, constitue une violation du principe d'exactitude des données
+    personnelles. Cette violation est susceptible de sanctions de la CNIL
+    (<strong>jusqu'à 20 millions d'euros ou 4% du chiffre d'affaires mondial</strong> pour les entités concernées)
+    et ouvre un droit à réparation individuelle en application de l'Art. 82 du RGPD.
+  </div>
+  <span class="loi-ref">→ Règlement UE 2016/679 (RGPD), Art. 5-1-d, Art. 16, Art. 82 ;
+  Loi Informatique et Libertés n°78-17 du 6 janvier 1978 modifiée</span>
+
+  <div class="danger-box">
+    <strong>⚖ Sur la responsabilité de l'État et des opérateurs publics :</strong>
+    <span class="article-cite">Art. L.1 CJA</span> La responsabilité sans faute de l'État peut être engagée
+    lorsqu'une personne supporte, du fait d'une décision ou d'une inaction administrative,
+    une charge anormale et spéciale. En l'espèce, je supporte seule le poids d'une défaillance
+    collective des services publics. La faute lourde des Trésoreries, de la SNCF et de la CTS
+    est pleinement caractérisée : elles ont été informées, ont eu les moyens d'agir, et ont
+    délibérément ou négligemment omis de le faire.
+  </div>
+  <span class="loi-ref">→ Code de justice administrative ; Arrêt CE, Ass., 28 mai 1971 ;
+  Art. 1240 et 1241 du Code civil (responsabilité délictuelle et quasi-délictuelle)</span>
+
+  <!-- ==================== SECTION 4 ==================== -->
+  <h2>IV. Ce que les institutions risquent si ma plainte aboutit</h2>
+
+  <table>
+    <tr>
+      <th>Institution</th>
+      <th>Risques juridiques et financiers</th>
+    </tr>
+    <tr>
+      <td><strong>Trésorerie de Colmar</strong></td>
+      <td>
+        Remboursement obligatoire des saisies illégales (540 € + intérêts légaux) ; engagement de la responsabilité de
+        l'État pour faute lourde devant le Tribunal Administratif ; signalement à la DGFIP ; possible action en
+        répétition de l'indu (Art. 1302 Code civil)
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Trésorerie de Strasbourg</strong></td>
+      <td>
+        Annulation de l'amende majorée du 07/01/2026 ; condamnation pour atteinte au droit à un recours effectif ;
+        violation RGPD (adresse incorrecte) signalable à la CNIL ; engagement de responsabilité administrative
+      </td>
+    </tr>
+    <tr>
+      <td><strong>SNCF</strong></td>
+      <td>
+        Mise en cause pour complicité passive d'usurpation d'identité par défaillance du contrôle ;
+        condamnation à dommages et intérêts (préjudice moral, matériel, atteinte à la réputation) ;
+        obligation de mise en conformité des procédures de contrôle d'identité ;
+        signalement à l'Autorité de la qualité de service dans les transports (AQST)
+      </td>
+    </tr>
+    <tr>
+      <td><strong>CTS</strong></td>
+      <td>
+        Même régime de responsabilité que la SNCF ; défaut de communication des informations (heure/lieu
+        des infractions) constitutif d'un obstacle aux droits de la défense ; engagement de responsabilité
+        civile et administrative
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Procureurs (Strasbourg / Colmar)</strong></td>
+      <td>
+        Mise en cause pour défaut de diligence dans le traitement d'un dossier d'usurpation d'identité
+        dûment signalé ; signalement au Conseil Supérieur de la Magistrature (CSM) si classement sans
+        suite injustifié ; saisine du Défenseur des Droits
+      </td>
+    </tr>
+    <tr>
+      <td><strong>État français (solidairement)</strong></td>
+      <td>
+        Recours devant la CEDH pour violation des Art. 6 et 13 de la Convention ; demande de réparation
+        intégrale incluant préjudice moral, perte de revenus (saisie sur salaire), frais d'avocat,
+        frais de dossiers ; attention médiatique sur la défaillance systémique du système de lutte
+        contre l'usurpation d'identité dans les transports publics
+      </td>
+    </tr>
+  </table>
+
+  <!-- ==================== SECTION 5 ==================== -->
+  <h2>V. Demandes formelles et ultimatum</h2>
+
+  <div class="ultimatum">
+    <strong>🔴 Je mets en demeure l'ensemble des destinataires du présent courrier de :</strong>
+    1. <strong>Rembourser immédiatement</strong> la somme totale de <strong>540 € (2 × 180 € + 180 €)</strong>
+    indûment saisie par la Trésorerie de Colmar, augmentée des intérêts légaux courus depuis la date
+    de chaque saisie.<br><br>
+    2. <strong>Annuler sans délai</strong> l'amende majorée émise par la Trésorerie de Strasbourg
+    suite à l'infraction SNCF du 07/01/2026, dossier auquel je suis totalement étrangère.<br><br>
+    3. <strong>Mettre à jour immédiatement</strong> mes coordonnées dans l'ensemble de vos systèmes
+    avec mon adresse réelle, sous peine de signalement formel à la CNIL pour violation du RGPD.<br><br>
+    4. <strong>Engager sans délai</strong> des poursuites pénales effectives contre l'auteure de l'usurpation
+    d'identité, dont l'identité est susceptible d'être établie par les éléments que j'ai fournis
+    aux gendarmeries compétentes.<br><br>
+    5. <strong>Mettre en place des procédures de contrôle d'identité renforcées</strong> (SNCF et CTS)
+    afin que l'utilisation d'un document d'identité périmé ou copié soit détectée et signalée,
+    conformément à vos obligations de vigilance.<br><br>
+    <strong>DÉLAI ACCORDÉ : 15 jours à compter de la réception du présent courrier.</strong>
+    Passé ce délai, et sans réponse satisfaisante, je me réserve le droit de saisir sans autre
+    préavis : le Tribunal Administratif compétent, le Défenseur des Droits, la CNIL, le CSM,
+    et d'alerter les médias régionaux et nationaux sur le traitement subi.
+  </div>
+
+  <p>
+    Je tiens à préciser avec la plus grande fermeté que je ne suis <strong>ni en faute, ni débitrice</strong>
+    d'aucune somme envers les institutions ci-dessus. Je suis, depuis 2022, une victime de crime
+    dont les droits ont été bafoués de manière répétée par des administrations qui avaient
+    l'obligation légale de me protéger et de me rembourser. Mon innocence est documentée,
+    prouvée, et déjà reconnue en partie par la justice.
+  </p>
+
+  <p>
+    La présente mise en demeure vaut acte interruptif de prescription et marque le point de départ
+    des délais de recours juridictionnels à venir.
+  </p>
+
+  <!-- SIGNATURE -->
+  <div class="signature-block">
+    <div class="sig-box">
+      <strong>Fait à [Ville], le [Date]</strong>
+      Signature :<br><br><br>
+      [Votre Nom Prénom]<br>
+      <em>(Lettre envoyée en LRAR avec accusé de réception)</em>
+    </div>
+    <div class="sig-box">
+      <strong>Pièces jointes :</strong>
+      — Copies des plaintes en gendarmerie<br>
+      — Copies des LRAR envoyés aux différentes institutions<br>
+      — Preuves des annulations d'amendes obtenues<br>
+      — Relevés bancaires (saisies)<br>
+      — Copie du nouveau titre d'identité<br>
+      — Tout document prouvant ma résidence réelle
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    Ce document constitue une mise en demeure formelle au sens du droit français. Il est susceptible d'être produit
+    devant toute juridiction compétente (Tribunal Administratif, Tribunal Judiciaire, Cour Européenne des Droits de l'Homme).
+    Toute absence de réponse ou réponse dilatoire sera interprétée comme un aveu de carence et utilisée en ce sens.
+    <br><br>
+    <strong>Références légales citées :</strong> Art. 434-23 et 226-4-1 du Code pénal — Art. L.211-2 et L.212-1 du CRPA —
+    Art. 1240, 1241 et 1302 du Code civil — Art. 6, 13 CEDH et Protocole 1, Art. 1 — RGPD Art. 5, 16, 82 (UE 2016/679) —
+    Loi Informatique et Libertés n°78-17 — Code de justice administrative.
+  </div>
+
+</div>
+</body>
+</html>
