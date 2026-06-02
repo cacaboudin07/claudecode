@@ -33,10 +33,12 @@ Le site comprend **3 pages** :
 └── assets/
     ├── css/
     │   ├── style.css     # Design system global (couleurs, composants, responsive)
-    │   └── game.css      # Styles spécifiques au simulateur
+    │   ├── game.css      # Styles spécifiques au simulateur
+    │   └── fx.css        # Effets : transitions de page, scène 3D, cartes 3D, aurores
     ├── js/
     │   ├── main.js       # Navigation, animations, compteurs, vidéos « lite »
-    │   └── game.js       # Logique du simulateur (états, calcul, résultats)
+    │   ├── game.js       # Logique du simulateur (états, calcul, résultats)
+    │   └── fx.js         # Transitions de page, tilt 3D, parallaxe, champ d'étoiles
     └── img/
         └── favicon.svg   # Logo / favicon (fusée)
 ```
@@ -107,6 +109,15 @@ Toute la matière du jeu est regroupée en **tableaux de données** en haut de `
 > `conversion = conv. de base × qualité du canal × adéquation du prix × force de l'accroche`,
 > et enfin `revenu net = ventes × prix − coût publicitaire`.
 > Les seuils de notes (S/A/B/C/D) se règlent dans `gradeFor()`.
+
+### 7. Effets & animations
+Tous les effets « wow » sont regroupés dans `assets/css/fx.css` + `assets/js/fx.js` :
+transition animée entre les pages, scène 3D du hero (planète, anneaux, lunes),
+cartes qui s'inclinent en 3D au survol, boutons magnétiques, champ d'étoiles
+interactif, aurores et barre de progression.
+
+- Pour un rendu plus sobre, il suffit de **retirer les deux lignes `fx.css` / `fx.js`** dans les pages HTML : le site reste parfaitement fonctionnel et élégant.
+- Tous ces effets sont **automatiquement désactivés** pour les visiteurs ayant activé « réduire les animations » dans leur système (`prefers-reduced-motion`), et le tilt 3D ne s'active que sur les appareils à souris.
 
 ---
 

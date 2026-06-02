@@ -18,8 +18,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/fx.css" />
 </head>
 <body>
+
+<!-- Overlay de transition entre les pages -->
+<div class="pt" id="pt" aria-hidden="true">
+  <div class="pt__warp"><i style="--a:0deg"></i><i style="--a:30deg"></i><i style="--a:60deg"></i><i style="--a:90deg"></i><i style="--a:120deg"></i><i style="--a:150deg"></i><i style="--a:180deg"></i><i style="--a:210deg"></i><i style="--a:240deg"></i><i style="--a:270deg"></i><i style="--a:300deg"></i><i style="--a:330deg"></i></div>
+  <svg class="pt__rocket" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="ptrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9acff"/><stop offset=".5" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>
+    <path d="M50 6c16 9 24 24 24 42 0 13-3 24-8 33a11 11 0 0 1-32 0c-5-9-8-20-8-33C26 30 34 15 50 6Z" fill="url(#ptrk)"/>
+    <circle cx="50" cy="46" r="10" fill="#0a0a16"/><circle cx="50" cy="46" r="5" fill="#22d3ee"/>
+    <path d="M30 84c-9 3-15 12-15 24 9-2 15-6 19-13Z" fill="#5b3fe0"/>
+    <path d="M70 84c9 3 15 12 15 24-9-2-15-6-19-13Z" fill="#5b3fe0"/>
+    <path d="M40 108c4 6 6 14 4 24-2-2-4-3-4-3s-2 1-4 3c-2-10 0-18 4-24Z" fill="#ff6b5d"/>
+  </svg>
+  <div class="pt__label">Décolle<span class="dot">.</span></div>
+</div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="top">
@@ -43,6 +58,7 @@
 <section class="hero">
   <div class="hero__bg" aria-hidden="true">
     <div class="stars"></div>
+    <div class="hero__spot"></div>
     <div class="hero__glow g1"></div>
     <div class="hero__glow g2"></div>
     <div class="hero__glow g3"></div>
@@ -65,12 +81,19 @@
       </div>
     </div>
 
-    <!-- Illustration fusée -->
+    <!-- Scène 3D : planète, anneaux, lunes en orbite et fusée -->
     <div class="hero__art" aria-hidden="true">
-      <div class="orbit o1 spin slow"><span class="orbit__dot"></span></div>
-      <div class="orbit o2 spin rev"><span class="orbit__dot"></span></div>
-      <div class="orbit o3 spin"></div>
-      <svg class="rocket-art" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+      <div class="scene" id="scene">
+        <div class="scene__glow"></div>
+        <div class="scene__tilt" id="sceneTilt">
+          <div class="scene__spin">
+            <div class="ring ring--2"></div>
+            <div class="orbit3d orbit3d--2"><span class="moon moon--2"></span></div>
+            <div class="planet"><span class="planet__spot"></span></div>
+            <div class="ring ring--1"></div>
+            <div class="orbit3d orbit3d--1"><span class="moon"></span></div>
+          </div>
+      <svg class="rocket-3d" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stop-color="#b9acff"/><stop offset="0.5" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f6bff"/>
@@ -95,7 +118,9 @@
         <!-- liseré -->
         <path d="M70 165c8 8 18 12 30 12s22-4 30-12" stroke="#ffffff" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
-    </div>
+        </div><!-- /scene__tilt -->
+      </div><!-- /scene -->
+    </div><!-- /hero__art -->
   </div>
 </section>
 
@@ -394,5 +419,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/fx.js"></script>
 </body>
 </html>
