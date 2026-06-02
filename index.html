@@ -8,7 +8,225 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --bg: #0b0d17;
+      --surface: #161a2b;
+      --surface-2: #1c2236;
+      --text: #e9ecf5;
+      --muted: #a3a9c2;
+      --accent: #6c5ce7;
+      --accent-2: #00d2ff;
+      --radius: 18px;
+      --maxw: 1100px;
+      --grad: linear-gradient(120deg, #00d2ff 0%, #6c5ce7 50%, #ff6ad5 100%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 { font-family: "Sora", sans-serif; line-height: 1.15; }
+    .grad {
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ---------- Navigation ---------- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px clamp(20px, 5vw, 60px);
+      background: rgba(11, 13, 23, 0.6);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: padding .3s ease;
+    }
+    .nav--scrolled { padding-top: 10px; padding-bottom: 10px; }
+    .nav__logo {
+      font-family: "Sora", sans-serif; font-weight: 800; font-size: 1.15rem;
+      color: var(--text); text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav__logo-mark {
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav__links { display: flex; gap: 28px; }
+    .nav__links a {
+      color: var(--muted); text-decoration: none; font-size: .92rem;
+      font-weight: 500; position: relative; transition: color .2s;
+    }
+    .nav__links a::after {
+      content: ""; position: absolute; left: 0; bottom: -6px;
+      width: 0; height: 2px; background: var(--grad); transition: width .25s ease;
+    }
+    .nav__links a:hover { color: var(--text); }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__burger { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav__burger span { width: 24px; height: 2px; background: var(--text); transition: .3s; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 120px 20px 60px; position: relative; overflow: hidden;
+    }
+    .hero__glow {
+      position: absolute; width: 900px; height: 900px;
+      top: -300px; left: 50%; transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(108,92,231,.35), rgba(0,210,255,.12) 40%, transparent 70%);
+      filter: blur(20px); pointer-events: none; animation: float 12s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(30px); } }
+    .hero__content { max-width: 820px; position: relative; z-index: 2; }
+    .hero__eyebrow { letter-spacing: .35em; font-size: .75rem; color: var(--accent-2); font-weight: 600; margin-bottom: 20px; }
+    .hero__title { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; }
+    .hero__subtitle { margin: 26px auto 0; max-width: 600px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); }
+    .hero__cta { margin-top: 38px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero__scroll {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      font-size: .78rem; color: var(--muted); letter-spacing: .1em; animation: bob 2s ease-in-out infinite;
+    }
+    @keyframes bob { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,8px)} }
+
+    .btn {
+      display: inline-block; padding: 14px 28px; border-radius: 999px;
+      font-weight: 600; font-size: .95rem; text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn--primary { background: var(--grad); color: #0b0d17; box-shadow: 0 8px 30px rgba(108,92,231,.4); }
+    .btn--primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(108,92,231,.55); }
+    .btn--ghost { color: var(--text); border: 1px solid rgba(255,255,255,.2); }
+    .btn--ghost:hover { border-color: var(--accent-2); transform: translateY(-3px); }
+
+    /* ---------- Sections ---------- */
+    .section { padding: clamp(70px, 10vw, 130px) clamp(20px, 5vw, 40px); max-width: var(--maxw); margin: 0 auto; }
+    .section--alt { background: linear-gradient(180deg, transparent, rgba(108,92,231,.05), transparent); max-width: 100%; }
+    .section--alt > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .section__head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
+    .section__head h2 { font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 700; margin: 14px 0 18px; }
+    .lead { color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.15rem); }
+    .lead--light { color: #d7dcf0; }
+    .tag {
+      display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--accent-2);
+      background: rgba(0,210,255,.1); padding: 6px 14px; border-radius: 999px;
+    }
+    .tag--light { color: #fff; background: rgba(255,255,255,.15); }
+
+    /* ---------- Cards ---------- */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
+    .card {
+      background: var(--surface); border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius); padding: 30px 26px;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .card:hover { transform: translateY(-6px); border-color: rgba(108,92,231,.5); }
+    .card__icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: .95rem; }
+
+    /* ---------- Funnel ---------- */
+    .funnel { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+    .funnel__step {
+      width: var(--w); min-width: 280px; display: flex; align-items: center; gap: 20px;
+      background: linear-gradient(135deg, var(--surface-2), var(--surface));
+      border: 1px solid rgba(255,255,255,.07); border-radius: var(--radius);
+      padding: 22px 26px; transition: transform .25s;
+    }
+    .funnel__step:hover { transform: scale(1.02); }
+    .funnel__num {
+      flex: 0 0 44px; height: 44px; display: grid; place-items: center;
+      background: var(--grad); color: #0b0d17; border-radius: 50%;
+      font-weight: 800; font-family: "Sora", sans-serif;
+    }
+    .funnel__step h3 { font-size: 1.1rem; }
+    .funnel__step p { color: var(--muted); font-size: .92rem; }
+
+    /* ---------- Channels ---------- */
+    .channels { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .channel {
+      background: var(--surface); border: 1px solid rgba(255,255,255,.06);
+      border-left: 3px solid var(--accent); border-radius: 14px; padding: 24px;
+      transition: transform .25s, border-left-color .25s;
+    }
+    .channel:hover { transform: translateX(6px); border-left-color: var(--accent-2); }
+    .channel span { font-size: 1.8rem; }
+    .channel h3 { margin: 10px 0 6px; font-size: 1.15rem; }
+    .channel p { color: var(--muted); font-size: .92rem; }
+
+    /* ---------- IA section ---------- */
+    .section--ia {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(108,92,231,.18), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,106,213,.14), transparent 50%),
+        #0d1020;
+      max-width: 100%;
+    }
+    .section--ia > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+    .ia-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius); padding: 30px 26px; backdrop-filter: blur(6px);
+      transition: transform .25s, background .25s;
+    }
+    .ia-card:hover { transform: translateY(-6px); background: rgba(255,255,255,.08); }
+    .ia-card__icon {
+      font-size: 2rem; width: 60px; height: 60px; display: grid; place-items: center;
+      margin-bottom: 16px; background: var(--grad); border-radius: 16px;
+    }
+    .ia-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .ia-card p { color: #c3c9e4; font-size: .95rem; }
+    .ia-quote {
+      margin-top: 50px; text-align: center; font-family: "Sora", sans-serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 600; max-width: 800px;
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    /* ---------- Conclusion ---------- */
+    .conclusion { text-align: center; max-width: 760px; margin: 0 auto; }
+    .conclusion h2 { font-size: clamp(1.9rem, 4vw, 3rem); margin: 14px 0 18px; }
+    .stats { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 44px; }
+    .stat { background: var(--surface); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 26px 34px; min-width: 180px; }
+    .stat strong { display: block; font-family: "Sora", sans-serif; font-size: 2.2rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat span { color: var(--muted); font-size: .9rem; }
+    .footnote { color: #6f7593; font-size: .78rem; margin-top: 22px; }
+
+    /* ---------- Footer ---------- */
+    .footer { text-align: center; padding: 40px 20px; color: var(--muted); font-size: .85rem; border-top: 1px solid rgba(255,255,255,.06); }
+
+    /* ---------- Reveal animation ---------- */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 760px) {
+      .nav__links {
+        position: fixed; top: 62px; right: 0; flex-direction: column; gap: 0;
+        background: rgba(13,16,32,.97); backdrop-filter: blur(14px);
+        width: 240px; padding: 10px 0;
+        border-left: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08);
+        transform: translateX(100%); transition: transform .3s ease;
+      }
+      .nav__links.is-open { transform: translateX(0); }
+      .nav__links a { padding: 14px 24px; }
+      .nav__burger { display: flex; }
+      .funnel__step { width: 100% !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -63,28 +281,11 @@
         <strong>mesurable, ciblé et ajustable en temps réel</strong>.
       </p>
     </div>
-
     <div class="cards reveal">
-      <article class="card">
-        <div class="card__icon">🎯</div>
-        <h3>Cibler</h3>
-        <p>Atteindre les bonnes personnes au bon moment grâce aux données et aux centres d'intérêt.</p>
-      </article>
-      <article class="card">
-        <div class="card__icon">📊</div>
-        <h3>Mesurer</h3>
-        <p>Chaque clic, vue ou achat est traçable. On sait précisément ce qui fonctionne.</p>
-      </article>
-      <article class="card">
-        <div class="card__icon">🔁</div>
-        <h3>Optimiser</h3>
-        <p>Les campagnes s'ajustent en continu pour améliorer les résultats et le budget.</p>
-      </article>
-      <article class="card">
-        <div class="card__icon">🤝</div>
-        <h3>Engager</h3>
-        <p>Créer une relation durable avec l'audience via du contenu et de l'interaction.</p>
-      </article>
+      <article class="card"><div class="card__icon">🎯</div><h3>Cibler</h3><p>Atteindre les bonnes personnes au bon moment grâce aux données et aux centres d'intérêt.</p></article>
+      <article class="card"><div class="card__icon">📊</div><h3>Mesurer</h3><p>Chaque clic, vue ou achat est traçable. On sait précisément ce qui fonctionne.</p></article>
+      <article class="card"><div class="card__icon">🔁</div><h3>Optimiser</h3><p>Les campagnes s'ajustent en continu pour améliorer les résultats et le budget.</p></article>
+      <article class="card"><div class="card__icon">🤝</div><h3>Engager</h3><p>Créer une relation durable avec l'audience via du contenu et de l'interaction.</p></article>
     </div>
   </section>
 
@@ -99,36 +300,11 @@
         C'est ce qu'on appelle l'<strong>entonnoir de conversion</strong>.
       </p>
     </div>
-
     <div class="funnel reveal">
-      <div class="funnel__step" style="--w:100%">
-        <span class="funnel__num">1</span>
-        <div>
-          <h3>Attirer (Awareness)</h3>
-          <p>Se rendre visible : SEO, publicités, réseaux sociaux, contenu.</p>
-        </div>
-      </div>
-      <div class="funnel__step" style="--w:82%">
-        <span class="funnel__num">2</span>
-        <div>
-          <h3>Intéresser (Consideration)</h3>
-          <p>Apporter de la valeur : articles, vidéos, newsletters, comparatifs.</p>
-        </div>
-      </div>
-      <div class="funnel__step" style="--w:64%">
-        <span class="funnel__num">3</span>
-        <div>
-          <h3>Convertir (Conversion)</h3>
-          <p>Transformer l'intérêt en action : achat, inscription, demande de devis.</p>
-        </div>
-      </div>
-      <div class="funnel__step" style="--w:46%">
-        <span class="funnel__num">4</span>
-        <div>
-          <h3>Fidéliser (Loyalty)</h3>
-          <p>Garder le client : emailing, programmes de fidélité, service client.</p>
-        </div>
-      </div>
+      <div class="funnel__step" style="--w:100%"><span class="funnel__num">1</span><div><h3>Attirer (Awareness)</h3><p>Se rendre visible : SEO, publicités, réseaux sociaux, contenu.</p></div></div>
+      <div class="funnel__step" style="--w:82%"><span class="funnel__num">2</span><div><h3>Intéresser (Consideration)</h3><p>Apporter de la valeur : articles, vidéos, newsletters, comparatifs.</p></div></div>
+      <div class="funnel__step" style="--w:64%"><span class="funnel__num">3</span><div><h3>Convertir (Conversion)</h3><p>Transformer l'intérêt en action : achat, inscription, demande de devis.</p></div></div>
+      <div class="funnel__step" style="--w:46%"><span class="funnel__num">4</span><div><h3>Fidéliser (Loyalty)</h3><p>Garder le client : emailing, programmes de fidélité, service client.</p></div></div>
     </div>
   </section>
 
@@ -137,11 +313,8 @@
     <div class="section__head reveal">
       <span class="tag">03 — Les canaux</span>
       <h2>Les grands leviers du marketing digital</h2>
-      <p class="lead">
-        Une stratégie efficace combine plusieurs canaux complémentaires.
-      </p>
+      <p class="lead">Une stratégie efficace combine plusieurs canaux complémentaires.</p>
     </div>
-
     <div class="channels reveal">
       <div class="channel"><span>🔍</span><h3>SEO</h3><p>Référencement naturel sur Google pour être trouvé gratuitement.</p></div>
       <div class="channel"><span>💸</span><h3>SEA / Ads</h3><p>Publicité payante (Google Ads, Meta Ads) pour des résultats rapides.</p></div>
@@ -164,40 +337,14 @@
         équipe humaine ne pourrait faire seule.
       </p>
     </div>
-
     <div class="ia-grid reveal">
-      <article class="ia-card">
-        <div class="ia-card__icon">✨</div>
-        <h3>Création de contenu</h3>
-        <p>Génération de textes, visuels, emails et publicités en quelques secondes, adaptés à chaque cible.</p>
-      </article>
-      <article class="ia-card">
-        <div class="ia-card__icon">🧠</div>
-        <h3>Personnalisation</h3>
-        <p>Recommandations sur mesure pour chaque utilisateur (à la manière de Netflix ou Amazon).</p>
-      </article>
-      <article class="ia-card">
-        <div class="ia-card__icon">🔮</div>
-        <h3>Prédiction</h3>
-        <p>Anticiper les comportements d'achat et identifier les clients les plus prometteurs.</p>
-      </article>
-      <article class="ia-card">
-        <div class="ia-card__icon">💬</div>
-        <h3>Chatbots &amp; service client</h3>
-        <p>Réponses instantanées 24/7, qualification des prospects et support automatisé.</p>
-      </article>
-      <article class="ia-card">
-        <div class="ia-card__icon">⚙️</div>
-        <h3>Automatisation</h3>
-        <p>Campagnes qui s'optimisent seules : enchères, ciblage et budgets ajustés en continu.</p>
-      </article>
-      <article class="ia-card">
-        <div class="ia-card__icon">📐</div>
-        <h3>Analyse avancée</h3>
-        <p>Traiter d'énormes volumes de données pour transformer le bruit en décisions claires.</p>
-      </article>
+      <article class="ia-card"><div class="ia-card__icon">✨</div><h3>Création de contenu</h3><p>Génération de textes, visuels, emails et publicités en quelques secondes, adaptés à chaque cible.</p></article>
+      <article class="ia-card"><div class="ia-card__icon">🧠</div><h3>Personnalisation</h3><p>Recommandations sur mesure pour chaque utilisateur (à la manière de Netflix ou Amazon).</p></article>
+      <article class="ia-card"><div class="ia-card__icon">🔮</div><h3>Prédiction</h3><p>Anticiper les comportements d'achat et identifier les clients les plus prometteurs.</p></article>
+      <article class="ia-card"><div class="ia-card__icon">💬</div><h3>Chatbots &amp; service client</h3><p>Réponses instantanées 24/7, qualification des prospects et support automatisé.</p></article>
+      <article class="ia-card"><div class="ia-card__icon">⚙️</div><h3>Automatisation</h3><p>Campagnes qui s'optimisent seules : enchères, ciblage et budgets ajustés en continu.</p></article>
+      <article class="ia-card"><div class="ia-card__icon">📐</div><h3>Analyse avancée</h3><p>Traiter d'énormes volumes de données pour transformer le bruit en décisions claires.</p></article>
     </div>
-
     <div class="ia-quote reveal">
       <p>« L'IA transforme le marketeur en chef d'orchestre&nbsp;:
       moins de temps sur les tâches manuelles, plus de temps sur la stratégie et la créativité. »</p>
@@ -230,6 +377,34 @@
     <p>Présentation — Marketing Digital &amp; IA · Réalisée à des fins pédagogiques</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // --- Menu burger (mobile) ---
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+    burger.addEventListener("click", () => navLinks.classList.toggle("is-open"));
+    navLinks.querySelectorAll("a").forEach((link) =>
+      link.addEventListener("click", () => navLinks.classList.remove("is-open"))
+    );
+
+    // --- Effet de scroll sur la nav ---
+    const nav = document.getElementById("nav");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("nav--scrolled", window.scrollY > 30);
+    });
+
+    // --- Apparition des éléments au scroll ---
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
