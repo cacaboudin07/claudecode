@@ -70,6 +70,9 @@
     }
     .nav__links a:hover { color: var(--text); }
     .nav__links a:hover::after { width: 100%; }
+    .nav__links .nav__cta { color: #0b0d17; background: var(--grad); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
+    .nav__links .nav__cta::after { display: none; }
+    .nav__links .nav__cta:hover { transform: translateY(-2px); }
     .nav__burger { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; }
     .nav__burger span { width: 24px; height: 2px; background: var(--text); transition: .3s; }
 
@@ -240,6 +243,7 @@
       <a href="#canaux">Les canaux</a>
       <a href="#ia">Le rôle de l'IA</a>
       <a href="#conclusion">Conclusion</a>
+      <a href="guide.html" class="nav__cta">Guide pour débuter →</a>
     </nav>
     <button class="nav__burger" id="burger" aria-label="Ouvrir le menu">
       <span></span><span></span><span></span>
@@ -370,6 +374,9 @@
         <div class="stat"><strong>1:1</strong><span>personnalisation à grande échelle</span></div>
       </div>
       <p class="footnote">*Ordre de grandeur indicatif selon les usages.</p>
+      <div class="hero__cta" style="margin-top:36px">
+        <a href="guide.html" class="btn btn--primary">Guide : comment débuter →</a>
+      </div>
     </div>
   </section>
 

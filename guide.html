@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guide pratique pour bien débuter en marketing digital : étapes, outils, erreurs à éviter et checklist de démarrage." />
+  <title>Guide — Bien se lancer en Marketing Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0d17;
+      --surface: #161a2b;
+      --surface-2: #1c2236;
+      --text: #e9ecf5;
+      --muted: #a3a9c2;
+      --accent: #6c5ce7;
+      --accent-2: #00d2ff;
+      --radius: 18px;
+      --maxw: 920px;
+      --grad: linear-gradient(120deg, #00d2ff 0%, #6c5ce7 50%, #ff6ad5 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
+    h1, h2, h3 { font-family: "Sora", sans-serif; line-height: 1.18; }
+    .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    a { color: var(--accent-2); }
+
+    /* ---------- Navigation ---------- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px clamp(20px, 5vw, 60px);
+      background: rgba(11, 13, 23, 0.6); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06); transition: padding .3s ease;
+    }
+    .nav--scrolled { padding-top: 10px; padding-bottom: 10px; }
+    .nav__logo { font-family: "Sora", sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav__logo-mark { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav__links { display: flex; gap: 24px; align-items: center; }
+    .nav__links a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; position: relative; transition: color .2s; }
+    .nav__links a::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: var(--grad); transition: width .25s ease; }
+    .nav__links a:hover { color: var(--text); }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__links .nav__back { color: var(--text); border: 1px solid rgba(255,255,255,.18); padding: 8px 16px; border-radius: 999px; }
+    .nav__links .nav__back::after { display: none; }
+    .nav__links .nav__back:hover { border-color: var(--accent-2); }
+    .nav__burger { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav__burger span { width: 24px; height: 2px; background: var(--text); transition: .3s; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 150px 20px 70px; text-align: center; position: relative; overflow: hidden; }
+    .hero__glow { position: absolute; width: 800px; height: 800px; top: -340px; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(108,92,231,.35), rgba(0,210,255,.12) 40%, transparent 70%); filter: blur(20px); pointer-events: none; }
+    .hero__content { max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero__eyebrow { letter-spacing: .35em; font-size: .75rem; color: var(--accent-2); font-weight: 600; margin-bottom: 18px; }
+    .hero__title { font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 800; }
+    .hero__subtitle { margin: 22px auto 0; max-width: 600px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.15rem); }
+
+    /* ---------- Container ---------- */
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); }
+    .block { padding: 50px 0; }
+    .tag { display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); background: rgba(0,210,255,.1); padding: 6px 14px; border-radius: 999px; margin-bottom: 16px; }
+    .block h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 14px; }
+    .block > p { color: var(--muted); }
+
+    /* ---------- Steps (timeline) ---------- */
+    .steps { position: relative; margin-top: 30px; padding-left: 34px; }
+    .steps::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(180deg, var(--accent-2), var(--accent), transparent); }
+    .step { position: relative; margin-bottom: 30px; }
+    .step__dot { position: absolute; left: -34px; top: 2px; width: 24px; height: 24px; border-radius: 50%; background: var(--grad); color: #0b0d17; display: grid; place-items: center; font-weight: 800; font-size: .8rem; font-family: "Sora", sans-serif; }
+    .step__card { background: var(--surface); border: 1px solid rgba(255,255,255,.07); border-radius: var(--radius); padding: 24px 26px; transition: transform .25s, border-color .25s; }
+    .step__card:hover { transform: translateX(4px); border-color: rgba(108,92,231,.5); }
+    .step__card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .step__card p { color: var(--muted); font-size: .96rem; }
+    .step__card ul { margin: 12px 0 0 18px; color: var(--muted); font-size: .92rem; }
+    .step__card li { margin-bottom: 5px; }
+
+    /* ---------- Tools grid ---------- */
+    .tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 26px; }
+    .tool { background: var(--surface-2); border: 1px solid rgba(255,255,255,.06); border-left: 3px solid var(--accent); border-radius: 14px; padding: 20px 22px; }
+    .tool h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .tool p { color: var(--muted); font-size: .9rem; }
+
+    /* ---------- Mistakes ---------- */
+    .mistakes { display: grid; gap: 14px; margin-top: 26px; }
+    .mistake { display: flex; gap: 14px; align-items: flex-start; background: rgba(255,106,213,.06); border: 1px solid rgba(255,106,213,.18); border-radius: 14px; padding: 18px 20px; }
+    .mistake span { font-size: 1.3rem; flex: 0 0 auto; }
+    .mistake p { font-size: .95rem; }
+    .mistake strong { color: #ffb3ec; }
+
+    /* ---------- Checklist ---------- */
+    .checklist { background: var(--surface); border: 1px solid rgba(255,255,255,.07); border-radius: var(--radius); padding: 30px clamp(22px, 4vw, 40px); margin-top: 26px; }
+    .checklist label { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.05); cursor: pointer; }
+    .checklist label:last-child { border-bottom: 0; }
+    .checklist input { appearance: none; flex: 0 0 22px; height: 22px; margin-top: 2px; border: 2px solid var(--muted); border-radius: 6px; cursor: pointer; position: relative; transition: .2s; }
+    .checklist input:checked { background: var(--grad); border-color: transparent; }
+    .checklist input:checked::after { content: "✓"; position: absolute; inset: 0; display: grid; place-items: center; color: #0b0d17; font-weight: 800; font-size: .8rem; }
+    .checklist input:checked + span { color: var(--muted); text-decoration: line-through; }
+    .checklist span { font-size: .98rem; }
+
+    /* ---------- CTA ---------- */
+    .cta-box { text-align: center; margin: 20px auto 0; background: radial-gradient(circle at 50% 0%, rgba(108,92,231,.2), transparent 70%); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 46px 30px; }
+    .cta-box h2 { margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); max-width: 520px; margin: 0 auto 24px; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: .95rem; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+    .btn--primary { background: var(--grad); color: #0b0d17; box-shadow: 0 8px 30px rgba(108,92,231,.4); }
+    .btn--primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(108,92,231,.55); }
+
+    .footer { text-align: center; padding: 40px 20px; color: var(--muted); font-size: .85rem; border-top: 1px solid rgba(255,255,255,.06); margin-top: 30px; }
+
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (max-width: 760px) {
+      .nav__links { position: fixed; top: 62px; right: 0; flex-direction: column; gap: 0; align-items: stretch; background: rgba(13,16,32,.97); backdrop-filter: blur(14px); width: 240px; padding: 10px 0; border-left: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); transform: translateX(100%); transition: transform .3s ease; }
+      .nav__links.is-open { transform: translateX(0); }
+      .nav__links a { padding: 14px 24px; }
+      .nav__links .nav__back { margin: 8px 24px; text-align: center; }
+      .nav__burger { display: flex; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto; } .reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="index.html" class="nav__logo"><span class="nav__logo-mark">◆</span> Digital&amp;IA</a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#etapes">Les étapes</a>
+      <a href="#outils">Les outils</a>
+      <a href="#erreurs">Erreurs à éviter</a>
+      <a href="#checklist">Checklist</a>
+      <a href="index.html" class="nav__back">← Accueil</a>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__glow"></div>
+    <div class="hero__content reveal">
+      <p class="hero__eyebrow">GUIDE DU DÉBUTANT</p>
+      <h1 class="hero__title">Bien se lancer en <span class="grad">marketing digital</span></h1>
+      <p class="hero__subtitle">
+        Un parcours simple, étape par étape, pour démarrer du bon pied —
+        même en partant de zéro. Pas de jargon, que du concret.
+      </p>
+    </div>
+  </section>
+
+  <!-- Étapes -->
+  <section class="block" id="etapes">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="tag">Le parcours</span>
+        <h2>Les 7 étapes pour démarrer</h2>
+        <p>Suis-les dans l'ordre : chaque étape prépare la suivante.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step__dot">1</div>
+          <div class="step__card">
+            <h3>Définir ton objectif</h3>
+            <p>Avant tout, sache <strong>pourquoi</strong> tu fais du marketing. Vendre plus ? Te faire connaître ? Récupérer des contacts ?</p>
+            <ul>
+              <li>Fixe un objectif clair et chiffré (ex : « 50 inscriptions/mois »).</li>
+              <li>Utilise la méthode SMART : Spécifique, Mesurable, Atteignable, Réaliste, Temporel.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__dot">2</div>
+          <div class="step__card">
+            <h3>Connaître ta cible (persona)</h3>
+            <p>À qui tu parles change <strong>tout</strong> : le ton, les canaux, le message.</p>
+            <ul>
+              <li>Décris ton client idéal : âge, besoins, problèmes, où il passe son temps en ligne.</li>
+              <li>Donne-lui un nom et une « fiche persona » pour le garder en tête.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__dot">3</div>
+          <div class="step__card">
+            <h3>Choisir 1 ou 2 canaux (pas 10 !)</h3>
+            <p>Mieux vaut être bon sur un canal que médiocre partout. Va là où est ta cible.</p>
+            <ul>
+              <li>Pro/B2B → LinkedIn + SEO. Grand public/visuel → Instagram, TikTok.</li>
+              <li>Commence petit, maîtrise, puis élargis.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__dot">4</div>
+          <div class="step__card">
+            <h3>Créer du contenu utile</h3>
+            <p>Le contenu est le carburant. Apporte de la valeur avant de vendre.</p>
+            <ul>
+              <li>Réponds aux questions que se pose ta cible.</li>
+              <li>Garde un rythme régulier (mieux vaut 1 post/semaine tenu que 5 abandonnés).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__dot">5</div>
+          <div class="step__card">
+            <h3>S'appuyer sur l'IA dès le départ</h3>
+            <p>L'IA te fait gagner un temps fou quand tu débutes et que tu es seul(e).</p>
+            <ul>
+              <li>Brainstorming d'idées, rédaction de premiers jets, visuels, idées de titres.</li>
+              <li>Relecture, traduction, adaptation d'un même contenu à plusieurs formats.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__dot">6</div>
+          <div class="step__card">
+            <h3>Mesurer les résultats</h3>
+            <p>Sans mesure, tu navigues à l'aveugle. Regarde les bons indicateurs (KPI).</p>
+            <ul>
+              <li>Trafic, taux de clic, taux de conversion, coût par contact.</li>
+              <li>Installe un outil d'analyse gratuit dès le jour 1.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__dot">7</div>
+          <div class="step__card">
+            <h3>Tester, apprendre, ajuster</h3>
+            <p>Le marketing digital est un cycle d'amélioration continue, pas un coup unique.</p>
+            <ul>
+              <li>Teste une variation à la fois (A/B testing).</li>
+              <li>Garde ce qui marche, abandonne ce qui ne marche pas. Recommence.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outils -->
+  <section class="block" id="outils">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="tag">La boîte à outils</span>
+        <h2>Des outils gratuits pour commencer</h2>
+        <p>Pas besoin de gros budget pour débuter : voici l'essentiel.</p>
+      </div>
+      <div class="tools reveal">
+        <div class="tool"><h3>📊 Google Analytics</h3><p>Mesurer le trafic de ton site, gratuitement.</p></div>
+        <div class="tool"><h3>🔍 Google Search Console</h3><p>Suivre ton référencement et tes mots-clés.</p></div>
+        <div class="tool"><h3>🎨 Canva</h3><p>Créer des visuels pros sans être graphiste.</p></div>
+        <div class="tool"><h3>🤖 Assistant IA</h3><p>Idées, rédaction et brainstorming (ChatGPT, Claude…).</p></div>
+        <div class="tool"><h3>✉️ Brevo / Mailchimp</h3><p>Envoyer des newsletters (offre gratuite pour débuter).</p></div>
+        <div class="tool"><h3>📅 Buffer / Metricool</h3><p>Programmer tes publications sur les réseaux.</p></div>
+        <div class="tool"><h3>🔑 Ubersuggest</h3><p>Trouver des idées de mots-clés et de contenu.</p></div>
+        <div class="tool"><h3>📈 Meta / Google Ads</h3><p>Lancer une première pub avec un petit budget.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Erreurs -->
+  <section class="block" id="erreurs">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="tag">À éviter</span>
+        <h2>Les erreurs classiques du débutant</h2>
+        <p>Les connaître, c'est déjà les éviter.</p>
+      </div>
+      <div class="mistakes reveal">
+        <div class="mistake"><span>🌪️</span><p><strong>Vouloir être partout à la fois.</strong> Tu t'épuises et rien n'est fait correctement. Concentre-toi.</p></div>
+        <div class="mistake"><span>🗣️</span><p><strong>Trop parler de soi.</strong> Le client veut résoudre SON problème, pas entendre à quel point tu es génial.</p></div>
+        <div class="mistake"><span>📉</span><p><strong>Ne rien mesurer.</strong> Sans données, impossible de savoir quoi améliorer.</p></div>
+        <div class="mistake"><span>⏱️</span><p><strong>Abandonner trop tôt.</strong> Les résultats (surtout en SEO) prennent des semaines, voire des mois.</p></div>
+        <div class="mistake"><span>🤖</span><p><strong>Publier de l'IA sans relire.</strong> L'IA aide, mais le contrôle humain reste indispensable pour la qualité et la justesse.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checklist -->
+  <section class="block" id="checklist">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="tag">Passe à l'action</span>
+        <h2>Ta checklist de démarrage</h2>
+        <p>Coche au fur et à mesure — ta progression est sauvegardée dans ton navigateur.</p>
+      </div>
+      <div class="checklist reveal">
+        <label><input type="checkbox" /><span>J'ai défini un objectif clair et chiffré</span></label>
+        <label><input type="checkbox" /><span>J'ai décrit mon client idéal (persona)</span></label>
+        <label><input type="checkbox" /><span>J'ai choisi 1 ou 2 canaux prioritaires</span></label>
+        <label><input type="checkbox" /><span>J'ai planifié mes 4 premiers contenus</span></label>
+        <label><input type="checkbox" /><span>J'ai testé un assistant IA pour gagner du temps</span></label>
+        <label><input type="checkbox" /><span>J'ai installé un outil de mesure (analytics)</span></label>
+        <label><input type="checkbox" /><span>J'ai prévu un moment chaque semaine pour analyser et ajuster</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block">
+    <div class="wrap">
+      <div class="cta-box reveal">
+        <h2>Prêt(e) à te lancer&nbsp;?</h2>
+        <p>Revois les fondamentaux du marketing digital et le rôle de l'IA pour garder le cap.</p>
+        <a href="index.html" class="btn btn--primary">← Retour à la présentation</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Guide du débutant — Marketing Digital &amp; IA · Réalisé à des fins pédagogiques</p>
+  </footer>
+
+  <script>
+    // --- Menu burger (mobile) ---
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+    burger.addEventListener("click", () => navLinks.classList.toggle("is-open"));
+    navLinks.querySelectorAll("a").forEach((link) =>
+      link.addEventListener("click", () => navLinks.classList.remove("is-open"))
+    );
+
+    // --- Effet de scroll sur la nav ---
+    const nav = document.getElementById("nav");
+    window.addEventListener("scroll", () => nav.classList.toggle("nav--scrolled", window.scrollY > 30));
+
+    // --- Apparition au scroll ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    // --- Sauvegarde de la checklist (localStorage) ---
+    const boxes = document.querySelectorAll(".checklist input");
+    boxes.forEach((box, i) => {
+      const key = "guide-check-" + i;
+      box.checked = localStorage.getItem(key) === "1";
+      box.addEventListener("change", () => localStorage.setItem(key, box.checked ? "1" : "0"));
+    });
+  </script>
+</body>
+</html>
