@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Présentation claire du marketing digital : ce que c'est, comment ça fonctionne, et le rôle majeur de l'intelligence artificielle." />
-  <title>Marketing Digital &amp; IA — Comprendre l'essentiel</title>
+  <meta name="description" content="Marketing digital & IA : présentation, guide pour bien débuter et ressources utiles, le tout en une page." />
+  <title>Marketing Digital &amp; IA — Présentation, guide &amp; ressources</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -17,121 +17,83 @@
       --muted: #a3a9c2;
       --accent: #6c5ce7;
       --accent-2: #00d2ff;
+      --accent-3: #ff6ad5;
       --radius: 18px;
       --maxw: 1100px;
       --grad: linear-gradient(120deg, #00d2ff 0%, #6c5ce7 50%, #ff6ad5 100%);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
+    body { font-family: "Inter", system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
     h1, h2, h3 { font-family: "Sora", sans-serif; line-height: 1.15; }
-    .grad {
-      background: var(--grad);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    a { color: var(--accent-2); }
+    img, svg { max-width: 100%; }
 
     /* ---------- Navigation ---------- */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 16px clamp(20px, 5vw, 60px);
-      background: rgba(11, 13, 23, 0.6);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      transition: padding .3s ease;
+      padding: 14px clamp(20px, 5vw, 60px);
+      background: rgba(11, 13, 23, 0.62); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06); transition: padding .3s ease;
     }
-    .nav--scrolled { padding-top: 10px; padding-bottom: 10px; }
-    .nav__logo {
-      font-family: "Sora", sans-serif; font-weight: 800; font-size: 1.15rem;
-      color: var(--text); text-decoration: none;
-      display: flex; align-items: center; gap: 8px;
+    .nav--scrolled { padding-top: 9px; padding-bottom: 9px; }
+    .nav__logo { font-family: "Sora", sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; background: none; border: 0; cursor: pointer; }
+    .nav__logo-mark { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav__tabs { display: flex; gap: 8px; align-items: center; }
+    .tab-btn {
+      font-family: "Inter", sans-serif; font-size: .92rem; font-weight: 500;
+      color: var(--muted); background: none; border: 0; cursor: pointer;
+      padding: 9px 18px; border-radius: 999px; transition: color .2s, background .2s;
     }
-    .nav__logo-mark {
-      background: var(--grad);
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .nav__links { display: flex; gap: 28px; }
-    .nav__links a {
-      color: var(--muted); text-decoration: none; font-size: .92rem;
-      font-weight: 500; position: relative; transition: color .2s;
-    }
-    .nav__links a::after {
-      content: ""; position: absolute; left: 0; bottom: -6px;
-      width: 0; height: 2px; background: var(--grad); transition: width .25s ease;
-    }
-    .nav__links a:hover { color: var(--text); }
-    .nav__links a:hover::after { width: 100%; }
-    .nav__links .nav__cta { color: #0b0d17; background: var(--grad); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
-    .nav__links .nav__cta::after { display: none; }
-    .nav__links .nav__cta:hover { transform: translateY(-2px); }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.is-active { color: #0b0d17; background: var(--grad); font-weight: 600; }
     .nav__burger { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; }
     .nav__burger span { width: 24px; height: 2px; background: var(--text); transition: .3s; }
 
-    /* ---------- Hero ---------- */
-    .hero {
-      min-height: 100vh; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center;
-      padding: 120px 20px 60px; position: relative; overflow: hidden;
-    }
-    .hero__glow {
-      position: absolute; width: 900px; height: 900px;
-      top: -300px; left: 50%; transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(108,92,231,.35), rgba(0,210,255,.12) 40%, transparent 70%);
-      filter: blur(20px); pointer-events: none; animation: float 12s ease-in-out infinite;
-    }
-    @keyframes float { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(30px); } }
-    .hero__content { max-width: 820px; position: relative; z-index: 2; }
-    .hero__eyebrow { letter-spacing: .35em; font-size: .75rem; color: var(--accent-2); font-weight: 600; margin-bottom: 20px; }
-    .hero__title { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; }
-    .hero__subtitle { margin: 26px auto 0; max-width: 600px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); }
-    .hero__cta { margin-top: 38px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .hero__scroll {
-      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-      font-size: .78rem; color: var(--muted); letter-spacing: .1em; animation: bob 2s ease-in-out infinite;
-    }
-    @keyframes bob { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,8px)} }
+    /* ---------- Tabs panels ---------- */
+    .panel { display: none; }
+    .panel.is-active { display: block; }
 
-    .btn {
-      display: inline-block; padding: 14px 28px; border-radius: 999px;
-      font-weight: 600; font-size: .95rem; text-decoration: none;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
+    /* ---------- Hero ---------- */
+    .hero { min-height: 92vh; display: flex; align-items: center; padding: 130px clamp(20px,5vw,40px) 70px; position: relative; overflow: hidden; }
+    .hero__glow { position: absolute; width: 900px; height: 900px; top: -340px; left: 60%; transform: translateX(-50%); background: radial-gradient(circle, rgba(108,92,231,.32), rgba(0,210,255,.1) 40%, transparent 70%); filter: blur(20px); pointer-events: none; animation: float 12s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(28px); } }
+    .hero__inner { max-width: var(--maxw); margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1.05fr .95fr; gap: 50px; align-items: center; position: relative; z-index: 2; }
+    .hero__eyebrow { letter-spacing: .32em; font-size: .75rem; color: var(--accent-2); font-weight: 600; margin-bottom: 18px; }
+    .hero__title { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; }
+    .hero__subtitle { margin: 24px 0 0; max-width: 520px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.18rem); }
+    .hero__cta { margin-top: 34px; display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero__art { display: flex; justify-content: center; }
+    .hero__art svg { width: 100%; max-width: 440px; height: auto; filter: drop-shadow(0 20px 50px rgba(108,92,231,.35)); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: .95rem; text-decoration: none; cursor: pointer; border: 0; transition: transform .2s ease, box-shadow .2s ease; }
     .btn--primary { background: var(--grad); color: #0b0d17; box-shadow: 0 8px 30px rgba(108,92,231,.4); }
     .btn--primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(108,92,231,.55); }
-    .btn--ghost { color: var(--text); border: 1px solid rgba(255,255,255,.2); }
+    .btn--ghost { color: var(--text); border: 1px solid rgba(255,255,255,.2); background: none; }
     .btn--ghost:hover { border-color: var(--accent-2); transform: translateY(-3px); }
 
     /* ---------- Sections ---------- */
-    .section { padding: clamp(70px, 10vw, 130px) clamp(20px, 5vw, 40px); max-width: var(--maxw); margin: 0 auto; }
+    .section { padding: clamp(60px, 9vw, 110px) clamp(20px, 5vw, 40px); max-width: var(--maxw); margin: 0 auto; }
     .section--alt { background: linear-gradient(180deg, transparent, rgba(108,92,231,.05), transparent); max-width: 100%; }
     .section--alt > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
-    .section__head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
-    .section__head h2 { font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 700; margin: 14px 0 18px; }
+    .section__head { max-width: 760px; margin: 0 auto 50px; text-align: center; }
+    .section__head h2 { font-size: clamp(1.8rem, 4vw, 2.9rem); font-weight: 700; margin: 14px 0 18px; }
     .lead { color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.15rem); }
     .lead--light { color: #d7dcf0; }
-    .tag {
-      display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--accent-2);
-      background: rgba(0,210,255,.1); padding: 6px 14px; border-radius: 999px;
-    }
+    .tag { display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); background: rgba(0,210,255,.1); padding: 6px 14px; border-radius: 999px; }
     .tag--light { color: #fff; background: rgba(255,255,255,.15); }
+
+    /* two-column section with illustration */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .split__art { display: flex; justify-content: center; }
+    .split__art svg { width: 100%; max-width: 380px; height: auto; }
+    .split .section__head { text-align: left; margin: 0; }
 
     /* ---------- Cards ---------- */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
-    .card {
-      background: var(--surface); border: 1px solid rgba(255,255,255,.06);
-      border-radius: var(--radius); padding: 30px 26px;
-      transition: transform .25s ease, border-color .25s ease;
-    }
+    .card { background: var(--surface); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 30px 26px; transition: transform .25s ease, border-color .25s ease; }
     .card:hover { transform: translateY(-6px); border-color: rgba(108,92,231,.5); }
     .card__icon { font-size: 2.2rem; margin-bottom: 14px; }
     .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
@@ -139,279 +101,554 @@
 
     /* ---------- Funnel ---------- */
     .funnel { display: flex; flex-direction: column; gap: 16px; align-items: center; }
-    .funnel__step {
-      width: var(--w); min-width: 280px; display: flex; align-items: center; gap: 20px;
-      background: linear-gradient(135deg, var(--surface-2), var(--surface));
-      border: 1px solid rgba(255,255,255,.07); border-radius: var(--radius);
-      padding: 22px 26px; transition: transform .25s;
-    }
+    .funnel__step { width: var(--w); min-width: 280px; display: flex; align-items: center; gap: 20px; background: linear-gradient(135deg, var(--surface-2), var(--surface)); border: 1px solid rgba(255,255,255,.07); border-radius: var(--radius); padding: 22px 26px; transition: transform .25s; }
     .funnel__step:hover { transform: scale(1.02); }
-    .funnel__num {
-      flex: 0 0 44px; height: 44px; display: grid; place-items: center;
-      background: var(--grad); color: #0b0d17; border-radius: 50%;
-      font-weight: 800; font-family: "Sora", sans-serif;
-    }
+    .funnel__num { flex: 0 0 44px; height: 44px; display: grid; place-items: center; background: var(--grad); color: #0b0d17; border-radius: 50%; font-weight: 800; font-family: "Sora", sans-serif; }
     .funnel__step h3 { font-size: 1.1rem; }
     .funnel__step p { color: var(--muted); font-size: .92rem; }
 
     /* ---------- Channels ---------- */
     .channels { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .channel {
-      background: var(--surface); border: 1px solid rgba(255,255,255,.06);
-      border-left: 3px solid var(--accent); border-radius: 14px; padding: 24px;
-      transition: transform .25s, border-left-color .25s;
-    }
+    .channel { background: var(--surface); border: 1px solid rgba(255,255,255,.06); border-left: 3px solid var(--accent); border-radius: 14px; padding: 24px; transition: transform .25s, border-left-color .25s; }
     .channel:hover { transform: translateX(6px); border-left-color: var(--accent-2); }
     .channel span { font-size: 1.8rem; }
     .channel h3 { margin: 10px 0 6px; font-size: 1.15rem; }
     .channel p { color: var(--muted); font-size: .92rem; }
 
     /* ---------- IA section ---------- */
-    .section--ia {
-      background:
-        radial-gradient(circle at 20% 20%, rgba(108,92,231,.18), transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255,106,213,.14), transparent 50%),
-        #0d1020;
-      max-width: 100%;
-    }
+    .section--ia { background: radial-gradient(circle at 18% 20%, rgba(108,92,231,.18), transparent 50%), radial-gradient(circle at 82% 80%, rgba(255,106,213,.14), transparent 50%), #0d1020; max-width: 100%; }
     .section--ia > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
     .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
-    .ia-card {
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--radius); padding: 30px 26px; backdrop-filter: blur(6px);
-      transition: transform .25s, background .25s;
-    }
+    .ia-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 30px 26px; backdrop-filter: blur(6px); transition: transform .25s, background .25s; }
     .ia-card:hover { transform: translateY(-6px); background: rgba(255,255,255,.08); }
-    .ia-card__icon {
-      font-size: 2rem; width: 60px; height: 60px; display: grid; place-items: center;
-      margin-bottom: 16px; background: var(--grad); border-radius: 16px;
-    }
+    .ia-card__icon { font-size: 2rem; width: 60px; height: 60px; display: grid; place-items: center; margin-bottom: 16px; background: var(--grad); border-radius: 16px; }
     .ia-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
     .ia-card p { color: #c3c9e4; font-size: .95rem; }
-    .ia-quote {
-      margin-top: 50px; text-align: center; font-family: "Sora", sans-serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 600; max-width: 800px;
-      background: var(--grad);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    }
+    .ia-quote { margin-top: 50px; text-align: center; font-family: "Sora", sans-serif; font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 600; max-width: 800px; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
     /* ---------- Conclusion ---------- */
     .conclusion { text-align: center; max-width: 760px; margin: 0 auto; }
-    .conclusion h2 { font-size: clamp(1.9rem, 4vw, 3rem); margin: 14px 0 18px; }
-    .stats { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 44px; }
+    .conclusion h2 { font-size: clamp(1.8rem, 4vw, 2.9rem); margin: 14px 0 18px; }
+    .stats { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
     .stat { background: var(--surface); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 26px 34px; min-width: 180px; }
     .stat strong { display: block; font-family: "Sora", sans-serif; font-size: 2.2rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .stat span { color: var(--muted); font-size: .9rem; }
     .footnote { color: #6f7593; font-size: .78rem; margin-top: 22px; }
 
-    /* ---------- Footer ---------- */
+    /* ---------- Steps timeline (guide) ---------- */
+    .steps { position: relative; max-width: 760px; margin: 30px auto 0; padding-left: 34px; }
+    .steps::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(180deg, var(--accent-2), var(--accent), transparent); }
+    .step { position: relative; margin-bottom: 26px; }
+    .step__dot { position: absolute; left: -34px; top: 2px; width: 24px; height: 24px; border-radius: 50%; background: var(--grad); color: #0b0d17; display: grid; place-items: center; font-weight: 800; font-size: .8rem; font-family: "Sora", sans-serif; }
+    .step__card { background: var(--surface); border: 1px solid rgba(255,255,255,.07); border-radius: var(--radius); padding: 22px 26px; transition: transform .25s, border-color .25s; }
+    .step__card:hover { transform: translateX(4px); border-color: rgba(108,92,231,.5); }
+    .step__card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .step__card p { color: var(--muted); font-size: .95rem; }
+    .step__card ul { margin: 12px 0 0 18px; color: var(--muted); font-size: .9rem; }
+    .step__card li { margin-bottom: 5px; }
+
+    /* ---------- Tools ---------- */
+    .tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+    .tool { background: var(--surface-2); border: 1px solid rgba(255,255,255,.06); border-left: 3px solid var(--accent); border-radius: 14px; padding: 20px 22px; }
+    .tool h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .tool p { color: var(--muted); font-size: .9rem; }
+
+    /* ---------- Mistakes ---------- */
+    .mistakes { display: grid; gap: 14px; max-width: 820px; margin: 0 auto; }
+    .mistake { display: flex; gap: 14px; align-items: flex-start; background: rgba(255,106,213,.06); border: 1px solid rgba(255,106,213,.18); border-radius: 14px; padding: 18px 20px; }
+    .mistake span { font-size: 1.3rem; flex: 0 0 auto; }
+    .mistake p { font-size: .95rem; }
+    .mistake strong { color: #ffb3ec; }
+
+    /* ---------- Checklist ---------- */
+    .checklist { background: var(--surface); border: 1px solid rgba(255,255,255,.07); border-radius: var(--radius); padding: 26px clamp(22px, 4vw, 40px); max-width: 760px; margin: 0 auto; }
+    .checklist label { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.05); cursor: pointer; }
+    .checklist label:last-child { border-bottom: 0; }
+    .checklist input { appearance: none; flex: 0 0 22px; height: 22px; margin-top: 2px; border: 2px solid var(--muted); border-radius: 6px; cursor: pointer; position: relative; transition: .2s; }
+    .checklist input:checked { background: var(--grad); border-color: transparent; }
+    .checklist input:checked::after { content: "✓"; position: absolute; inset: 0; display: grid; place-items: center; color: #0b0d17; font-weight: 800; font-size: .8rem; }
+    .checklist input:checked + span { color: var(--muted); text-decoration: line-through; }
+    .checklist span { font-size: .98rem; }
+
+    /* ---------- Resources ---------- */
+    .res-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .res { display: block; text-decoration: none; color: inherit; background: var(--surface); border: 1px solid rgba(255,255,255,.07); border-radius: var(--radius); padding: 24px 26px; transition: transform .25s, border-color .25s; }
+    .res:hover { transform: translateY(-5px); border-color: var(--accent-2); }
+    .res__top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .res__badge { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+    .res__badge--site { color: #0b0d17; background: var(--accent-2); }
+    .res__badge--video { color: #fff; background: var(--accent-3); }
+    .res__badge--cours { color: #0b0d17; background: #ffd166; }
+    .res h3 { font-size: 1.12rem; }
+    .res p { color: var(--muted); font-size: .92rem; margin-top: 6px; }
+    .res__link { display: inline-block; margin-top: 12px; color: var(--accent-2); font-size: .88rem; font-weight: 600; }
+
+    /* ---------- Footer & CTA ---------- */
+    .cta-box { text-align: center; max-width: 760px; margin: 0 auto; background: radial-gradient(circle at 50% 0%, rgba(108,92,231,.2), transparent 70%); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 46px 30px; }
+    .cta-box h2 { margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); max-width: 520px; margin: 0 auto 24px; }
     .footer { text-align: center; padding: 40px 20px; color: var(--muted); font-size: .85rem; border-top: 1px solid rgba(255,255,255,.06); }
 
-    /* ---------- Reveal animation ---------- */
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease, transform .7s ease; }
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(34px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.is-visible { opacity: 1; transform: none; }
 
     /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .hero__inner, .split { grid-template-columns: 1fr; }
+      .hero__art { order: -1; }
+      .split__art { order: -1; }
+      .split .section__head { text-align: center; }
+    }
     @media (max-width: 760px) {
-      .nav__links {
-        position: fixed; top: 62px; right: 0; flex-direction: column; gap: 0;
-        background: rgba(13,16,32,.97); backdrop-filter: blur(14px);
-        width: 240px; padding: 10px 0;
-        border-left: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08);
-        transform: translateX(100%); transition: transform .3s ease;
-      }
-      .nav__links.is-open { transform: translateX(0); }
-      .nav__links a { padding: 14px 24px; }
+      .nav__tabs { position: fixed; top: 60px; right: 0; flex-direction: column; gap: 0; align-items: stretch; background: rgba(13,16,32,.97); backdrop-filter: blur(14px); width: 230px; padding: 10px; border-left: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); transform: translateX(100%); transition: transform .3s ease; }
+      .nav__tabs.is-open { transform: translateX(0); }
+      .tab-btn { text-align: left; }
       .nav__burger { display: flex; }
-      .funnel__step { width: 100% !important; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; scroll-behavior: auto; }
-      .reveal { opacity: 1; transform: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto; } .reveal { opacity: 1; transform: none; } }
   </style>
 </head>
 <body>
   <!-- Navigation -->
   <header class="nav" id="nav">
-    <a href="#accueil" class="nav__logo">
-      <span class="nav__logo-mark">◆</span> Digital&amp;IA
-    </a>
-    <nav class="nav__links" id="navLinks">
-      <a href="#definition">C'est quoi&nbsp;?</a>
-      <a href="#fonctionnement">Comment ça marche</a>
-      <a href="#canaux">Les canaux</a>
-      <a href="#ia">Le rôle de l'IA</a>
-      <a href="#conclusion">Conclusion</a>
-      <a href="guide.html" class="nav__cta">Guide pour débuter →</a>
+    <button class="nav__logo" data-tab="presentation"><span class="nav__logo-mark">◆</span> Digital&amp;IA</button>
+    <nav class="nav__tabs" id="navTabs">
+      <button class="tab-btn is-active" data-tab="presentation">Présentation</button>
+      <button class="tab-btn" data-tab="debuter">Bien débuter</button>
+      <button class="tab-btn" data-tab="ressources">Ressources</button>
     </nav>
-    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="accueil">
-    <div class="hero__glow"></div>
-    <div class="hero__content reveal">
-      <p class="hero__eyebrow">PRÉSENTATION</p>
-      <h1 class="hero__title">
-        Le <span class="grad">marketing digital</span><br />
-        et la révolution de l'<span class="grad">IA</span>
-      </h1>
-      <p class="hero__subtitle">
-        Comprendre en quelques minutes ce qu'est le marketing digital,
-        comment il fonctionne concrètement, et pourquoi l'intelligence
-        artificielle est en train de tout changer.
-      </p>
-      <div class="hero__cta">
-        <a href="#definition" class="btn btn--primary">Découvrir</a>
-        <a href="#ia" class="btn btn--ghost">Le rôle de l'IA →</a>
+  <!-- ============ ONGLET 1 : PRÉSENTATION ============ -->
+  <main class="panel is-active" id="panel-presentation">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__glow"></div>
+      <div class="hero__inner">
+        <div class="hero__text reveal">
+          <p class="hero__eyebrow">PRÉSENTATION</p>
+          <h1 class="hero__title">Le <span class="grad">marketing digital</span> et la révolution de l'<span class="grad">IA</span></h1>
+          <p class="hero__subtitle">Comprendre en quelques minutes ce qu'est le marketing digital, comment il fonctionne, et pourquoi l'intelligence artificielle change tout.</p>
+          <div class="hero__cta">
+            <a href="#definition" class="btn btn--primary">Découvrir ↓</a>
+            <button class="btn btn--ghost" data-tab="debuter">Comment débuter →</button>
+          </div>
+        </div>
+        <div class="hero__art reveal">
+          <!-- Illustration : dashboard marketing + IA -->
+          <svg viewBox="0 0 420 360" role="img" aria-label="Tableau de bord marketing avec graphique de croissance et IA">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#00d2ff"/><stop offset="1" stop-color="#6c5ce7"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#6c5ce7"/><stop offset="1" stop-color="#ff6ad5"/>
+              </linearGradient>
+            </defs>
+            <rect x="30" y="40" width="360" height="240" rx="20" fill="#161a2b" stroke="#2a3050"/>
+            <rect x="30" y="40" width="360" height="44" rx="20" fill="#1c2236"/>
+            <circle cx="56" cy="62" r="6" fill="#ff6ad5"/><circle cx="76" cy="62" r="6" fill="#ffd166"/><circle cx="96" cy="62" r="6" fill="#00d2ff"/>
+            <!-- bars -->
+            <rect x="64" y="190" width="34" height="60" rx="6" fill="url(#g1)"/>
+            <rect x="112" y="160" width="34" height="90" rx="6" fill="url(#g1)"/>
+            <rect x="160" y="130" width="34" height="120" rx="6" fill="url(#g1)" opacity=".85"/>
+            <rect x="208" y="150" width="34" height="100" rx="6" fill="url(#g2)" opacity=".8"/>
+            <!-- growth line -->
+            <polyline points="80,180 130,150 178,120 226,140 300,90" fill="none" stroke="url(#g2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="300" cy="90" r="7" fill="#ff6ad5"/>
+            <!-- AI spark node -->
+            <g transform="translate(312,150)">
+              <circle r="34" fill="#0d1020" stroke="url(#g1)" stroke-width="2"/>
+              <path d="M0,-16 L4,-4 16,0 4,4 0,16 -4,4 -16,0 -4,-4 Z" fill="url(#g2)"/>
+              <text x="0" y="30" text-anchor="middle" font-family="Sora,sans-serif" font-size="11" fill="#a3a9c2">IA</text>
+            </g>
+            <!-- floating social bubbles -->
+            <circle cx="70" cy="320" r="20" fill="#1c2236" stroke="#2a3050"/><text x="70" y="326" text-anchor="middle" font-size="18">📣</text>
+            <circle cx="130" cy="330" r="20" fill="#1c2236" stroke="#2a3050"/><text x="130" y="336" text-anchor="middle" font-size="16">❤️</text>
+            <circle cx="190" cy="322" r="20" fill="#1c2236" stroke="#2a3050"/><text x="190" y="328" text-anchor="middle" font-size="16">🔍</text>
+            <circle cx="250" cy="332" r="20" fill="#1c2236" stroke="#2a3050"/><text x="250" y="338" text-anchor="middle" font-size="16">✉️</text>
+          </svg>
+        </div>
       </div>
-    </div>
-    <div class="hero__scroll">↓ défiler</div>
-  </section>
+    </section>
 
-  <!-- Définition -->
-  <section class="section" id="definition">
-    <div class="section__head reveal">
-      <span class="tag">01 — Définition</span>
-      <h2>En quoi consiste le marketing digital&nbsp;?</h2>
-      <p class="lead">
-        Le marketing digital regroupe l'ensemble des techniques marketing
-        utilisées sur les supports et canaux <strong>numériques</strong> pour
-        promouvoir une marque, des produits ou des services. À la différence
-        du marketing traditionnel (affiches, TV, radio), tout y est
-        <strong>mesurable, ciblé et ajustable en temps réel</strong>.
-      </p>
-    </div>
-    <div class="cards reveal">
-      <article class="card"><div class="card__icon">🎯</div><h3>Cibler</h3><p>Atteindre les bonnes personnes au bon moment grâce aux données et aux centres d'intérêt.</p></article>
-      <article class="card"><div class="card__icon">📊</div><h3>Mesurer</h3><p>Chaque clic, vue ou achat est traçable. On sait précisément ce qui fonctionne.</p></article>
-      <article class="card"><div class="card__icon">🔁</div><h3>Optimiser</h3><p>Les campagnes s'ajustent en continu pour améliorer les résultats et le budget.</p></article>
-      <article class="card"><div class="card__icon">🤝</div><h3>Engager</h3><p>Créer une relation durable avec l'audience via du contenu et de l'interaction.</p></article>
-    </div>
-  </section>
-
-  <!-- Fonctionnement -->
-  <section class="section section--alt" id="fonctionnement">
-    <div class="section__head reveal">
-      <span class="tag">02 — Fonctionnement</span>
-      <h2>Comment ça fonctionne concrètement&nbsp;?</h2>
-      <p class="lead">
-        Le marketing digital suit un cycle logique. On attire des visiteurs,
-        on les convertit en prospects puis en clients, et on les fidélise.
-        C'est ce qu'on appelle l'<strong>entonnoir de conversion</strong>.
-      </p>
-    </div>
-    <div class="funnel reveal">
-      <div class="funnel__step" style="--w:100%"><span class="funnel__num">1</span><div><h3>Attirer (Awareness)</h3><p>Se rendre visible : SEO, publicités, réseaux sociaux, contenu.</p></div></div>
-      <div class="funnel__step" style="--w:82%"><span class="funnel__num">2</span><div><h3>Intéresser (Consideration)</h3><p>Apporter de la valeur : articles, vidéos, newsletters, comparatifs.</p></div></div>
-      <div class="funnel__step" style="--w:64%"><span class="funnel__num">3</span><div><h3>Convertir (Conversion)</h3><p>Transformer l'intérêt en action : achat, inscription, demande de devis.</p></div></div>
-      <div class="funnel__step" style="--w:46%"><span class="funnel__num">4</span><div><h3>Fidéliser (Loyalty)</h3><p>Garder le client : emailing, programmes de fidélité, service client.</p></div></div>
-    </div>
-  </section>
-
-  <!-- Canaux -->
-  <section class="section" id="canaux">
-    <div class="section__head reveal">
-      <span class="tag">03 — Les canaux</span>
-      <h2>Les grands leviers du marketing digital</h2>
-      <p class="lead">Une stratégie efficace combine plusieurs canaux complémentaires.</p>
-    </div>
-    <div class="channels reveal">
-      <div class="channel"><span>🔍</span><h3>SEO</h3><p>Référencement naturel sur Google pour être trouvé gratuitement.</p></div>
-      <div class="channel"><span>💸</span><h3>SEA / Ads</h3><p>Publicité payante (Google Ads, Meta Ads) pour des résultats rapides.</p></div>
-      <div class="channel"><span>📱</span><h3>Réseaux sociaux</h3><p>Instagram, LinkedIn, TikTok : visibilité et communauté.</p></div>
-      <div class="channel"><span>✉️</span><h3>Emailing</h3><p>Communication directe et personnalisée avec ses contacts.</p></div>
-      <div class="channel"><span>✍️</span><h3>Content marketing</h3><p>Articles, vidéos et guides qui attirent et fidélisent.</p></div>
-      <div class="channel"><span>📈</span><h3>Analytics</h3><p>Analyse des données pour piloter et améliorer la stratégie.</p></div>
-    </div>
-  </section>
-
-  <!-- IA -->
-  <section class="section section--ia" id="ia">
-    <div class="section__head reveal">
-      <span class="tag tag--light">04 — Intelligence artificielle</span>
-      <h2>Le rôle <span class="grad">majeur</span> de l'IA</h2>
-      <p class="lead lead--light">
-        L'IA ne remplace pas le marketing : elle le <strong>démultiplie</strong>.
-        Elle automatise les tâches répétitives, analyse des montagnes de
-        données et personnalise l'expérience à grande échelle — ce qu'aucune
-        équipe humaine ne pourrait faire seule.
-      </p>
-    </div>
-    <div class="ia-grid reveal">
-      <article class="ia-card"><div class="ia-card__icon">✨</div><h3>Création de contenu</h3><p>Génération de textes, visuels, emails et publicités en quelques secondes, adaptés à chaque cible.</p></article>
-      <article class="ia-card"><div class="ia-card__icon">🧠</div><h3>Personnalisation</h3><p>Recommandations sur mesure pour chaque utilisateur (à la manière de Netflix ou Amazon).</p></article>
-      <article class="ia-card"><div class="ia-card__icon">🔮</div><h3>Prédiction</h3><p>Anticiper les comportements d'achat et identifier les clients les plus prometteurs.</p></article>
-      <article class="ia-card"><div class="ia-card__icon">💬</div><h3>Chatbots &amp; service client</h3><p>Réponses instantanées 24/7, qualification des prospects et support automatisé.</p></article>
-      <article class="ia-card"><div class="ia-card__icon">⚙️</div><h3>Automatisation</h3><p>Campagnes qui s'optimisent seules : enchères, ciblage et budgets ajustés en continu.</p></article>
-      <article class="ia-card"><div class="ia-card__icon">📐</div><h3>Analyse avancée</h3><p>Traiter d'énormes volumes de données pour transformer le bruit en décisions claires.</p></article>
-    </div>
-    <div class="ia-quote reveal">
-      <p>« L'IA transforme le marketeur en chef d'orchestre&nbsp;:
-      moins de temps sur les tâches manuelles, plus de temps sur la stratégie et la créativité. »</p>
-    </div>
-  </section>
-
-  <!-- Conclusion -->
-  <section class="section" id="conclusion">
-    <div class="conclusion reveal">
-      <span class="tag">05 — Conclusion</span>
-      <h2>En résumé</h2>
-      <p class="lead">
-        Le marketing digital, c'est promouvoir une marque sur les canaux
-        numériques de façon <strong>ciblée, mesurable et optimisable</strong>.
-        L'intelligence artificielle vient amplifier chacune de ces forces :
-        elle rend le marketing plus <strong>rapide, personnalisé et
-        intelligent</strong>. Maîtriser ces deux mondes ensemble, c'est
-        l'avantage décisif de demain.
-      </p>
-      <div class="stats">
-        <div class="stat"><strong>+30%</strong><span>de productivité grâce à l'IA*</span></div>
-        <div class="stat"><strong>24/7</strong><span>de présence client</span></div>
-        <div class="stat"><strong>1:1</strong><span>personnalisation à grande échelle</span></div>
+    <!-- Définition -->
+    <section class="section" id="definition">
+      <div class="section__head reveal">
+        <span class="tag">01 — Définition</span>
+        <h2>En quoi consiste le marketing digital&nbsp;?</h2>
+        <p class="lead">Le marketing digital regroupe l'ensemble des techniques marketing utilisées sur les supports <strong>numériques</strong> pour promouvoir une marque, des produits ou des services. À la différence du marketing traditionnel (affiches, TV, radio), tout y est <strong>mesurable, ciblé et ajustable en temps réel</strong>.</p>
       </div>
-      <p class="footnote">*Ordre de grandeur indicatif selon les usages.</p>
-      <div class="hero__cta" style="margin-top:36px">
-        <a href="guide.html" class="btn btn--primary">Guide : comment débuter →</a>
+      <div class="cards reveal">
+        <article class="card"><div class="card__icon">🎯</div><h3>Cibler</h3><p>Atteindre les bonnes personnes au bon moment grâce aux données et aux centres d'intérêt.</p></article>
+        <article class="card"><div class="card__icon">📊</div><h3>Mesurer</h3><p>Chaque clic, vue ou achat est traçable. On sait précisément ce qui fonctionne.</p></article>
+        <article class="card"><div class="card__icon">🔁</div><h3>Optimiser</h3><p>Les campagnes s'ajustent en continu pour améliorer les résultats et le budget.</p></article>
+        <article class="card"><div class="card__icon">🤝</div><h3>Engager</h3><p>Créer une relation durable avec l'audience via du contenu et de l'interaction.</p></article>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Fonctionnement -->
+    <section class="section section--alt" id="fonctionnement">
+      <div class="section__head reveal">
+        <span class="tag">02 — Fonctionnement</span>
+        <h2>Comment ça fonctionne concrètement&nbsp;?</h2>
+        <p class="lead">Le marketing digital suit un cycle logique : on attire des visiteurs, on les convertit en prospects puis en clients, et on les fidélise. C'est l'<strong>entonnoir de conversion</strong>.</p>
+      </div>
+      <div class="funnel reveal">
+        <div class="funnel__step" style="--w:100%"><span class="funnel__num">1</span><div><h3>Attirer (Awareness)</h3><p>Se rendre visible : SEO, publicités, réseaux sociaux, contenu.</p></div></div>
+        <div class="funnel__step" style="--w:82%"><span class="funnel__num">2</span><div><h3>Intéresser (Consideration)</h3><p>Apporter de la valeur : articles, vidéos, newsletters, comparatifs.</p></div></div>
+        <div class="funnel__step" style="--w:64%"><span class="funnel__num">3</span><div><h3>Convertir (Conversion)</h3><p>Transformer l'intérêt en action : achat, inscription, demande de devis.</p></div></div>
+        <div class="funnel__step" style="--w:46%"><span class="funnel__num">4</span><div><h3>Fidéliser (Loyalty)</h3><p>Garder le client : emailing, programmes de fidélité, service client.</p></div></div>
+      </div>
+    </section>
+
+    <!-- Canaux -->
+    <section class="section" id="canaux">
+      <div class="section__head reveal">
+        <span class="tag">03 — Les canaux</span>
+        <h2>Les grands leviers du marketing digital</h2>
+        <p class="lead">Une stratégie efficace combine plusieurs canaux complémentaires.</p>
+      </div>
+      <div class="channels reveal">
+        <div class="channel"><span>🔍</span><h3>SEO</h3><p>Référencement naturel sur Google pour être trouvé gratuitement.</p></div>
+        <div class="channel"><span>💸</span><h3>SEA / Ads</h3><p>Publicité payante (Google Ads, Meta Ads) pour des résultats rapides.</p></div>
+        <div class="channel"><span>📱</span><h3>Réseaux sociaux</h3><p>Instagram, LinkedIn, TikTok : visibilité et communauté.</p></div>
+        <div class="channel"><span>✉️</span><h3>Emailing</h3><p>Communication directe et personnalisée avec ses contacts.</p></div>
+        <div class="channel"><span>✍️</span><h3>Content marketing</h3><p>Articles, vidéos et guides qui attirent et fidélisent.</p></div>
+        <div class="channel"><span>📈</span><h3>Analytics</h3><p>Analyse des données pour piloter et améliorer la stratégie.</p></div>
+      </div>
+    </section>
+
+    <!-- IA -->
+    <section class="section section--ia" id="ia">
+      <div class="section__head reveal">
+        <span class="tag tag--light">04 — Intelligence artificielle</span>
+        <h2>Le rôle <span class="grad">majeur</span> de l'IA</h2>
+        <p class="lead lead--light">L'IA ne remplace pas le marketing : elle le <strong>démultiplie</strong>. Elle automatise les tâches répétitives, analyse des montagnes de données et personnalise l'expérience à grande échelle.</p>
+      </div>
+      <div class="ia-grid reveal">
+        <article class="ia-card"><div class="ia-card__icon">✨</div><h3>Création de contenu</h3><p>Textes, visuels, emails et publicités en quelques secondes, adaptés à chaque cible.</p></article>
+        <article class="ia-card"><div class="ia-card__icon">🧠</div><h3>Personnalisation</h3><p>Recommandations sur mesure pour chaque utilisateur (à la Netflix ou Amazon).</p></article>
+        <article class="ia-card"><div class="ia-card__icon">🔮</div><h3>Prédiction</h3><p>Anticiper les comportements d'achat et repérer les clients prometteurs.</p></article>
+        <article class="ia-card"><div class="ia-card__icon">💬</div><h3>Chatbots &amp; service client</h3><p>Réponses instantanées 24/7 et qualification des prospects.</p></article>
+        <article class="ia-card"><div class="ia-card__icon">⚙️</div><h3>Automatisation</h3><p>Campagnes qui s'optimisent seules : enchères, ciblage, budgets.</p></article>
+        <article class="ia-card"><div class="ia-card__icon">📐</div><h3>Analyse avancée</h3><p>Transformer d'énormes volumes de données en décisions claires.</p></article>
+      </div>
+      <div class="ia-quote reveal"><p>« L'IA transforme le marketeur en chef d'orchestre : moins de temps sur les tâches manuelles, plus de temps sur la stratégie et la créativité. »</p></div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="section">
+      <div class="conclusion reveal">
+        <span class="tag">05 — Conclusion</span>
+        <h2>En résumé</h2>
+        <p class="lead">Le marketing digital, c'est promouvoir une marque sur les canaux numériques de façon <strong>ciblée, mesurable et optimisable</strong>. L'IA amplifie chacune de ces forces : un marketing plus <strong>rapide, personnalisé et intelligent</strong>.</p>
+        <div class="stats">
+          <div class="stat"><strong>+30%</strong><span>de productivité grâce à l'IA*</span></div>
+          <div class="stat"><strong>24/7</strong><span>de présence client</span></div>
+          <div class="stat"><strong>1:1</strong><span>personnalisation à grande échelle</span></div>
+        </div>
+        <p class="footnote">*Ordre de grandeur indicatif selon les usages.</p>
+        <div class="hero__cta" style="justify-content:center;margin-top:34px">
+          <button class="btn btn--primary" data-tab="debuter">Passer au guide : comment débuter →</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ ONGLET 2 : BIEN DÉBUTER ============ -->
+  <main class="panel" id="panel-debuter">
+    <!-- Hero -->
+    <section class="hero" style="min-height:auto;padding-bottom:30px">
+      <div class="hero__glow"></div>
+      <div class="hero__inner">
+        <div class="hero__text reveal">
+          <p class="hero__eyebrow">GUIDE DU DÉBUTANT</p>
+          <h1 class="hero__title">Bien se lancer en <span class="grad">marketing digital</span></h1>
+          <p class="hero__subtitle">Un parcours simple, étape par étape, pour démarrer du bon pied — même en partant de zéro. Pas de jargon, que du concret.</p>
+          <div class="hero__cta">
+            <a href="#etapes" class="btn btn--primary">Voir les étapes ↓</a>
+            <button class="btn btn--ghost" data-tab="ressources">Ressources utiles →</button>
+          </div>
+        </div>
+        <div class="hero__art reveal">
+          <!-- Illustration : fusée qui décolle -->
+          <svg viewBox="0 0 360 360" role="img" aria-label="Fusée qui décolle">
+            <defs>
+              <linearGradient id="r1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00d2ff"/><stop offset="1" stop-color="#6c5ce7"/></linearGradient>
+              <linearGradient id="r2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd166"/><stop offset="1" stop-color="#ff6ad5"/></linearGradient>
+            </defs>
+            <circle cx="180" cy="180" r="150" fill="#0d1020"/>
+            <circle cx="100" cy="90" r="3" fill="#fff" opacity=".8"/><circle cx="260" cy="80" r="2.5" fill="#fff" opacity=".7"/><circle cx="290" cy="160" r="2" fill="#fff" opacity=".6"/><circle cx="80" cy="220" r="2.5" fill="#fff" opacity=".6"/><circle cx="250" cy="270" r="2" fill="#fff" opacity=".7"/>
+            <!-- rocket body -->
+            <g transform="rotate(35 180 180)">
+              <path d="M180,70 C210,100 220,150 220,200 L140,200 C140,150 150,100 180,70 Z" fill="url(#r1)"/>
+              <circle cx="180" cy="140" r="20" fill="#0d1020"/><circle cx="180" cy="140" r="11" fill="#ff6ad5"/>
+              <path d="M140,200 L110,235 L140,225 Z" fill="#6c5ce7"/>
+              <path d="M220,200 L250,235 L220,225 Z" fill="#6c5ce7"/>
+              <path d="M150,225 L180,300 L210,225 Z" fill="url(#r2)"/>
+              <path d="M163,225 L180,270 L197,225 Z" fill="#ffd166"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Étapes -->
+    <section class="section" id="etapes">
+      <div class="section__head reveal">
+        <span class="tag">Le parcours</span>
+        <h2>Les 7 étapes pour démarrer</h2>
+        <p class="lead">Suis-les dans l'ordre : chaque étape prépare la suivante.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="step__dot">1</div><div class="step__card"><h3>🎯 Définir ton objectif</h3><p>Sache <strong>pourquoi</strong> tu fais du marketing : vendre, te faire connaître, récupérer des contacts ?</p><ul><li>Fixe un objectif clair et chiffré (ex : « 50 inscriptions/mois »).</li><li>Méthode SMART : Spécifique, Mesurable, Atteignable, Réaliste, Temporel.</li></ul></div></div>
+        <div class="step reveal"><div class="step__dot">2</div><div class="step__card"><h3>👤 Connaître ta cible (persona)</h3><p>À qui tu parles change tout : le ton, les canaux, le message.</p><ul><li>Décris ton client idéal : besoins, problèmes, où il passe son temps en ligne.</li><li>Donne-lui un nom et une fiche pour le garder en tête.</li></ul></div></div>
+        <div class="step reveal"><div class="step__dot">3</div><div class="step__card"><h3>📍 Choisir 1 ou 2 canaux (pas 10 !)</h3><p>Mieux vaut être bon sur un canal que médiocre partout.</p><ul><li>B2B → LinkedIn + SEO. Grand public/visuel → Instagram, TikTok.</li><li>Commence petit, maîtrise, puis élargis.</li></ul></div></div>
+        <div class="step reveal"><div class="step__dot">4</div><div class="step__card"><h3>✍️ Créer du contenu utile</h3><p>Le contenu est le carburant. Apporte de la valeur avant de vendre.</p><ul><li>Réponds aux questions que se pose ta cible.</li><li>Garde un rythme régulier et tenable.</li></ul></div></div>
+        <div class="step reveal"><div class="step__dot">5</div><div class="step__card"><h3>🤖 S'appuyer sur l'IA dès le départ</h3><p>L'IA fait gagner un temps fou quand on débute et qu'on est seul.</p><ul><li>Idées, premiers jets, visuels, titres.</li><li>Relecture, traduction, adaptation à plusieurs formats.</li></ul></div></div>
+        <div class="step reveal"><div class="step__dot">6</div><div class="step__card"><h3>📊 Mesurer les résultats</h3><p>Sans mesure, tu navigues à l'aveugle.</p><ul><li>Trafic, taux de clic, taux de conversion, coût par contact.</li><li>Installe un outil d'analyse gratuit dès le jour 1.</li></ul></div></div>
+        <div class="step reveal"><div class="step__dot">7</div><div class="step__card"><h3>🔄 Tester, apprendre, ajuster</h3><p>Le marketing digital est un cycle d'amélioration continue.</p><ul><li>Teste une variation à la fois (A/B testing).</li><li>Garde ce qui marche, abandonne le reste, recommence.</li></ul></div></div>
+      </div>
+    </section>
+
+    <!-- Outils -->
+    <section class="section section--alt" id="outils">
+      <div class="section__head reveal">
+        <span class="tag">La boîte à outils</span>
+        <h2>Des outils gratuits pour commencer</h2>
+        <p class="lead">Pas besoin de gros budget pour débuter.</p>
+      </div>
+      <div class="tools reveal">
+        <div class="tool"><h3>📊 Google Analytics</h3><p>Mesurer le trafic de ton site, gratuitement.</p></div>
+        <div class="tool"><h3>🔍 Search Console</h3><p>Suivre ton référencement et tes mots-clés.</p></div>
+        <div class="tool"><h3>🎨 Canva</h3><p>Créer des visuels pros sans être graphiste.</p></div>
+        <div class="tool"><h3>🤖 Assistant IA</h3><p>Idées, rédaction, brainstorming (ChatGPT, Claude…).</p></div>
+        <div class="tool"><h3>✉️ Brevo / Mailchimp</h3><p>Envoyer des newsletters (offre gratuite).</p></div>
+        <div class="tool"><h3>📅 Buffer / Metricool</h3><p>Programmer tes publications sur les réseaux.</p></div>
+        <div class="tool"><h3>🔑 Ubersuggest</h3><p>Trouver des idées de mots-clés et de contenu.</p></div>
+        <div class="tool"><h3>📈 Meta / Google Ads</h3><p>Lancer une première pub avec un petit budget.</p></div>
+      </div>
+    </section>
+
+    <!-- Erreurs -->
+    <section class="section" id="erreurs">
+      <div class="section__head reveal">
+        <span class="tag">À éviter</span>
+        <h2>Les erreurs classiques du débutant</h2>
+        <p class="lead">Les connaître, c'est déjà les éviter.</p>
+      </div>
+      <div class="mistakes reveal">
+        <div class="mistake"><span>🌪️</span><p><strong>Vouloir être partout à la fois.</strong> Tu t'épuises et rien n'est fait correctement. Concentre-toi.</p></div>
+        <div class="mistake"><span>🗣️</span><p><strong>Trop parler de soi.</strong> Le client veut résoudre SON problème, pas entendre à quel point tu es génial.</p></div>
+        <div class="mistake"><span>📉</span><p><strong>Ne rien mesurer.</strong> Sans données, impossible de savoir quoi améliorer.</p></div>
+        <div class="mistake"><span>⏱️</span><p><strong>Abandonner trop tôt.</strong> Les résultats (surtout en SEO) prennent des semaines, voire des mois.</p></div>
+        <div class="mistake"><span>🤖</span><p><strong>Publier de l'IA sans relire.</strong> L'IA aide, mais le contrôle humain reste indispensable.</p></div>
+      </div>
+    </section>
+
+    <!-- Checklist -->
+    <section class="section section--alt" id="checklist">
+      <div class="section__head reveal">
+        <span class="tag">Passe à l'action</span>
+        <h2>Ta checklist de démarrage</h2>
+        <p class="lead">Coche au fur et à mesure — ta progression est sauvegardée dans ton navigateur.</p>
+      </div>
+      <div class="checklist reveal">
+        <label><input type="checkbox" /><span>J'ai défini un objectif clair et chiffré</span></label>
+        <label><input type="checkbox" /><span>J'ai décrit mon client idéal (persona)</span></label>
+        <label><input type="checkbox" /><span>J'ai choisi 1 ou 2 canaux prioritaires</span></label>
+        <label><input type="checkbox" /><span>J'ai planifié mes 4 premiers contenus</span></label>
+        <label><input type="checkbox" /><span>J'ai testé un assistant IA pour gagner du temps</span></label>
+        <label><input type="checkbox" /><span>J'ai installé un outil de mesure (analytics)</span></label>
+        <label><input type="checkbox" /><span>J'ai prévu un moment chaque semaine pour analyser et ajuster</span></label>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ ONGLET 3 : RESSOURCES ============ -->
+  <main class="panel" id="panel-ressources">
+    <section class="hero" style="min-height:auto;padding-bottom:20px">
+      <div class="hero__glow"></div>
+      <div class="hero__inner" style="grid-template-columns:1fr;text-align:center">
+        <div class="hero__text reveal" style="margin:0 auto">
+          <p class="hero__eyebrow">POUR ALLER PLUS LOIN</p>
+          <h1 class="hero__title">Sites &amp; vidéos <span class="grad">utiles</span></h1>
+          <p class="hero__subtitle" style="margin-left:auto;margin-right:auto">Une sélection de ressources gratuites et fiables pour te former et progresser à ton rythme.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formations / sites -->
+    <section class="section" id="formations">
+      <div class="section__head reveal">
+        <span class="tag">Se former gratuitement</span>
+        <h2>Cours &amp; certifications</h2>
+        <p class="lead">Des formations reconnues, souvent gratuites et certifiantes.</p>
+      </div>
+      <div class="res-grid reveal">
+        <a class="res" href="https://learndigital.withgoogle.com/atelierdigital" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--cours">Cours</span></div>
+          <h3>Google — Atelier Digital</h3>
+          <p>Les fondamentaux du marketing digital, avec une certification gratuite reconnue.</p>
+          <span class="res__link">learndigital.withgoogle.com →</span>
+        </a>
+        <a class="res" href="https://academy.hubspot.com/fr" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--cours">Cours</span></div>
+          <h3>HubSpot Academy</h3>
+          <p>Cours gratuits sur l'inbound marketing, l'emailing, le contenu et le SEO.</p>
+          <span class="res__link">academy.hubspot.com →</span>
+        </a>
+        <a class="res" href="https://skillshop.exceedlms.com/student/catalog" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--cours">Cours</span></div>
+          <h3>Google Skillshop</h3>
+          <p>Se certifier sur Google Ads, Analytics et les outils publicitaires Google.</p>
+          <span class="res__link">skillshop.exceedlms.com →</span>
+        </a>
+        <a class="res" href="https://www.facebook.com/business/learn" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--cours">Cours</span></div>
+          <h3>Meta Blueprint</h3>
+          <p>Apprendre la publicité sur Facebook et Instagram, étape par étape.</p>
+          <span class="res__link">facebook.com/business/learn →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Sites de référence -->
+    <section class="section section--alt" id="sites">
+      <div class="section__head reveal">
+        <span class="tag">À suivre</span>
+        <h2>Sites &amp; blogs de référence</h2>
+        <p class="lead">Pour rester à jour sur les tendances et bonnes pratiques.</p>
+      </div>
+      <div class="res-grid reveal">
+        <a class="res" href="https://moz.com/beginners-guide-to-seo" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--site">Site</span></div>
+          <h3>Moz — Guide du SEO</h3>
+          <p>LA référence pour comprendre le référencement naturel de A à Z.</p>
+          <span class="res__link">moz.com →</span>
+        </a>
+        <a class="res" href="https://blog.hubspot.fr/" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--site">Site</span></div>
+          <h3>Blog HubSpot (FR)</h3>
+          <p>Articles concrets sur le marketing, la vente et le contenu, en français.</p>
+          <span class="res__link">blog.hubspot.fr →</span>
+        </a>
+        <a class="res" href="https://www.blogdumoderateur.com/" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--site">Site</span></div>
+          <h3>Blog du Modérateur</h3>
+          <p>Actus du web, réseaux sociaux et marketing digital, mises à jour quotidiennement.</p>
+          <span class="res__link">blogdumoderateur.com →</span>
+        </a>
+        <a class="res" href="https://neilpatel.com/fr/blog/" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--site">Site</span></div>
+          <h3>Blog de Neil Patel</h3>
+          <p>Conseils actionnables en SEO et marketing de contenu par un expert reconnu.</p>
+          <span class="res__link">neilpatel.com/fr →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Vidéos / chaînes -->
+    <section class="section" id="videos">
+      <div class="section__head reveal">
+        <span class="tag">À regarder</span>
+        <h2>Vidéos &amp; chaînes YouTube</h2>
+        <p class="lead">Apprendre en vidéo, gratuitement et à son rythme.</p>
+      </div>
+      <div class="res-grid reveal">
+        <a class="res" href="https://www.youtube.com/@GoogleFrance" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--video">Vidéo</span></div>
+          <h3>Google France</h3>
+          <p>Tutoriels et bonnes pratiques officiels sur les outils Google.</p>
+          <span class="res__link">▶ Voir la chaîne →</span>
+        </a>
+        <a class="res" href="https://www.youtube.com/results?search_query=marketing+digital+pour+débutant" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--video">Vidéo</span></div>
+          <h3>« Marketing digital débutant »</h3>
+          <p>Une recherche YouTube prête à l'emploi pour trouver des intros claires.</p>
+          <span class="res__link">▶ Lancer la recherche →</span>
+        </a>
+        <a class="res" href="https://www.youtube.com/@AhrefsCom" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--video">Vidéo</span></div>
+          <h3>Ahrefs (SEO)</h3>
+          <p>Des tutos SEO très pédagogiques (en anglais, sous-titrables).</p>
+          <span class="res__link">▶ Voir la chaîne →</span>
+        </a>
+        <a class="res" href="https://www.youtube.com/results?search_query=intelligence+artificielle+marketing" target="_blank" rel="noopener">
+          <div class="res__top"><span class="res__badge res__badge--video">Vidéo</span></div>
+          <h3>« IA &amp; marketing »</h3>
+          <p>Pour découvrir des cas d'usage concrets de l'IA dans le marketing.</p>
+          <span class="res__link">▶ Lancer la recherche →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA retour -->
+    <section class="section">
+      <div class="cta-box reveal">
+        <h2>Prêt(e) à te lancer&nbsp;?</h2>
+        <p>Reprends le guide pas à pas, ou revois les fondamentaux pour garder le cap.</p>
+        <div class="hero__cta" style="justify-content:center">
+          <button class="btn btn--primary" data-tab="debuter">← Revenir au guide</button>
+          <button class="btn btn--ghost" data-tab="presentation">La présentation</button>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
-    <p>Présentation — Marketing Digital &amp; IA · Réalisée à des fins pédagogiques</p>
+    <p>Marketing Digital &amp; IA — Présentation, guide &amp; ressources · Réalisé à des fins pédagogiques</p>
   </footer>
 
   <script>
-    // --- Menu burger (mobile) ---
-    const burger = document.getElementById("burger");
-    const navLinks = document.getElementById("navLinks");
-    burger.addEventListener("click", () => navLinks.classList.toggle("is-open"));
-    navLinks.querySelectorAll("a").forEach((link) =>
-      link.addEventListener("click", () => navLinks.classList.remove("is-open"))
+    const tabs = document.querySelectorAll(".tab-btn");
+    const panels = document.querySelectorAll(".panel");
+    const navTabs = document.getElementById("navTabs");
+    const nav = document.getElementById("nav");
+
+    // Joue l'animation d'apparition (avec cascade) sur un panneau
+    function revealPanel(panel) {
+      const els = panel.querySelectorAll(".reveal");
+      els.forEach((el) => el.classList.remove("is-visible"));
+      els.forEach((el, i) => setTimeout(() => el.classList.add("is-visible"), 60 + i * 70));
+    }
+
+    function activate(name) {
+      tabs.forEach((t) => t.classList.toggle("is-active", t.dataset.tab === name));
+      panels.forEach((p) => p.classList.toggle("is-active", p.id === "panel-" + name));
+      const active = document.getElementById("panel-" + name);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      revealPanel(active);
+      navTabs.classList.remove("is-open");
+    }
+
+    // N'importe quel élément avec data-tab change d'onglet
+    document.querySelectorAll("[data-tab]").forEach((el) =>
+      el.addEventListener("click", () => activate(el.dataset.tab))
     );
 
-    // --- Effet de scroll sur la nav ---
-    const nav = document.getElementById("nav");
-    window.addEventListener("scroll", () => {
-      nav.classList.toggle("nav--scrolled", window.scrollY > 30);
+    // Menu burger (mobile)
+    document.getElementById("burger").addEventListener("click", () =>
+      navTabs.classList.toggle("is-open")
+    );
+
+    // Effet de scroll sur la nav
+    window.addEventListener("scroll", () =>
+      nav.classList.toggle("nav--scrolled", window.scrollY > 30)
+    );
+
+    // Sauvegarde de la checklist (localStorage)
+    document.querySelectorAll(".checklist input").forEach((box, i) => {
+      const key = "guide-check-" + i;
+      box.checked = localStorage.getItem(key) === "1";
+      box.addEventListener("change", () => localStorage.setItem(key, box.checked ? "1" : "0"));
     });
 
-    // --- Apparition des éléments au scroll ---
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    // Affiche le 1er onglet au chargement
+    revealPanel(document.getElementById("panel-presentation"));
   </script>
 </body>
 </html>
