@@ -72,14 +72,23 @@ C'est un site **statique** : il s'héberge partout, gratuitement ou presque.
 Tout est pensé pour être modifié rapidement, sans toucher à la logique.
 
 ### 1. Couleurs & marque
-Les couleurs sont centralisées dans les **variables CSS** en haut de `assets/css/style.css` (`:root`) :
+Le site adopte une direction artistique **« Mission Control »** : éditorial rétro-futuriste
+(papier crème, vermillon solaire, encre chaude, or & sarcelle en soutien), typographie
+**Fraunces** (titres) + **Hanken Grotesk** (texte) + **Space Mono** (labels), grain papier,
+ombres dures et bandeaux défilants.
+
+Toutes les couleurs sont centralisées dans les **variables CSS** en haut de
+`assets/css/style.css` (`:root`) :
 
 ```css
---violet: #7c5cff;   --blue: #2f6bff;   --cyan: #22d3ee;
---coral:  #ff6b5d;   --mint: #34d399;   --gold: #ffc857;
+--vermilion: #ee4422;   --gold: #f4b13a;   --teal: #0f7d6b;   --mint: #62e0c4;
+--paper:     #f3ebdc;   --ink:  #1b1510;   /* crème & encre */
 ```
 
-Change ces valeurs pour reskiner tout le site d'un coup.
+Change ces valeurs pour reskiner tout le site d'un coup. Les anciens noms
+(`--violet`, `--blue`, `--cyan`…) restent définis comme alias pour compatibilité.
+Les polices se changent via `--font-head`, `--font-body`, `--font-mono` (+ le lien
+Google Fonts dans le `<head>` de chaque page).
 
 ### 2. Nom & logo
 - Le nom **« Décolle »** apparaît dans le `<header>` (classe `.brand`) et le `<footer>` de chaque page : remplace-le par ta marque.

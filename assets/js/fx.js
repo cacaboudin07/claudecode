@@ -86,7 +86,7 @@
         var ry = (px - 0.5) * 2 * max;              // rotateY
         var rx = (0.5 - py) * 2 * max;              // rotateX
         el.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) translateY(-6px)";
-        el.style.boxShadow = (-ry / 2) + "px " + (rx / 2 + 18) + "px 48px -18px rgba(40,30,90,.45)";
+        el.style.boxShadow = (-ry / 2) + "px " + (rx / 2 + 18) + "px 48px -18px rgba(27,21,16,.4)";
         shine.style.setProperty("--gx", (px * 100).toFixed(1) + "%");
         shine.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
         el.classList.add("is-tilting");
@@ -191,7 +191,7 @@
         ctx.globalAlpha = Math.max(0, a) * s.z;
         ctx.beginPath();
         ctx.arc(s.x + ox, s.y + oy, s.r * s.z + 0.2, 0, 6.2832);
-        ctx.fillStyle = i % 7 === 0 ? "#8fb4ff" : "#ffffff";
+        ctx.fillStyle = i % 5 === 0 ? "#f4b13a" : "#f8f3e9";
         ctx.fill();
       }
       ctx.globalAlpha = 1;

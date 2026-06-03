@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Lance-toi 🚀 — Simulateur : lance ton premier produit digital | Décolle</title>
 <meta name="description" content="Un simulateur interactif et ludique pour lancer ton premier produit digital pas à pas : choisis ton produit, ton audience, ton prix, ton canal et ton accroche, puis observe tes résultats. Apprends en jouant." />
-<meta name="theme-color" content="#0a0a16" />
+<meta name="theme-color" content="#17120e" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Lance-toi — Simulateur de lancement de produit digital" />
@@ -13,7 +13,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/game.css" />
 <link rel="stylesheet" href="assets/css/fx.css" />
@@ -24,7 +24,7 @@
 <div class="pt" id="pt" aria-hidden="true">
   <div class="pt__warp"><i style="--a:0deg"></i><i style="--a:30deg"></i><i style="--a:60deg"></i><i style="--a:90deg"></i><i style="--a:120deg"></i><i style="--a:150deg"></i><i style="--a:180deg"></i><i style="--a:210deg"></i><i style="--a:240deg"></i><i style="--a:270deg"></i><i style="--a:300deg"></i><i style="--a:330deg"></i></div>
   <svg class="pt__rocket" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="ptrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9acff"/><stop offset=".5" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>
+    <defs><linearGradient id="ptrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8f3e9"/><stop offset=".5" stop-color="#f4b13a"/><stop offset="1" stop-color="#ee4422"/></linearGradient></defs>
     <path d="M50 6c16 9 24 24 24 42 0 13-3 24-8 33a11 11 0 0 1-32 0c-5-9-8-20-8-33C26 30 34 15 50 6Z" fill="url(#ptrk)"/>
     <circle cx="50" cy="46" r="10" fill="#0a0a16"/><circle cx="50" cy="46" r="5" fill="#22d3ee"/>
     <path d="M30 84c-9 3-15 12-15 24 9-2 15-6 19-13Z" fill="#5b3fe0"/>
@@ -33,6 +33,9 @@
   </svg>
   <div class="pt__label">Décolle<span class="dot">.</span></div>
 </div>
+
+<!-- Grain papier (texture globale) -->
+<div class="grain" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="top">
@@ -67,6 +70,14 @@
     </div>
   </div>
 </section>
+
+<!-- ================= BANDEAU DÉFILANT ================= -->
+<div class="marquee marquee--ink" aria-hidden="true">
+  <div class="marquee__track">
+    <span>T-minus 00:05</span><span>Choisis ton produit</span><span>Vise ton audience</span><span>Fixe ton prix</span><span>Décollage imminent</span>
+    <span>T-minus 00:05</span><span>Choisis ton produit</span><span>Vise ton audience</span><span>Fixe ton prix</span><span>Décollage imminent</span>
+  </div>
+</div>
 
 <!-- ================= SIMULATEUR ================= -->
 <section class="section sim-wrap" style="padding-top:0">

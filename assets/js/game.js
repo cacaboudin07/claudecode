@@ -379,7 +379,7 @@
   /* ------------------------------ Confettis --------------------------- */
   function burst(count) {
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var colors = ["#7c5cff", "#2f6bff", "#22d3ee", "#ff6b5d", "#ffc857", "#34d399"];
+    var colors = ["#ee4422", "#f4b13a", "#0f7d6b", "#62e0c4", "#cf3417", "#ffd9a0"];
     var frag = document.createDocumentFragment();
     for (var i = 0; i < count; i++) {
       var piece = document.createElement("i");
@@ -423,11 +423,11 @@
 
   function rocketSVG() {
     return '<svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">' +
-      '<defs><linearGradient id="rk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9acff"/><stop offset="0.5" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>' +
+      '<defs><linearGradient id="rk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8f3e9"/><stop offset="0.5" stop-color="#f4b13a"/><stop offset="1" stop-color="#ee4422"/></linearGradient></defs>' +
       '<path d="M50 6c16 9 24 24 24 42 0 13-3 24-8 33a11 11 0 0 1-32 0c-5-9-8-20-8-33C26 30 34 15 50 6Z" fill="url(#rk)"/>' +
-      '<circle cx="50" cy="46" r="10" fill="#0a0a16"/><circle cx="50" cy="46" r="5" fill="#22d3ee"/>' +
-      '<path d="M30 84c-9 3-15 12-15 24 9-2 15-6 19-13Z" fill="#5b3fe0"/>' +
-      '<path d="M70 84c9 3 15 12 15 24-9-2-15-6-19-13Z" fill="#5b3fe0"/>' +
+      '<circle cx="50" cy="46" r="10" fill="#17120e"/><circle cx="50" cy="46" r="5" fill="#62e0c4"/>' +
+      '<path d="M30 84c-9 3-15 12-15 24 9-2 15-6 19-13Z" fill="#cf3417"/>' +
+      '<path d="M70 84c9 3 15 12 15 24-9-2-15-6-19-13Z" fill="#cf3417"/>' +
       '<path d="M40 96c6 4 14 4 20 0" stroke="#fff" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/>' +
       "</svg>";
   }
