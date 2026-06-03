@@ -77,6 +77,19 @@
     counters.forEach(animateCount);
   }
 
+  /* ---- 4b. Barres de données (remplissage au scroll) ------------- */
+  var bars = document.querySelectorAll(".bar-fill[data-w]");
+  if (bars.length && "IntersectionObserver" in window) {
+    var ioBars = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.style.width = e.target.getAttribute("data-w"); ioBars.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+    bars.forEach(function (el) { ioBars.observe(el); });
+  } else {
+    bars.forEach(function (el) { el.style.width = el.getAttribute("data-w"); });
+  }
+
   /* ---- 5. Vidéos YouTube "lite" (clic pour charger) --------------- */
   document.querySelectorAll(".lyt").forEach(function (el) {
     var id = el.getAttribute("data-yt");

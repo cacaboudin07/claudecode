@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Guide du débutant — Décolle | Bien débuter, se lancer & les outils</title>
 <meta name="description" content="Le guide complet pour débuter en marketing digital : l'état d'esprit, les 6 étapes pour lancer ton premier produit, les meilleurs outils (gratuits et IA), des vidéos et formations utiles." />
-<meta name="theme-color" content="#17120e" />
+<meta name="theme-color" content="#0a0a16" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Guide du débutant — Décolle" />
@@ -13,9 +13,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/fx.css" />
+<link rel="stylesheet" href="assets/css/space.css" />
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 <div class="pt" id="pt" aria-hidden="true">
   <div class="pt__warp"><i style="--a:0deg"></i><i style="--a:30deg"></i><i style="--a:60deg"></i><i style="--a:90deg"></i><i style="--a:120deg"></i><i style="--a:150deg"></i><i style="--a:180deg"></i><i style="--a:210deg"></i><i style="--a:240deg"></i><i style="--a:270deg"></i><i style="--a:300deg"></i><i style="--a:330deg"></i></div>
   <svg class="pt__rocket" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="ptrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8f3e9"/><stop offset=".5" stop-color="#f4b13a"/><stop offset="1" stop-color="#ee4422"/></linearGradient></defs>
+    <defs><linearGradient id="ptrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9acff"/><stop offset=".5" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>
     <path d="M50 6c16 9 24 24 24 42 0 13-3 24-8 33a11 11 0 0 1-32 0c-5-9-8-20-8-33C26 30 34 15 50 6Z" fill="url(#ptrk)"/>
     <circle cx="50" cy="46" r="10" fill="#0a0a16"/><circle cx="50" cy="46" r="5" fill="#22d3ee"/>
     <path d="M30 84c-9 3-15 12-15 24 9-2 15-6 19-13Z" fill="#5b3fe0"/>
@@ -32,9 +33,6 @@
   </svg>
   <div class="pt__label">Décolle<span class="dot">.</span></div>
 </div>
-
-<!-- Grain papier (texture globale) -->
-<div class="grain" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="top">
@@ -76,14 +74,6 @@
     </div>
   </div>
 </section>
-
-<!-- ================= BANDEAU DÉFILANT ================= -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span>Bien débuter</span><span>Lancer en 6 étapes</span><span>Les bons outils</span><span>Se former gratuitement</span><span>Passer à l'action</span>
-    <span>Bien débuter</span><span>Lancer en 6 étapes</span><span>Les bons outils</span><span>Se former gratuitement</span><span>Passer à l'action</span>
-  </div>
-</div>
 
 <!-- ================= 1. BIEN DÉBUTER ================= -->
 <section class="section" id="debuter">
@@ -359,8 +349,8 @@
   <div class="container">
     <div class="cta-band reveal">
       <div class="cta-band__glow" aria-hidden="true"></div>
-      <span class="eyebrow">À toi de jouer</span>
-      <h2>Tu as les bases. <span>Maintenant, lance-toi.</span></h2>
+      <span class="eyebrow" style="color:#c9beff;background:rgba(124,92,255,.2)">À toi de jouer</span>
+      <h2>Tu as les bases. <span style="background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent">Maintenant, lance-toi.</span></h2>
       <p>Mets la théorie en pratique sans aucun risque : lance ton premier produit digital dans notre simulateur interactif et vois l'effet de chaque décision.</p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn btn--primary btn--lg" href="lance-toi.html">Ouvrir le simulateur 🚀</a>
@@ -418,6 +408,7 @@
   </div>
 </footer>
 
+<script src="assets/js/space-bg.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/fx.js"></script>
 </body>

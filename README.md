@@ -34,14 +34,23 @@ Le site comprend **3 pages** :
     ├── css/
     │   ├── style.css     # Design system global (couleurs, composants, responsive)
     │   ├── game.css      # Styles spécifiques au simulateur
-    │   └── fx.css        # Effets : transitions de page, scène 3D, cartes 3D, aurores
+    │   ├── fx.css        # Effets : transitions de page, scène 3D, cartes 3D, aurores
+    │   └── space.css     # Fond shader + hero cinématique de décollage + données
     ├── js/
-    │   ├── main.js       # Navigation, animations, compteurs, vidéos « lite »
+    │   ├── main.js       # Navigation, animations, compteurs, barres de données
     │   ├── game.js       # Logique du simulateur (états, calcul, résultats)
-    │   └── fx.js         # Transitions de page, tilt 3D, parallaxe, champ d'étoiles
+    │   ├── fx.js         # Transitions de page, tilt 3D, parallaxe
+    │   ├── space-bg.js   # Fond spatial animé (shader WebGL : aurore + étoiles filantes)
+    │   └── launch.js     # Hero cinématique « DÉCOLLAGE » piloté par le scroll
     └── img/
         └── favicon.svg   # Logo / favicon (fusée)
 ```
+
+> **Thème « espace ».** L'accueil s'ouvre sur une **séquence de décollage au scroll**
+> (fusée au sol → allumage + fumée → ascension → arrivée dans l'espace), et un
+> **fond shader WebGL** (aurore cosmique + étoiles filantes) anime tout le site.
+> Les deux dégradent proprement : sans WebGL le fond reste sombre, sans JS le hero
+> reste un plein-écran simple, et `prefers-reduced-motion` est respecté.
 
 ---
 
@@ -72,23 +81,14 @@ C'est un site **statique** : il s'héberge partout, gratuitement ou presque.
 Tout est pensé pour être modifié rapidement, sans toucher à la logique.
 
 ### 1. Couleurs & marque
-Le site adopte une direction artistique **« Mission Control »** : éditorial rétro-futuriste
-(papier crème, vermillon solaire, encre chaude, or & sarcelle en soutien), typographie
-**Fraunces** (titres) + **Hanken Grotesk** (texte) + **Space Mono** (labels), grain papier,
-ombres dures et bandeaux défilants.
-
-Toutes les couleurs sont centralisées dans les **variables CSS** en haut de
-`assets/css/style.css` (`:root`) :
+Les couleurs sont centralisées dans les **variables CSS** en haut de `assets/css/style.css` (`:root`) :
 
 ```css
---vermilion: #ee4422;   --gold: #f4b13a;   --teal: #0f7d6b;   --mint: #62e0c4;
---paper:     #f3ebdc;   --ink:  #1b1510;   /* crème & encre */
+--violet: #7c5cff;   --blue: #2f6bff;   --cyan: #22d3ee;
+--coral:  #ff6b5d;   --mint: #34d399;   --gold: #ffc857;
 ```
 
-Change ces valeurs pour reskiner tout le site d'un coup. Les anciens noms
-(`--violet`, `--blue`, `--cyan`…) restent définis comme alias pour compatibilité.
-Les polices se changent via `--font-head`, `--font-body`, `--font-mono` (+ le lien
-Google Fonts dans le `<head>` de chaque page).
+Change ces valeurs pour reskiner tout le site d'un coup.
 
 ### 2. Nom & logo
 - Le nom **« Décolle »** apparaît dans le `<header>` (classe `.brand`) et le `<footer>` de chaque page : remplace-le par ta marque.

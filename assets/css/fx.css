@@ -11,7 +11,7 @@
   position: fixed; inset: 0; z-index: 9999; pointer-events: none;
   display: grid; place-items: center; overflow: hidden;
   background:
-    radial-gradient(120% 90% at 50% -8%, #3a1c10 0%, #1f1812 52%, #120c08 100%);
+    radial-gradient(120% 90% at 50% -10%, #221a52 0%, #0c0b1c 55%, #07060f 100%);
   transform: translateY(0);
   animation: ptUp .9s cubic-bezier(.7,.02,.32,1) .12s forwards;
 }
@@ -19,17 +19,17 @@
 @keyframes ptUp   { from { transform: translateY(0); }     to { transform: translateY(-101%); } }
 @keyframes ptDown { from { transform: translateY(-101%); } to { transform: translateY(0); } }
 
-.pt__rocket { width: clamp(70px, 12vw, 104px); filter: drop-shadow(0 16px 30px rgba(238,68,34,.6)); animation: ptRocket .9s cubic-bezier(.7,.02,.32,1) forwards; }
+.pt__rocket { width: clamp(70px, 12vw, 104px); filter: drop-shadow(0 16px 30px rgba(124,92,255,.7)); animation: ptRocket .9s cubic-bezier(.7,.02,.32,1) forwards; }
 @keyframes ptRocket { 0% { transform: translateY(60px) scale(.85); opacity: 0; } 22% { opacity: 1; } 100% { transform: translateY(-58vh) scale(.4); opacity: 0; } }
 
 .pt__label { position: absolute; bottom: 16%; font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; color: #fff; letter-spacing: -.02em; opacity: 0; animation: ptLabel .9s ease forwards; }
-.pt__label .dot { color: var(--vermilion); }
+.pt__label .dot { color: var(--cyan); }
 @keyframes ptLabel { 0%,60% { opacity: 0; } 75% { opacity: .9; } 100% { opacity: 0; } }
 
 /* lignes de "warp" radiales */
 .pt__warp { position: absolute; left: 50%; top: 50%; pointer-events: none; }
 .pt__warp i { position: absolute; left: 0; top: 0; width: 2px; height: 26vh; border-radius: 2px;
-  background: linear-gradient(transparent, rgba(244,177,58,.9), transparent); transform-origin: center top; opacity: 0;
+  background: linear-gradient(transparent, rgba(160,180,255,.85), transparent); transform-origin: center top; opacity: 0;
   transform: rotate(var(--a, 0deg)) translateY(0) scaleY(0);
   animation: warp .9s ease-out forwards; }
 @keyframes warp {
@@ -42,7 +42,7 @@
 /* 2. Barre de progression de défilement                              */
 /* ------------------------------------------------------------------ */
 .scroll-prog { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 120; pointer-events: none; }
-.scroll-prog i { display: block; height: 100%; width: 0; background: var(--grad-brand); box-shadow: 0 0 12px rgba(238,68,34,.6); transition: width .1s linear; }
+.scroll-prog i { display: block; height: 100%; width: 0; background: var(--grad-brand); box-shadow: 0 0 12px rgba(124,92,255,.7); transition: width .1s linear; }
 
 /* ------------------------------------------------------------------ */
 /* 3. Révélations enrichies (override de style.css)                   */
@@ -76,8 +76,8 @@
 .section--space { isolation: isolate; }
 .section--space::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .8;
   background:
-    radial-gradient(45% 55% at 12% 18%, rgba(238,68,34,.20), transparent 70%),
-    radial-gradient(40% 50% at 88% 82%, rgba(244,177,58,.16), transparent 70%);
+    radial-gradient(45% 55% at 12% 18%, rgba(124,92,255,.22), transparent 70%),
+    radial-gradient(40% 50% at 88% 82%, rgba(34,211,238,.16), transparent 70%);
   animation: aurora 18s ease-in-out infinite alternate; }
 @keyframes aurora { 0% { transform: translate3d(-3%, -2%, 0) scale(1); } 100% { transform: translate3d(4%, 3%, 0) scale(1.12); } }
 .section--space > .container { position: relative; z-index: 1; }
@@ -89,7 +89,7 @@
 
 /* lueur qui suit la souris dans le hero */
 .hero__spot { position: absolute; width: 540px; height: 540px; border-radius: 50%; pointer-events: none; z-index: 0;
-  background: radial-gradient(circle, rgba(244,177,58,.18), transparent 60%); transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(124,92,255,.18), transparent 60%); transform: translate(-50%, -50%);
   left: 50%; top: 40%; transition: left .3s ease-out, top .3s ease-out; mix-blend-mode: screen; }
 
 /* ------------------------------------------------------------------ */
@@ -106,24 +106,24 @@
 
 /* halo derrière la scène */
 .scene__glow { position: absolute; left: 50%; top: 50%; width: 78%; height: 78%; transform: translate(-50%,-50%);
-  border-radius: 50%; background: radial-gradient(circle, rgba(238,68,34,.5), rgba(244,177,58,.2) 45%, transparent 70%);
+  border-radius: 50%; background: radial-gradient(circle, rgba(124,92,255,.55), rgba(47,107,255,.18) 45%, transparent 70%);
   filter: blur(26px); z-index: -1; animation: pulseGlow 6s ease-in-out infinite; }
 @keyframes pulseGlow { 0%,100% { opacity: .8; transform: translate(-50%,-50%) scale(1); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.08); } }
 
 /* la planète */
 .planet { position: absolute; left: 27%; top: 27%; width: 46%; aspect-ratio: 1; border-radius: 50%;
   background:
-    radial-gradient(circle at 33% 28%, #ffe0a8 0%, #f4b13a 24%, #ee6a2c 50%, #cf3417 74%, #6e2410 100%);
+    radial-gradient(circle at 33% 28%, #cabfff 0%, #8b75ff 26%, #6b54f0 48%, #3f2fae 72%, #241a6b 100%);
   box-shadow:
-    inset -16px -20px 46px rgba(40,12,4,.6),
-    inset 12px 14px 30px rgba(255,240,210,.34),
-    0 0 60px rgba(238,68,34,.5);
+    inset -16px -20px 46px rgba(5,4,20,.6),
+    inset 12px 14px 30px rgba(200,210,255,.32),
+    0 0 60px rgba(124,92,255,.5);
   overflow: hidden; transform: translateZ(2px); }
 /* bandes / "rotation" de surface */
 .planet::before { content: ""; position: absolute; inset: -20% -10%;
   background:
-    radial-gradient(40% 22% at 30% 35%, rgba(255,235,200,.30), transparent 60%),
-    radial-gradient(50% 26% at 70% 70%, rgba(140,40,16,.55), transparent 60%),
+    radial-gradient(40% 22% at 30% 35%, rgba(180,200,255,.30), transparent 60%),
+    radial-gradient(50% 26% at 70% 70%, rgba(60,40,140,.6), transparent 60%),
     repeating-linear-gradient(8deg, rgba(255,255,255,.05) 0 8px, transparent 8px 22px);
   animation: planetRoll 22s linear infinite; }
 @keyframes planetRoll { to { transform: translateX(-40%); } }
@@ -134,8 +134,8 @@
 /* anneaux */
 .ring { position: absolute; left: 50%; top: 50%; width: 86%; aspect-ratio: 1; border-radius: 50%;
   transform: translate(-50%,-50%) rotateX(75deg); }
-.ring--1 { border: 3px solid rgba(244,177,58,.6); box-shadow: 0 0 26px rgba(244,177,58,.4), inset 0 0 20px rgba(244,177,58,.25); }
-.ring--2 { width: 102%; border: 2px dashed rgba(248,243,233,.4); transform: translate(-50%,-50%) rotateX(75deg) rotateZ(18deg); }
+.ring--1 { border: 3px solid rgba(124,92,255,.5); box-shadow: 0 0 26px rgba(124,92,255,.45), inset 0 0 20px rgba(124,92,255,.3); }
+.ring--2 { width: 102%; border: 2px dashed rgba(34,211,238,.45); transform: translate(-50%,-50%) rotateX(75deg) rotateZ(18deg); }
 
 /* lunes en orbite */
 .orbit3d { position: absolute; left: 50%; top: 50%; width: 90%; aspect-ratio: 1;
@@ -144,14 +144,14 @@
 .orbit3d--2 { width: 112%; animation: orbitSpin 15s linear infinite reverse; }
 @keyframes orbitSpin { to { transform: translate(-50%,-50%) rotateX(75deg) rotateZ(360deg); } }
 .moon { position: absolute; top: -10px; left: 50%; width: 20px; height: 20px; margin-left: -10px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff, #f3ebdc 60%, #c9bca3);
-  box-shadow: 0 0 16px rgba(248,243,233,.6); transform: rotateX(-75deg); }
+  background: radial-gradient(circle at 35% 30%, #ffffff, #b9c4e8 60%, #8794bf);
+  box-shadow: 0 0 16px rgba(200,215,255,.7); transform: rotateX(-75deg); }
 .moon--2 { width: 14px; height: 14px; margin-left: -7px; top: -7px;
-  background: radial-gradient(circle at 35% 30%, #d8fff4, #62e0c4 60%, #0f7d6b); box-shadow: 0 0 16px rgba(98,224,196,.6); }
+  background: radial-gradient(circle at 35% 30%, #d8fbff, #56d6ee 60%, #22a7c4); box-shadow: 0 0 16px rgba(34,211,238,.7); }
 
 /* la fusée flotte devant la scène */
 .rocket-3d { position: absolute; left: 50%; top: 50%; width: 26%; transform: translate(-50%,-52%) translateZ(80px);
-  filter: drop-shadow(0 22px 30px rgba(238,68,34,.5)); animation: bob 5s var(--ease) infinite; z-index: 5; }
+  filter: drop-shadow(0 22px 30px rgba(124,92,255,.55)); animation: bob 5s var(--ease) infinite; z-index: 5; }
 
 /* ------------------------------------------------------------------ */
 /* 9. Petites finitions                                               */

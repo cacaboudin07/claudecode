@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Décolle — Apprends le marketing digital et lance ton premier produit</title>
 <meta name="description" content="Décolle est le guide clair et moderne pour comprendre le marketing digital, maîtriser l'IA et lancer ton premier produit digital — même en partant de zéro. Présentation, guide complet et simulateur interactif." />
-<meta name="theme-color" content="#17120e" />
+<meta name="theme-color" content="#0a0a16" />
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
 <!-- Open Graph -->
@@ -16,9 +16,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/fx.css" />
+<link rel="stylesheet" href="assets/css/space.css" />
 </head>
 <body>
 
@@ -26,18 +27,15 @@
 <div class="pt" id="pt" aria-hidden="true">
   <div class="pt__warp"><i style="--a:0deg"></i><i style="--a:30deg"></i><i style="--a:60deg"></i><i style="--a:90deg"></i><i style="--a:120deg"></i><i style="--a:150deg"></i><i style="--a:180deg"></i><i style="--a:210deg"></i><i style="--a:240deg"></i><i style="--a:270deg"></i><i style="--a:300deg"></i><i style="--a:330deg"></i></div>
   <svg class="pt__rocket" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="ptrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8f3e9"/><stop offset=".5" stop-color="#f4b13a"/><stop offset="1" stop-color="#ee4422"/></linearGradient></defs>
+    <defs><linearGradient id="ptrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9acff"/><stop offset=".5" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>
     <path d="M50 6c16 9 24 24 24 42 0 13-3 24-8 33a11 11 0 0 1-32 0c-5-9-8-20-8-33C26 30 34 15 50 6Z" fill="url(#ptrk)"/>
-    <circle cx="50" cy="46" r="10" fill="#17120e"/><circle cx="50" cy="46" r="5" fill="#22d3ee"/>
+    <circle cx="50" cy="46" r="10" fill="#0a0a16"/><circle cx="50" cy="46" r="5" fill="#22d3ee"/>
     <path d="M30 84c-9 3-15 12-15 24 9-2 15-6 19-13Z" fill="#5b3fe0"/>
     <path d="M70 84c9 3 15 12 15 24-9-2-15-6-19-13Z" fill="#5b3fe0"/>
     <path d="M40 108c4 6 6 14 4 24-2-2-4-3-4-3s-2 1-4 3c-2-10 0-18 4-24Z" fill="#ff6b5d"/>
   </svg>
   <div class="pt__label">Décolle<span class="dot">.</span></div>
 </div>
-
-<!-- Grain papier (texture globale) -->
-<div class="grain" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="top">
@@ -57,25 +55,76 @@
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="hero__bg" aria-hidden="true">
-    <div class="stars"></div>
-    <div class="hero__spot"></div>
-    <div class="hero__glow g1"></div>
-    <div class="hero__glow g2"></div>
-    <div class="hero__glow g3"></div>
-  </div>
-  <div class="container hero__inner">
-    <div class="hero__copy reveal in">
-      <span class="eyebrow">De zéro à ton premier client</span>
-      <h1>Apprends le marketing digital.<br />Et <span class="hl">lance ton premier produit.</span></h1>
-      <p class="hero__sub">Décolle est le guide clair, moderne et concret pour comprendre le marketing digital, apprivoiser l'intelligence artificielle et passer à l'action — même si tu pars totalement de zéro.</p>
+<!-- ================= HERO CINÉMATIQUE : DÉCOLLAGE ================= -->
+<section class="launch" id="launch">
+  <div class="launch__stage">
+    <!-- ciel de jour (s'efface en montant) -->
+    <div class="launch__layer launch__sky"><div class="launch__sun"></div></div>
+    <!-- nuages (parallaxe) -->
+    <div class="launch__layer" aria-hidden="true">
+      <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div><div class="cloud c5"></div>
+    </div>
+    <!-- pas de tir : sol + portique + fusée détaillée -->
+    <div class="launch__pad" aria-hidden="true">
+      <div class="launch__ground"></div>
+      <div class="launch__gantry"></div>
+      <svg class="launch__rocket" viewBox="0 0 140 366" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lrk-body" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#dfe3ff"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#aeb6e4"/>
+          </linearGradient>
+          <linearGradient id="lrk-nose" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#ff9b63"/><stop offset="1" stop-color="#ed5733"/>
+          </linearGradient>
+          <linearGradient id="lrk-flame" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff6cf"/><stop offset=".34" stop-color="#ffc857"/><stop offset=".7" stop-color="#ff6b5d"/><stop offset="1" stop-color="#ff6b5d" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- flamme (animée par launch.js) -->
+        <g class="rk-flame">
+          <path d="M52 292 C49 322 60 350 70 366 C80 350 91 322 88 292 Z" fill="url(#lrk-flame)"/>
+          <path d="M60 292 C59 312 65 334 70 348 C75 334 81 312 80 292 Z" fill="#fff6cf" opacity=".9"/>
+        </g>
+        <!-- ailerons -->
+        <path d="M50 214 C30 228 20 252 22 282 C35 276 47 264 53 247 Z" fill="#5b3fe0"/>
+        <path d="M90 214 C110 228 120 252 118 282 C105 276 93 264 87 247 Z" fill="#5b3fe0"/>
+        <path d="M50 214 C40 224 35 240 36 262 C44 258 50 250 53 240 Z" fill="#7c5cff"/>
+        <path d="M90 214 C100 224 105 240 104 262 C96 258 90 250 87 240 Z" fill="#7c5cff"/>
+        <!-- corps -->
+        <path d="M50 84 C44 98 42 150 42 208 C42 250 50 270 70 272 C90 270 98 250 98 208 C98 150 96 98 90 84 Z" fill="url(#lrk-body)" stroke="#c2c8ea" stroke-width="1.5"/>
+        <!-- nez -->
+        <path d="M70 8 C80 30 88 58 90 86 L50 86 C52 58 60 30 70 8 Z" fill="url(#lrk-nose)"/>
+        <!-- bandes / panneaux -->
+        <path d="M45 150 H95 M44 196 H96" stroke="#c8cef0" stroke-width="2"/>
+        <rect x="46" y="232" width="48" height="9" rx="2" fill="#eceffc" stroke="#c8cef0" stroke-width="1"/>
+        <!-- hublots -->
+        <circle cx="70" cy="120" r="13" fill="#cfd6f5"/><circle cx="70" cy="120" r="9" fill="#22d3ee"/><circle cx="66" cy="116" r="3" fill="#eaffff" opacity=".85"/>
+        <circle cx="70" cy="162" r="8.5" fill="#cfd6f5"/><circle cx="70" cy="162" r="5.5" fill="#2f6bff"/>
+        <!-- tuyère -->
+        <path d="M56 270 L84 270 L90 292 L50 292 Z" fill="#3a3f63"/>
+        <path d="M56 270 L84 270 L86 277 L54 277 Z" fill="#52588a"/>
+      </svg>
+    </div>
+
+    <!-- fumée (particules), au premier plan du pas de tir -->
+    <canvas class="launch__smoke" aria-hidden="true"></canvas>
+
+    <!-- HUD compte à rebours -->
+    <div class="launch__hud">
+      <div class="launch__tag">Séquence de pré-lancement</div>
+      <div class="launch__count">T-10</div>
+    </div>
+
+    <!-- copie finale (apparaît dans l'espace) -->
+    <div class="launch__copy">
+      <span class="eyebrow">Marketing digital · 2026</span>
+      <h1>Décolle vers de <span class="hl">nouveaux horizons.</span></h1>
+      <p>Apprends le marketing digital, apprivoise l'IA et lance ton premier produit digital — même en partant de zéro. Attache ta ceinture&nbsp;: le décollage est imminent.</p>
       <div class="btn-row">
         <a class="btn btn--primary btn--lg" href="lance-toi.html">Lance-toi maintenant
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn--ghost btn--lg" href="guide.html">Découvrir le guide</a>
+        <a class="btn btn--ghost btn--lg" href="guide.html">Plan de vol (le guide)</a>
       </div>
       <div class="hero__badges">
         <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> 100 % débutant</span>
@@ -84,57 +133,12 @@
       </div>
     </div>
 
-    <!-- Scène 3D : planète, anneaux, lunes en orbite et fusée -->
-    <div class="hero__art" aria-hidden="true">
-      <div class="scene" id="scene">
-        <div class="scene__glow"></div>
-        <div class="scene__tilt" id="sceneTilt">
-          <div class="scene__spin">
-            <div class="ring ring--2"></div>
-            <div class="orbit3d orbit3d--2"><span class="moon moon--2"></span></div>
-            <div class="planet"><span class="planet__spot"></span></div>
-            <div class="ring ring--1"></div>
-            <div class="orbit3d orbit3d--1"><span class="moon"></span></div>
-          </div>
-      <svg class="rocket-3d" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#f8f3e9"/><stop offset="0.5" stop-color="#f4b13a"/><stop offset="1" stop-color="#ee4422"/>
-          </linearGradient>
-          <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#ffc857"/><stop offset="0.6" stop-color="#ff6b5d"/><stop offset="1" stop-color="#ff6b5d" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <!-- flamme -->
-        <path d="M100 218c-16 0-26 18-26 34 0 0 12-6 26-6s26 6 26 6c0-16-10-34-26-34Z" fill="url(#flame)">
-          <animate attributeName="opacity" values="1;.55;1" dur="0.5s" repeatCount="indefinite"/>
-        </path>
-        <!-- ailerons -->
-        <path d="M58 150c-18 6-30 24-30 48 18-4 30-12 38-26Z" fill="#5b3fe0"/>
-        <path d="M142 150c18 6 30 24 30 48-18-4-30-12-38-26Z" fill="#5b3fe0"/>
-        <!-- corps -->
-        <path d="M100 10c30 16 46 44 46 80 0 24-6 46-16 64a20 20 0 0 1-60 0c-10-18-16-40-16-64 0-36 16-64 46-80Z" fill="url(#body)"/>
-        <!-- hublot -->
-        <circle cx="100" cy="92" r="20" fill="#17120e"/>
-        <circle cx="100" cy="92" r="11" fill="#22d3ee"/>
-        <circle cx="95" cy="87" r="4" fill="#eaffff" opacity=".8"/>
-        <!-- liseré -->
-        <path d="M70 165c8 8 18 12 30 12s22-4 30-12" stroke="#ffffff" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/>
-      </svg>
-        </div><!-- /scene__tilt -->
-      </div><!-- /scene -->
-      <div class="sticker" style="top:1%;right:0"><span>Mission</span><span class="big">2026</span><span>Débutant OK</span></div>
-    </div><!-- /hero__art -->
+    <!-- indice de scroll -->
+    <div class="launch__cue">Scrolle pour décoller
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </div>
   </div>
 </section>
-
-<!-- ================= BANDEAU DÉFILANT ================= -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span>Apprends le marketing digital</span><span>Lance ton premier produit</span><span>Maîtrise l'IA</span><span>De zéro à ton premier client</span><span>Mission 2026</span>
-    <span>Apprends le marketing digital</span><span>Lance ton premier produit</span><span>Maîtrise l'IA</span><span>De zéro à ton premier client</span><span>Mission 2026</span>
-  </div>
-</div>
 
 <!-- ================= C'EST QUOI ================= -->
 <section class="section" id="presentation">
@@ -182,7 +186,7 @@
 <section class="section section--paper2" id="fonctionnement">
   <div class="container">
     <div class="center lead-wrap reveal">
-      <span class="eyebrow">Comment ça marche</span>
+      <span class="eyebrow">Trajectoire</span>
       <h2 class="section-title">Le parcours d'un client, <span class="hl">étape par étape</span></h2>
       <p class="lead">Derrière chaque vente se cache un « entonnoir » (funnel) : beaucoup de personnes entrent, et seules certaines vont jusqu'à l'achat. Comprendre cet entonnoir, c'est comprendre tout le marketing digital.</p>
     </div>
@@ -219,44 +223,44 @@
 <section class="section section--space">
   <div class="container">
     <div class="center lead-wrap reveal">
-      <span class="eyebrow">La boîte à outils</span>
+      <span class="eyebrow">Équipement de bord</span>
       <h2 class="section-title">Les grands <span class="hl">canaux</span> du marketing digital</h2>
       <p class="lead">Tu n'as pas besoin de tous les utiliser. Choisis-en un ou deux pour commencer, et deviens-y excellent.</p>
     </div>
 
     <div class="channels" style="margin-top:50px">
       <article class="channel reveal">
-        <div class="channel__ico" style="background:linear-gradient(135deg,#ee4422,#cf3417)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div class="channel__ico" style="background:linear-gradient(135deg,#7c5cff,#5b3fe0)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
         <h3>SEO — Référencement</h3>
         <p>Apparaître gratuitement dans Google quand ton audience cherche une réponse. Lent à construire, mais durable.</p>
         <span class="chip" style="margin-top:14px">≈ 93 % du trafic web passe par les moteurs de recherche</span>
       </article>
       <article class="channel reveal d1">
-        <div class="channel__ico" style="background:linear-gradient(135deg,#f4b13a,#df9a1c)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/><circle cx="17" cy="7" r="1.3" fill="currentColor" stroke="none"/></svg></div>
+        <div class="channel__ico" style="background:linear-gradient(135deg,#ff6b5d,#ff8f5d)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/><circle cx="17" cy="7" r="1.3" fill="currentColor" stroke="none"/></svg></div>
         <h3>Réseaux sociaux</h3>
         <p>Instagram, TikTok, LinkedIn, YouTube… Créer une audience, une marque et une relation directe avec ta communauté.</p>
         <span class="chip" style="margin-top:14px">Le social commerce vise 3 000 Md$ en 2026</span>
       </article>
       <article class="channel reveal d2">
-        <div class="channel__ico" style="background:linear-gradient(135deg,#0f7d6b,#1aa087)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg></div>
+        <div class="channel__ico" style="background:linear-gradient(135deg,#2f6bff,#22b8ee)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg></div>
         <h3>Email marketing</h3>
         <p>Le canal préféré des pros : tu possèdes ta liste, personne ne peut te la retirer. Idéal pour vendre et fidéliser.</p>
         <span class="chip" style="margin-top:14px">ROI moyen : 36 à 42 € pour 1 € investi</span>
       </article>
       <article class="channel reveal">
-        <div class="channel__ico" style="background:linear-gradient(135deg,#62e0c4,#0f7d6b)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11v3a1 1 0 0 0 1 1h3l5 4V7l-5 4H4a1 1 0 0 0-1 0Z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></div>
+        <div class="channel__ico" style="background:linear-gradient(135deg,#34d399,#22d3ee)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11v3a1 1 0 0 0 1 1h3l5 4V7l-5 4H4a1 1 0 0 0-1 0Z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></div>
         <h3>Publicité (Ads)</h3>
         <p>Google Ads, Meta, TikTok Ads : payer pour des résultats immédiats. Tu accélères, mais chaque clic a un coût.</p>
         <span class="chip" style="margin-top:14px">Le marché de la pub digitale : ≈ 786 Md$ en 2026</span>
       </article>
       <article class="channel reveal d1">
-        <div class="channel__ico" style="background:linear-gradient(135deg,#f4b13a,#ee6a2c)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <div class="channel__ico" style="background:linear-gradient(135deg,#ffc857,#ff8f5d)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
         <h3>Contenu & Blog</h3>
         <p>Articles, vidéos, podcasts : tu apportes de la valeur gratuitement pour devenir la référence de ta niche.</p>
         <span class="chip" style="margin-top:14px">91 % des marketeurs utilisent la vidéo</span>
       </article>
       <article class="channel reveal d2">
-        <div class="channel__ico" style="background:linear-gradient(135deg,#ee4422,#f4b13a)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 8a5 5 0 0 0-10 0c0 7-3 8-3 8h16s-3-1-3-8Z"/><path d="M10.5 20a1.7 1.7 0 0 0 3 0"/></svg></div>
+        <div class="channel__ico" style="background:linear-gradient(135deg,#7c5cff,#ff6b5d)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 8a5 5 0 0 0-10 0c0 7-3 8-3 8h16s-3-1-3-8Z"/><path d="M10.5 20a1.7 1.7 0 0 0 3 0"/></svg></div>
         <h3>Influence & partenariats</h3>
         <p>Faire parler de toi par des personnes qui ont déjà la confiance de ton audience. Un boost de crédibilité rapide.</p>
         <span class="chip" style="margin-top:14px">Le canal le plus efficace pour la notoriété</span>
@@ -270,7 +274,7 @@
   <div class="container">
     <div class="split">
       <div class="split__copy reveal">
-        <span class="eyebrow">Le grand bouleversement</span>
+        <span class="eyebrow">Pilote automatique</span>
         <h2 class="section-title">Le rôle de <span class="hl">l'intelligence artificielle</span></h2>
         <p class="lead" style="margin-bottom:6px">En 2026, l'IA n'est plus un gadget : c'est le moteur du marketing moderne. Elle ne remplace pas le marketeur — elle lui donne des super-pouvoirs et lui fait gagner un temps fou.</p>
         <div class="feature-list">
@@ -298,12 +302,12 @@
           <div class="ai-card__inner">
             <div class="ai-pulse" aria-hidden="true">
               <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                <defs><linearGradient id="ai" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4b13a"/><stop offset="1" stop-color="#62e0c4"/></linearGradient></defs>
+                <defs><linearGradient id="ai" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7bff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
                 <circle cx="60" cy="60" r="46" fill="none" stroke="url(#ai)" stroke-width="2" opacity=".3"><animate attributeName="r" values="40;48;40" dur="3s" repeatCount="indefinite"/></circle>
                 <circle cx="60" cy="60" r="32" fill="none" stroke="url(#ai)" stroke-width="2" opacity=".55"/>
                 <path d="M60 30a18 18 0 0 0-18 18c0 6 3 9 3 14v6a4 4 0 0 0 4 4h22a4 4 0 0 0 4-4v-6c0-5 3-8 3-14a18 18 0 0 0-18-18Z" fill="url(#ai)"/>
-                <path d="M52 78h16M54 84h12" stroke="#17120e" stroke-width="3" stroke-linecap="round"/>
-                <circle cx="53" cy="48" r="3" fill="#17120e"/><circle cx="67" cy="48" r="3" fill="#17120e"/>
+                <path d="M52 78h16M54 84h12" stroke="#0f1022" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="53" cy="48" r="3" fill="#0f1022"/><circle cx="67" cy="48" r="3" fill="#0f1022"/>
                 <g stroke="url(#ai)" stroke-width="2"><path d="M22 60h-8M106 60h-8M30 30l-6-6M96 30l6-6"/></g>
               </svg>
             </div>
@@ -332,20 +336,54 @@
   </div>
 </section>
 
-<!-- ================= CHIFFRES CLÉS ================= -->
-<section class="section section--space section--tight">
+<!-- ================= PREUVES / DONNÉES ================= -->
+<section class="section section--space" id="preuves">
   <div class="container">
     <div class="center lead-wrap reveal">
-      <span class="eyebrow">Pourquoi maintenant</span>
-      <h2 class="section-title">Le marketing digital en <span class="hl">2026</span></h2>
+      <span class="eyebrow">Télémétrie · pourquoi maintenant</span>
+      <h2 class="section-title">Les chiffres qui <span class="hl">donnent le vertige</span></h2>
+      <p class="lead">Le marketing digital n'est pas une mode : c'est là que se joue l'économie de 2026. Quelques données pour mesurer l'altitude.</p>
     </div>
-    <div class="stats" style="margin-top:42px">
-      <div class="stat reveal"><div class="stat__num"><span data-count="786" data-suffix=" Md$">0</span></div><div class="stat__label">Marché mondial de la publicité digitale</div></div>
-      <div class="stat reveal d1"><div class="stat__num"><span data-count="75" data-suffix=" %">0</span></div><div class="stat__label">des marketeurs utilisent l'IA au quotidien</div></div>
-      <div class="stat reveal d2"><div class="stat__num">36–42 €</div><div class="stat__label">de retour pour 1 € investi en emailing</div></div>
-      <div class="stat reveal d3"><div class="stat__num"><span data-count="300" data-suffix=" Md$">0</span></div><div class="stat__label">le marché mondial de la formation en ligne</div></div>
+
+    <!-- Bandeau de chiffres -->
+    <div class="proof reveal" style="margin-top:46px">
+      <div class="proof__cell"><div class="proof__num"><span data-count="5.5" data-decimals="1" data-suffix=" Md">0</span></div><div class="proof__label">d'internautes dans le monde — ton audience potentielle</div></div>
+      <div class="proof__cell"><div class="proof__num"><span data-count="786" data-suffix=" Md$">0</span></div><div class="proof__label">le marché mondial de la publicité digitale</div></div>
+      <div class="proof__cell"><div class="proof__num">× <span data-count="42">0</span></div><div class="proof__label">de retour possible pour 1 € investi en email</div></div>
+      <div class="proof__cell"><div class="proof__num"><span data-count="3000" data-suffix=" Md$">0</span></div><div class="proof__label">le social commerce visé en 2026</div></div>
     </div>
-    <p class="center" style="color:var(--on-space-muted);font-size:.85rem;margin-top:22px">Sources : rapports marketing 2026 (publicité digitale, usages de l'IA, e-learning). Chiffres arrondis, donnés à titre indicatif.</p>
+
+    <!-- Barres de données -->
+    <div class="split" style="margin-top:60px;align-items:start">
+      <div class="reveal">
+        <h3 style="font-size:1.6rem;margin-bottom:10px">Là où <span style="color:#bda9ff">tout se joue</span></h3>
+        <p style="color:var(--on-space-muted);margin-bottom:28px">La bascule vers le digital et l'IA est déjà massive. Se former maintenant, c'est prendre le train au bon moment.</p>
+        <div class="bars">
+          <div class="bar-row"><span class="bl">Budget marketing en digital</span><span class="bar-track"><span class="bar-fill" data-w="72%"></span></span><span class="bv">72 %</span></div>
+          <div class="bar-row"><span class="bl">Marketeurs qui utilisent l'IA</span><span class="bar-track"><span class="bar-fill" data-w="75%"></span></span><span class="bv">75 %</span></div>
+          <div class="bar-row"><span class="bl">Tâches automatisables par l'IA</span><span class="bar-track"><span class="bar-fill" data-w="85%"></span></span><span class="bv">85 %</span></div>
+          <div class="bar-row"><span class="bl">Trafic web issu de la recherche</span><span class="bar-track"><span class="bar-fill" data-w="93%"></span></span><span class="bv">93 %</span></div>
+        </div>
+      </div>
+
+      <!-- Faits marquants -->
+      <div class="quotes" style="grid-template-columns:1fr">
+        <div class="quote reveal">
+          <p>« L'email reste le canal au <b>meilleur retour sur investissement</b> de tout le marketing digital. »</p>
+          <div class="quote__src"><span class="quote__dot">✉</span><span>Rapports e-mail marketing 2026</span></div>
+        </div>
+        <div class="quote reveal d1">
+          <p>« D'ici 2026, <b>85 % des interactions clients</b> impliqueront l'intelligence artificielle. »</p>
+          <div class="quote__src"><span class="quote__dot">✦</span><span>Études tendances IA &amp; marketing</span></div>
+        </div>
+        <div class="quote reveal d2">
+          <p>« Le marché mondial de la <b>formation en ligne dépasse 300 Md$</b> — le terrain rêvé pour un premier produit digital. »</p>
+          <div class="quote__src"><span class="quote__dot">🎓</span><span>Marché e-learning 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="center" style="color:var(--on-space-muted);font-size:.85rem;margin-top:40px">Sources : rapports marketing digital 2026 (publicité, usages de l'IA, e-mail, e-commerce, e-learning). Chiffres arrondis, à titre indicatif.</p>
   </div>
 </section>
 
@@ -371,8 +409,8 @@
   <div class="container">
     <div class="cta-band reveal">
       <div class="cta-band__glow" aria-hidden="true"></div>
-      <span class="eyebrow">Prêt à décoller ?</span>
-      <h2>Passe de la théorie à <span>ton premier lancement</span></h2>
+      <span class="eyebrow" style="color:#c9beff;background:rgba(124,92,255,.2)">Prêt à décoller ?</span>
+      <h2>Passe de la théorie à <span style="background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent">ton premier lancement</span></h2>
       <p>Suis le guide pour tout comprendre, puis lance ton premier produit digital dans notre simulateur interactif. C'est gratuit, et ça prend 5 minutes.</p>
       <div class="btn-row center" style="justify-content:center">
         <a class="btn btn--primary btn--lg" href="lance-toi.html">Lancer le simulateur 🚀</a>
@@ -430,7 +468,9 @@
   </div>
 </footer>
 
+<script src="assets/js/space-bg.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/fx.js"></script>
+<script src="assets/js/launch.js"></script>
 </body>
 </html>
