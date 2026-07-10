@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lance-toi 🚀 — Simulateur : lance ton premier produit digital | Décolle</title>
+<meta name="description" content="Un simulateur interactif et ludique pour lancer ton premier produit digital pas à pas : choisis ton produit, ton audience, ton prix, ton canal et ton accroche, puis observe tes résultats. Apprends en jouant." />
+<meta name="theme-color" content="#0a0a16" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Lance-toi — Simulateur de lancement de produit digital" />
+<meta property="og:description" content="Lance ton premier produit digital en 5 minutes, version simplifiée et interactive." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/game.css" />
+<link rel="stylesheet" href="assets/css/fx.css" />
+<link rel="stylesheet" href="assets/css/space.css" />
+</head>
+<body>
+
+<!-- Overlay de transition entre les pages -->
+<div class="pt" id="pt" aria-hidden="true">
+  <div class="pt__warp"><i style="--a:0deg"></i><i style="--a:30deg"></i><i style="--a:60deg"></i><i style="--a:90deg"></i><i style="--a:120deg"></i><i style="--a:150deg"></i><i style="--a:180deg"></i><i style="--a:210deg"></i><i style="--a:240deg"></i><i style="--a:270deg"></i><i style="--a:300deg"></i><i style="--a:330deg"></i></div>
+  <svg class="pt__rocket" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="ptrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9acff"/><stop offset=".5" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>
+    <path d="M50 6c16 9 24 24 24 42 0 13-3 24-8 33a11 11 0 0 1-32 0c-5-9-8-20-8-33C26 30 34 15 50 6Z" fill="url(#ptrk)"/>
+    <circle cx="50" cy="46" r="10" fill="#0a0a16"/><circle cx="50" cy="46" r="5" fill="#22d3ee"/>
+    <path d="M30 84c-9 3-15 12-15 24 9-2 15-6 19-13Z" fill="#5b3fe0"/>
+    <path d="M70 84c9 3 15 12 15 24-9-2-15-6-19-13Z" fill="#5b3fe0"/>
+    <path d="M40 108c4 6 6 14 4 24-2-2-4-3-4-3s-2 1-4 3c-2-10 0-18 4-24Z" fill="#ff6b5d"/>
+  </svg>
+  <div class="pt__label">Décolle<span class="dot">.</span></div>
+</div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a class="brand" href="index.html" aria-label="Décolle, accueil">
+      <img class="brand__mark" src="assets/img/favicon.svg" alt="" />
+      <span><b>Décolle</b><span class="dot">.</span></span>
+    </a>
+    <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="index.html">Présentation</a>
+      <a href="index.html#fonctionnement">Comment ça marche</a>
+      <a href="index.html#ia">L'IA</a>
+      <a href="guide.html">Guide</a>
+      <a class="btn btn--primary nav__cta active" href="lance-toi.html">Lance-toi 🚀</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PAGE HERO ================= -->
+<section class="page-hero" style="padding-bottom:clamp(34px,5vw,54px)">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="hero__glow g1"></div>
+    <div class="hero__glow g3"></div>
+  </div>
+  <div class="container">
+    <div class="page-hero__inner reveal in">
+      <span class="eyebrow">Le simulateur · 5 minutes</span>
+      <h1>Lance ton <span class="hl">premier produit digital.</span></h1>
+      <p>Une simulation simplifiée pour comprendre, en jouant, comment on lance un produit en ligne : tes choix influencent ton trafic, ta conversion et tes ventes. Aucun risque, aucune carte bancaire — juste pour apprendre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIMULATEUR ================= -->
+<section class="section sim-wrap" style="padding-top:0">
+  <div class="container">
+    <div class="sim">
+
+      <!-- Mission control -->
+      <aside class="sim__aside reveal in">
+        <div class="pad-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#b9acff" stroke-width="1.8"><path d="M12 2c3 1.6 5 5 5 9 0 2.4-.6 4.6-1.6 6.4l-3.4-1.8a2 2 0 0 1-2 0L6.6 17.4C5.6 15.6 5 13.4 5 11c0-4 2-7.4 5-9Z"/><circle cx="12" cy="10" r="2"/></svg>
+          <h3>Salle de contrôle</h3>
+        </div>
+        <p class="pad-sub">Ta mission se construit étape par étape.</p>
+
+        <div class="fuel" id="fuel">
+          <div class="fuel__row" data-fuel="product"><span class="fuel__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Choisir le produit</div>
+          <div class="fuel__row" data-fuel="audience"><span class="fuel__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Cibler l'audience</div>
+          <div class="fuel__row" data-fuel="price"><span class="fuel__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Fixer le prix</div>
+          <div class="fuel__row" data-fuel="channel"><span class="fuel__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Choisir le canal</div>
+          <div class="fuel__row" data-fuel="hook"><span class="fuel__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Trouver l'accroche</div>
+        </div>
+
+        <div class="log">
+          <h4>Journal de bord</h4>
+          <div class="log__row"><span>Produit</span><b class="empty" data-log="product">À définir</b></div>
+          <div class="log__row"><span>Audience</span><b class="empty" data-log="audience">À définir</b></div>
+          <div class="log__row"><span>Prix</span><b class="empty" data-log="price">À définir</b></div>
+          <div class="log__row"><span>Canal</span><b class="empty" data-log="channel">À définir</b></div>
+          <div class="log__row"><span>Accroche</span><b class="empty" data-log="hook">À définir</b></div>
+        </div>
+      </aside>
+
+      <!-- Zone de jeu -->
+      <div class="sim__main reveal in d1">
+        <div class="sim__progress">
+          <div class="bar"><div class="bar__fill" id="bar"></div></div>
+          <div class="sim__step-label" id="stepLabel">Briefing</div>
+        </div>
+        <div class="stage" id="stage"><!-- rendu par game.js --></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- conteneur des confettis -->
+<div class="confetti" id="confetti" aria-hidden="true"></div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="index.html"><img class="brand__mark" src="assets/img/favicon.svg" alt="" /><span><b>Décolle</b><span class="dot">.</span></span></a>
+        <p class="footer__about">Le guide clair et moderne pour apprendre le marketing digital, maîtriser l'IA et lancer ton premier produit — même en partant de zéro.</p>
+      </div>
+      <div>
+        <h4>Naviguer</h4>
+        <div class="footer__links">
+          <a href="index.html">Présentation</a>
+          <a href="index.html#fonctionnement">Comment ça marche</a>
+          <a href="index.html#ia">Le rôle de l'IA</a>
+          <a href="guide.html">Guide du débutant</a>
+          <a href="lance-toi.html">Lance-toi 🚀</a>
+        </div>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <div class="footer__links">
+          <a href="guide.html#outils">Outils recommandés</a>
+          <a href="guide.html#videos">Vidéos utiles</a>
+          <a href="guide.html#liens">Liens & formations</a>
+          <a href="index.html#presentation">Lexique des bases</a>
+        </div>
+      </div>
+      <div>
+        <h4>Reste dans la boucle</h4>
+        <p style="font-size:.95rem">Reçois nos meilleurs conseils marketing, sans spam.</p>
+        <form class="news" data-news>
+          <input type="email" placeholder="ton@email.com" aria-label="Adresse email" required />
+          <button type="submit">S'inscrire</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Décolle. Tous droits réservés.</span>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="m10 9 5 3-5 3Z" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46M14 7a4 4 0 0 0 4 3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/space-bg.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/game.js"></script>
+<script src="assets/js/fx.js"></script>
+</body>
+</html>

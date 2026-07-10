@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guide du débutant — Décolle | Bien débuter, se lancer & les outils</title>
+<meta name="description" content="Le guide complet pour débuter en marketing digital : l'état d'esprit, les 6 étapes pour lancer ton premier produit, les meilleurs outils (gratuits et IA), des vidéos et formations utiles." />
+<meta name="theme-color" content="#0a0a16" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Guide du débutant — Décolle" />
+<meta property="og:description" content="Bien débuter, bien se lancer, les outils recommandés, vidéos et formations." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/fx.css" />
+<link rel="stylesheet" href="assets/css/space.css" />
+</head>
+<body>
+
+<!-- Overlay de transition entre les pages -->
+<div class="pt" id="pt" aria-hidden="true">
+  <div class="pt__warp"><i style="--a:0deg"></i><i style="--a:30deg"></i><i style="--a:60deg"></i><i style="--a:90deg"></i><i style="--a:120deg"></i><i style="--a:150deg"></i><i style="--a:180deg"></i><i style="--a:210deg"></i><i style="--a:240deg"></i><i style="--a:270deg"></i><i style="--a:300deg"></i><i style="--a:330deg"></i></div>
+  <svg class="pt__rocket" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="ptrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9acff"/><stop offset=".5" stop-color="#7c5cff"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs>
+    <path d="M50 6c16 9 24 24 24 42 0 13-3 24-8 33a11 11 0 0 1-32 0c-5-9-8-20-8-33C26 30 34 15 50 6Z" fill="url(#ptrk)"/>
+    <circle cx="50" cy="46" r="10" fill="#0a0a16"/><circle cx="50" cy="46" r="5" fill="#22d3ee"/>
+    <path d="M30 84c-9 3-15 12-15 24 9-2 15-6 19-13Z" fill="#5b3fe0"/>
+    <path d="M70 84c9 3 15 12 15 24-9-2-15-6-19-13Z" fill="#5b3fe0"/>
+    <path d="M40 108c4 6 6 14 4 24-2-2-4-3-4-3s-2 1-4 3c-2-10 0-18 4-24Z" fill="#ff6b5d"/>
+  </svg>
+  <div class="pt__label">Décolle<span class="dot">.</span></div>
+</div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a class="brand" href="index.html" aria-label="Décolle, accueil">
+      <img class="brand__mark" src="assets/img/favicon.svg" alt="" />
+      <span><b>Décolle</b><span class="dot">.</span></span>
+    </a>
+    <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="index.html">Présentation</a>
+      <a href="index.html#fonctionnement">Comment ça marche</a>
+      <a href="index.html#ia">L'IA</a>
+      <a href="guide.html" class="active">Guide</a>
+      <a class="btn btn--primary nav__cta" href="lance-toi.html">Lance-toi 🚀</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PAGE HERO ================= -->
+<section class="page-hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="hero__glow g1"></div>
+    <div class="hero__glow g2"></div>
+  </div>
+  <div class="container">
+    <div class="page-hero__inner reveal in">
+      <span class="eyebrow">Le guide du débutant</span>
+      <h1>De l'idée au lancement, <span class="hl">sans te perdre.</span></h1>
+      <p>Un parcours clair pour bien démarrer : le bon état d'esprit, les étapes concrètes pour lancer ton premier produit digital, et la boîte à outils exacte (en grande partie gratuite) pour passer à l'action dès aujourd'hui.</p>
+      <nav class="toc" aria-label="Sommaire du guide">
+        <a href="#debuter">① Bien débuter</a>
+        <a href="#lancer">② Bien se lancer</a>
+        <a href="#outils">③ Les outils</a>
+        <a href="#videos">④ Vidéos</a>
+        <a href="#liens">⑤ Formations</a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 1. BIEN DÉBUTER ================= -->
+<section class="section" id="debuter">
+  <div class="container">
+    <div class="split">
+      <div class="split__copy reveal">
+        <span class="eyebrow">Étape 1 — L'état d'esprit</span>
+        <h2 class="section-title">Bien <span class="hl">débuter</span></h2>
+        <p class="lead" style="margin-bottom:24px">Avant les outils et les tactiques, il y a une poignée de principes qui font toute la différence entre ceux qui avancent et ceux qui restent bloqués.</p>
+        <ul class="checklist">
+          <li>
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b>Choisis une niche précise</b><p>Vise un public et un problème clairs (« aider les photographes à trouver des clients » plutôt que « le marketing »). Plus c'est spécifique, plus ça convertit.</p></div>
+          </li>
+          <li>
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b>Parle à une seule personne</b><p>Imagine ton client idéal et écris comme si tu t'adressais à lui. Un message pour « tout le monde » ne touche personne.</p></div>
+          </li>
+          <li>
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b>Un seul canal pour commencer</b><p>Inutile d'être partout. Choisis un canal (Instagram, SEO, email…) et deviens-y bon avant d'en ajouter un autre.</p></div>
+          </li>
+          <li>
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b>Lance imparfait</b><p>Une version simple qui existe vaut mieux qu'un produit parfait qui ne sort jamais. Tu amélioreras grâce aux retours réels.</p></div>
+          </li>
+          <li>
+            <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><b>Mesure, apprends, ajuste</b><p>Regarde les chiffres (visites, clics, ventes), tire des leçons, et améliore un élément à la fois. C'est une boucle, pas une ligne droite.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="split__media reveal d1">
+        <div class="callout" style="margin-bottom:18px">
+          <div class="callout__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <div><h4>Le piège n°1 du débutant</h4><p>Passer 3 mois à « se préparer » (logo, site parfait, mille tutos) sans jamais parler à un vrai client. <b>L'action bat la perfection.</b></p></div>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:14px">Ta première semaine, concrètement</h3>
+          <ul class="checklist" style="gap:10px">
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Jour 1–2 :</b><p>Définis ta niche et le problème que tu résous.</p></div></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Jour 3–4 :</b><p>Crée une offre simple (un ebook, un mini-guide, un template).</p></div></li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Jour 5–7 :</b><p>Publie, partage dans 2–3 communautés, et écoute les retours.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. BIEN SE LANCER ================= -->
+<section class="section section--paper2" id="lancer">
+  <div class="container">
+    <div class="center lead-wrap reveal">
+      <span class="eyebrow">Étape 2 — Le lancement</span>
+      <h2 class="section-title">Bien <span class="hl">se lancer</span> en 6 étapes</h2>
+      <p class="lead">La méthode pour transformer une idée en premier produit digital qui se vend. Simple, séquentielle, éprouvée.</p>
+    </div>
+
+    <div class="steps" style="margin-top:50px;max-width:880px;margin-inline:auto">
+      <article class="step reveal">
+        <div class="step__num">1</div>
+        <div>
+          <h3>Choisis ta niche & ton audience</h3>
+          <p>Identifie un problème précis que des gens cherchent vraiment à résoudre. Demande-toi : qui est mon client idéal, et qu'est-ce qui l'empêche de dormir ?</p>
+          <div class="step__tip">💡 Astuce : croise ce que tu sais faire avec ce que les gens recherchent déjà (Google, forums, groupes Facebook).</div>
+        </div>
+      </article>
+      <article class="step reveal">
+        <div class="step__num">2</div>
+        <div>
+          <h3>Crée un produit simple</h3>
+          <p>Pas besoin d'une usine à gaz. L'ebook est le produit le plus facile à créer : pas de stock, pas de logistique, tu le crées une fois et tu le vends à l'infini. Sinon : un template, une mini-formation vidéo, un atelier.</p>
+          <div class="step__tip">💡 Astuce : utilise l'IA (ChatGPT) pour structurer ton plan, et Canva pour la mise en page.</div>
+        </div>
+      </article>
+      <article class="step reveal">
+        <div class="step__num">3</div>
+        <div>
+          <h3>Construis ta page de vente</h3>
+          <p>Une page claire qui répond à : C'est pour qui ? Quel problème ça règle ? Quels bénéfices concrets ? Pourquoi te croire (preuves, témoignages) ? Combien ça coûte ? Et un seul bouton d'action évident.</p>
+          <div class="step__tip">💡 Astuce : une promesse forte en haut de page vaut plus que dix paragraphes.</div>
+        </div>
+      </article>
+      <article class="step reveal">
+        <div class="step__num">4</div>
+        <div>
+          <h3>Capture des emails</h3>
+          <p>Offre un petit cadeau gratuit (checklist, mini-guide) en échange de l'email. Tu construis ainsi une liste de contacts à qui tu pourras (re)vendre — ton actif le plus précieux.</p>
+          <div class="step__tip">💡 Astuce : l'email a le meilleur retour sur investissement de tout le marketing digital.</div>
+        </div>
+      </article>
+      <article class="step reveal">
+        <div class="step__num">5</div>
+        <div>
+          <h3>Attire du trafic</h3>
+          <p>Amène des visiteurs sur ta page via 1 ou 2 canaux : contenu sur les réseaux, référencement Google, ou publicité pour accélérer. Régularité &gt; perfection.</p>
+          <div class="step__tip">💡 Astuce : partager ton offre dans des groupes et communautés pertinents reste l'un des moyens les plus rapides d'obtenir tes premières ventes.</div>
+        </div>
+      </article>
+      <article class="step reveal">
+        <div class="step__num">6</div>
+        <div>
+          <h3>Vends, mesure & itère</h3>
+          <p>Lance pour de vrai. Observe ce qui marche (taux de clic, taux d'achat), garde ce qui fonctionne, corrige le reste. Chaque lancement t'apprend à faire mieux le suivant.</p>
+          <div class="step__tip">💡 Astuce : améliore un seul levier à la fois (trafic, conversion ou prix) pour savoir ce qui a vraiment eu de l'effet.</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="center" style="margin-top:40px">
+      <a class="btn btn--primary btn--lg" href="lance-toi.html">S'entraîner sur le simulateur 🚀</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. LES OUTILS ================= -->
+<section class="section" id="outils">
+  <div class="container">
+    <div class="center lead-wrap reveal">
+      <span class="eyebrow">Étape 3 — La boîte à outils</span>
+      <h2 class="section-title">Les outils <span class="hl">recommandés</span></h2>
+      <p class="lead">Une stack sobre et puissante : un outil pour penser, un pour produire, un pour vendre, un pour mesurer. La plupart ont une version gratuite largement suffisante pour démarrer.</p>
+    </div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:26px 0 8px">
+      <span class="tag-free free">Gratuit</span>
+      <span class="tag-free freemium">Version gratuite + payant</span>
+      <span class="tag-free paid">Payant à l'usage</span>
+    </div>
+
+    <div class="tools" style="margin-top:30px">
+      <a class="tool reveal" href="https://chat.openai.com" target="_blank" rel="noopener">
+        <div class="tool__top"><div class="tool__logo" style="background:#10a37f">AI</div><div><div class="tool__cat">IA · Rédaction</div><div class="tool__name">ChatGPT</div></div></div>
+        <p>Ton assistant à tout faire : trouver des idées, rédiger tes textes, structurer une formation, imaginer des accroches en quelques secondes.</p>
+        <div class="tool__foot"><span class="tag-free freemium">Freemium</span><span class="tool__link">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+      </a>
+
+      <a class="tool reveal d1" href="https://www.canva.com" target="_blank" rel="noopener">
+        <div class="tool__top"><div class="tool__logo" style="background:linear-gradient(135deg,#6420ff,#00c4cc)">Ca</div><div><div class="tool__cat">Design · Visuels</div><div class="tool__name">Canva</div></div></div>
+        <p>Crée des visuels pros sans savoir designer : posts, miniatures, ebooks, carrousels. Modèles prêts à l'emploi et IA intégrée.</p>
+        <div class="tool__foot"><span class="tag-free freemium">Freemium</span><span class="tool__link">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+      </a>
+
+      <a class="tool reveal d2" href="https://systeme.io" target="_blank" rel="noopener">
+        <div class="tool__top"><div class="tool__logo" style="background:#7c5cff">S</div><div><div class="tool__cat">Tout-en-un · Vendre</div><div class="tool__name">Systeme.io</div></div></div>
+        <p>Outil français parfait pour débuter : pages de vente, tunnels, hébergement de formation, emails et paiements au même endroit.</p>
+        <div class="tool__foot"><span class="tag-free freemium">Freemium</span><span class="tool__link">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+      </a>
+
+      <a class="tool reveal" href="https://www.brevo.com/fr/" target="_blank" rel="noopener">
+        <div class="tool__top"><div class="tool__logo" style="background:#0b996e">B</div><div><div class="tool__cat">Emailing · CRM</div><div class="tool__name">Brevo</div></div></div>
+        <p>Solution française d'email marketing : crée ta liste, envoie des newsletters et automatise tes relances. Gratuit jusqu'à un bon volume.</p>
+        <div class="tool__foot"><span class="tag-free freemium">Freemium</span><span class="tool__link">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+      </a>
+
+      <a class="tool reveal d1" href="https://www.capcut.com" target="_blank" rel="noopener">
+        <div class="tool__top"><div class="tool__logo" style="background:#111827">Cc</div><div><div class="tool__cat">Vidéo · Montage</div><div class="tool__name">CapCut</div></div></div>
+        <p>Le montage vidéo simplifié pour TikTok, Reels et Shorts : sous-titres automatiques, modèles, effets. Idéal pour le contenu court.</p>
+        <div class="tool__foot"><span class="tag-free free">Gratuit</span><span class="tool__link">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+      </a>
+
+      <a class="tool reveal d2" href="https://www.notion.so" target="_blank" rel="noopener">
+        <div class="tool__top"><div class="tool__logo" style="background:#111827">N</div><div><div class="tool__cat">Organisation</div><div class="tool__name">Notion</div></div></div>
+        <p>Ton cerveau numérique : planifie ton contenu, ton calendrier de publication et tes idées de produits dans un espace unique.</p>
+        <div class="tool__foot"><span class="tag-free freemium">Freemium</span><span class="tool__link">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+      </a>
+
+      <a class="tool reveal" href="https://neilpatel.com/fr/ubersuggest/" target="_blank" rel="noopener">
+        <div class="tool__top"><div class="tool__logo" style="background:#ff6b35">U</div><div><div class="tool__cat">SEO · Mots-clés</div><div class="tool__name">Ubersuggest</div></div></div>
+        <p>Trouve les mots-clés que ton audience tape dans Google et analyse tes concurrents pour bâtir une stratégie de contenu.</p>
+        <div class="tool__foot"><span class="tag-free freemium">Freemium</span><span class="tool__link">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+      </a>
+
+      <a class="tool reveal d1" href="https://buffer.com" target="_blank" rel="noopener">
+        <div class="tool__top"><div class="tool__logo" style="background:#2563eb">Bu</div><div><div class="tool__cat">Réseaux sociaux</div><div class="tool__name">Buffer</div></div></div>
+        <p>Programme tes publications sur tous tes réseaux d'un coup, à l'avance. Tu gagnes du temps et tu restes régulier sans effort.</p>
+        <div class="tool__foot"><span class="tag-free freemium">Freemium</span><span class="tool__link">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+      </a>
+
+      <a class="tool reveal d2" href="https://stripe.com/fr" target="_blank" rel="noopener">
+        <div class="tool__top"><div class="tool__logo" style="background:#635bff">St</div><div><div class="tool__cat">Paiements</div><div class="tool__name">Stripe</div></div></div>
+        <p>Encaisse tes ventes par carte en toute sécurité, partout dans le monde. Se branche en quelques clics à la plupart des outils.</p>
+        <div class="tool__foot"><span class="tag-free paid">À la commission</span><span class="tool__link">Ouvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+      </a>
+    </div>
+
+    <p class="center" style="color:var(--muted);font-size:.85rem;margin-top:24px">Liens vers des outils tiers indépendants. Décolle n'est affilié à aucun d'eux ; cette sélection est fournie à titre informatif.</p>
+  </div>
+</section>
+
+<!-- ================= 4. VIDÉOS ================= -->
+<section class="section section--space" id="videos">
+  <div class="container">
+    <div class="center lead-wrap reveal">
+      <span class="eyebrow">Étape 4 — Pour aller plus loin</span>
+      <h2 class="section-title">Vidéos <span class="hl">utiles</span></h2>
+      <p class="lead">Une sélection de formations complètes et gratuites (en français) pour approfondir. Clique sur une vignette pour lancer la lecture.</p>
+    </div>
+
+    <div class="videos" style="margin-top:46px">
+      <article class="video reveal">
+        <div class="lyt" data-yt="5IcZPL-zJYc" data-title="Formation Marketing Digital 2026 : le cours complet" aria-label="Lire la vidéo : Formation Marketing Digital 2026">
+          <div class="lyt__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg></div>
+        </div>
+        <div class="video__body"><span class="video__lang">🇫🇷 Français</span><div class="video__title">Formation Marketing Digital : le cours complet pour tout savoir</div><div class="video__meta">Idéal pour poser des bases solides de A à Z.</div></div>
+      </article>
+
+      <article class="video reveal d1">
+        <div class="lyt" data-yt="i0Dpx_aiDQk" data-title="Cours complet de marketing digital pour débutants" aria-label="Lire la vidéo : Cours complet marketing digital débutants">
+          <div class="lyt__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg></div>
+        </div>
+        <div class="video__body"><span class="video__lang">🇫🇷 Français</span><div class="video__title">Cours complet de marketing digital pour débutants</div><div class="video__meta">Les fondamentaux expliqués simplement, sans jargon.</div></div>
+      </article>
+
+      <article class="video reveal d2">
+        <div class="lyt" data-yt="iU2yx3L-cXI" data-title="Marketing digital : tutoriel complet" aria-label="Lire la vidéo : Marketing digital tutoriel complet">
+          <div class="lyt__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg></div>
+        </div>
+        <div class="video__body"><span class="video__lang">🇫🇷 Français</span><div class="video__title">Marketing digital : le tutoriel complet</div><div class="video__meta">Une vue d'ensemble structurée, avec chapitrage.</div></div>
+      </article>
+    </div>
+    <p class="center" style="color:var(--on-space-muted);font-size:.85rem;margin-top:22px">Vidéos hébergées sur YouTube par leurs créateurs respectifs. La lecture ne démarre qu'au clic, pour préserver ta vie privée et la vitesse de la page.</p>
+  </div>
+</section>
+
+<!-- ================= 5. FORMATIONS & LIENS ================= -->
+<section class="section" id="liens">
+  <div class="container">
+    <div class="center lead-wrap reveal">
+      <span class="eyebrow">Étape 5 — Se former gratuitement</span>
+      <h2 class="section-title">Formations & <span class="hl">liens utiles</span></h2>
+      <p class="lead">Des certifications et cours reconnus, gratuits, pour crédibiliser tes compétences et approfondir chaque canal.</p>
+    </div>
+
+    <div class="resources" style="margin-top:42px">
+      <a class="res reveal" href="https://learndigital.withgoogle.com/ateliersnumeriques" target="_blank" rel="noopener">
+        <div class="res__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div><b>Google Ateliers Numériques</b><span>Certification gratuite « Les fondamentaux du marketing digital ».</span></div>
+        <span class="res__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+      <a class="res reveal d1" href="https://academy.hubspot.com" target="_blank" rel="noopener">
+        <div class="res__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 4 2 10l10 6 10-6Z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div>
+        <div><b>HubSpot Academy</b><span>Certifications gratuites : inbound, contenu, email, réseaux sociaux.</span></div>
+        <span class="res__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+      <a class="res reveal" href="https://www.facebook.com/business/learn" target="_blank" rel="noopener">
+        <div class="res__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M14 8h-1.5A1.5 1.5 0 0 0 11 9.5V12m-1.5 0h4M11 12v6"/></svg></div>
+        <div><b>Meta Blueprint</b><span>Apprendre la publicité sur Facebook et Instagram, par Meta.</span></div>
+        <span class="res__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+      <a class="res reveal d1" href="https://www.semrush.com/academy/" target="_blank" rel="noopener">
+        <div class="res__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div><b>Semrush Academy</b><span>Cours et certifications SEO gratuits, du débutant au confirmé.</span></div>
+        <span class="res__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+      <a class="res reveal" href="https://openclassrooms.com" target="_blank" rel="noopener">
+        <div class="res__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v12H4z"/><path d="M2 21h20"/><path d="M9 9l2 2-2 2"/></svg></div>
+        <div><b>OpenClassrooms</b><span>Parcours et cours de marketing digital, en français.</span></div>
+        <span class="res__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+      <a class="res reveal d1" href="https://skillshop.withgoogle.com" target="_blank" rel="noopener">
+        <div class="res__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 9l10 6 10-6Z"/><path d="M12 15v6"/></svg></div>
+        <div><b>Google Skillshop</b><span>Certification officielle Google Ads (recherche, display, vidéo).</span></div>
+        <span class="res__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div class="cta-band__glow" aria-hidden="true"></div>
+      <span class="eyebrow" style="color:#c9beff;background:rgba(124,92,255,.2)">À toi de jouer</span>
+      <h2>Tu as les bases. <span style="background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent">Maintenant, lance-toi.</span></h2>
+      <p>Mets la théorie en pratique sans aucun risque : lance ton premier produit digital dans notre simulateur interactif et vois l'effet de chaque décision.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary btn--lg" href="lance-toi.html">Ouvrir le simulateur 🚀</a>
+        <a class="btn btn--ghost btn--lg" href="index.html">Revoir la présentation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="index.html"><img class="brand__mark" src="assets/img/favicon.svg" alt="" /><span><b>Décolle</b><span class="dot">.</span></span></a>
+        <p class="footer__about">Le guide clair et moderne pour apprendre le marketing digital, maîtriser l'IA et lancer ton premier produit — même en partant de zéro.</p>
+      </div>
+      <div>
+        <h4>Naviguer</h4>
+        <div class="footer__links">
+          <a href="index.html">Présentation</a>
+          <a href="index.html#fonctionnement">Comment ça marche</a>
+          <a href="index.html#ia">Le rôle de l'IA</a>
+          <a href="guide.html">Guide du débutant</a>
+          <a href="lance-toi.html">Lance-toi 🚀</a>
+        </div>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <div class="footer__links">
+          <a href="guide.html#outils">Outils recommandés</a>
+          <a href="guide.html#videos">Vidéos utiles</a>
+          <a href="guide.html#liens">Liens & formations</a>
+          <a href="index.html#presentation">Lexique des bases</a>
+        </div>
+      </div>
+      <div>
+        <h4>Reste dans la boucle</h4>
+        <p style="font-size:.95rem">Reçois nos meilleurs conseils marketing, sans spam.</p>
+        <form class="news" data-news>
+          <input type="email" placeholder="ton@email.com" aria-label="Adresse email" required />
+          <button type="submit">S'inscrire</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Décolle. Tous droits réservés.</span>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="m10 9 5 3-5 3Z" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46M14 7a4 4 0 0 0 4 3.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/space-bg.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/fx.js"></script>
+</body>
+</html>
