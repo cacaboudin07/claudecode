@@ -118,6 +118,8 @@
     /* ---------- IA section ---------- */
     .section--ia { background: radial-gradient(circle at 18% 20%, rgba(108,92,231,.18), transparent 50%), radial-gradient(circle at 82% 80%, rgba(255,106,213,.14), transparent 50%), #0d1020; max-width: 100%; }
     .section--ia > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+    .ia-illus { display: flex; justify-content: center; margin: 0 auto 40px; }
+    .ia-illus svg { width: 100%; max-width: 460px; height: auto; }
     .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
     .ia-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 30px 26px; backdrop-filter: blur(6px); transition: transform .25s, background .25s; }
     .ia-card:hover { transform: translateY(-6px); background: rgba(255,255,255,.08); }
@@ -328,6 +330,29 @@
         <h2>Le rôle <span class="grad">majeur</span> de l'IA</h2>
         <p class="lead lead--light">L'IA ne remplace pas le marketing : elle le <strong>démultiplie</strong>. Elle automatise les tâches répétitives, analyse des montagnes de données et personnalise l'expérience à grande échelle.</p>
       </div>
+      <div class="ia-illus reveal">
+        <!-- Illustration : réseau de neurones -->
+        <svg viewBox="0 0 460 220" role="img" aria-label="Réseau de neurones connecté">
+          <defs>
+            <linearGradient id="n1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00d2ff"/><stop offset="1" stop-color="#ff6ad5"/></linearGradient>
+          </defs>
+          <g stroke="url(#n1)" stroke-width="1.4" opacity=".5">
+            <line x1="70" y1="60" x2="200" y2="45"/><line x1="70" y1="60" x2="200" y2="110"/><line x1="70" y1="60" x2="200" y2="175"/>
+            <line x1="70" y1="160" x2="200" y2="45"/><line x1="70" y1="160" x2="200" y2="110"/><line x1="70" y1="160" x2="200" y2="175"/>
+            <line x1="200" y1="45" x2="330" y2="70"/><line x1="200" y1="110" x2="330" y2="70"/><line x1="200" y1="110" x2="330" y2="150"/><line x1="200" y1="175" x2="330" y2="150"/>
+            <line x1="330" y1="70" x2="410" y2="110"/><line x1="330" y1="150" x2="410" y2="110"/>
+          </g>
+          <g>
+            <circle cx="70" cy="60" r="13" fill="#00d2ff"/><circle cx="70" cy="160" r="13" fill="#00d2ff"/>
+            <circle cx="200" cy="45" r="13" fill="#6c5ce7"/><circle cx="200" cy="110" r="15" fill="#6c5ce7"/><circle cx="200" cy="175" r="13" fill="#6c5ce7"/>
+            <circle cx="330" cy="70" r="13" fill="#a06bff"/><circle cx="330" cy="150" r="13" fill="#a06bff"/>
+            <circle cx="410" cy="110" r="16" fill="#ff6ad5"/>
+            <text x="410" y="115" text-anchor="middle" font-size="15">🎯</text>
+          </g>
+          <text x="70" y="105" text-anchor="middle" font-size="11" fill="#a3a9c2">Données</text>
+          <text x="410" y="150" text-anchor="middle" font-size="11" fill="#a3a9c2">Décision</text>
+        </svg>
+      </div>
       <div class="ia-grid reveal">
         <article class="ia-card"><div class="ia-card__icon">✨</div><h3>Création de contenu</h3><p>Textes, visuels, emails et publicités en quelques secondes, adaptés à chaque cible.</p></article>
         <article class="ia-card"><div class="ia-card__icon">🧠</div><h3>Personnalisation</h3><p>Recommandations sur mesure pour chaque utilisateur (à la Netflix ou Amazon).</p></article>
@@ -477,6 +502,29 @@
           <p class="hero__eyebrow">POUR ALLER PLUS LOIN</p>
           <h1 class="hero__title">Sites &amp; vidéos <span class="grad">utiles</span></h1>
           <p class="hero__subtitle" style="margin-left:auto;margin-right:auto">Une sélection de ressources gratuites et fiables pour te former et progresser à ton rythme.</p>
+          <div class="hero__art reveal" style="margin-top:34px">
+            <!-- Illustration : pile de livres + ampoule / apprentissage -->
+            <svg viewBox="0 0 360 200" role="img" aria-label="Apprentissage : livres et idée">
+              <defs>
+                <linearGradient id="b1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00d2ff"/><stop offset="1" stop-color="#6c5ce7"/></linearGradient>
+                <linearGradient id="b2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6c5ce7"/><stop offset="1" stop-color="#ff6ad5"/></linearGradient>
+                <radialGradient id="bulb" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#ffd166"/></radialGradient>
+              </defs>
+              <rect x="70" y="150" width="220" height="18" rx="5" fill="url(#b1)"/>
+              <rect x="82" y="128" width="196" height="18" rx="5" fill="url(#b2)"/>
+              <rect x="96" y="106" width="168" height="18" rx="5" fill="#00d2ff" opacity=".8"/>
+              <line x1="180" y1="106" x2="180" y2="150" stroke="#0d1020" stroke-width="2" opacity=".3"/>
+              <g transform="translate(180,64)">
+                <circle r="30" fill="url(#bulb)"/>
+                <rect x="-10" y="26" width="20" height="12" rx="3" fill="#6c5ce7"/>
+                <line x1="-8" y1="32" x2="8" y2="32" stroke="#0d1020" stroke-width="1.5"/>
+                <g stroke="#ffd166" stroke-width="3" stroke-linecap="round">
+                  <line x1="-44" y1="0" x2="-52" y2="0"/><line x1="44" y1="0" x2="52" y2="0"/>
+                  <line x1="-32" y1="-30" x2="-38" y2="-36"/><line x1="32" y1="-30" x2="38" y2="-36"/><line x1="0" y1="-46" x2="0" y2="-54"/>
+                </g>
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
